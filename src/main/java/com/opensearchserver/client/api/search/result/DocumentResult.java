@@ -47,9 +47,6 @@ public class DocumentResult {
 	@XmlAttribute
 	public String joinParameter;
 
-	@XmlElement(name = "field")
-	public Map<String, List<String>> fields;
-
 	@XmlElement(name = "snippet")
 	public Map<String, List<String>> snippets;
 
@@ -63,7 +60,6 @@ public class DocumentResult {
 	public List<DocumentResult> joins;
 
 	public DocumentResult() {
-		fields = null;
 		snippets = null;
 		functions = null;
 		positions = null;
@@ -113,14 +109,6 @@ public class DocumentResult {
 	 */
 	public void setJoinParameter(String joinParameter) {
 		this.joinParameter = joinParameter;
-	}
-
-	/**
-	 * @param fields
-	 *            the fields to set
-	 */
-	public void setFields(Map<String, List<String>> fields) {
-		this.fields = fields;
 	}
 
 	/**

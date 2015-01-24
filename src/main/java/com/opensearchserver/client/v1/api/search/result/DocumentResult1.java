@@ -13,59 +13,41 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.opensearchserver.client.api;
+package com.opensearchserver.client.v1.api.search.result;
 
-import java.util.LinkedHashMap;
-import java.util.Map;
+import java.util.List;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
+import com.opensearchserver.client.api.search.result.DocumentResult;
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlRootElement(name = "result")
-@JsonInclude(Include.NON_EMPTY)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class CommonResult {
+@JsonInclude(Include.NON_EMPTY)
+public class DocumentResult1 extends DocumentResult {
 
-	@XmlElement
-	public String info;
+	@XmlElement(name = "field")
+	public List<FieldValueList> fields;
 
-	@XmlElement
-	public Map<String, String> details;
-
-	public CommonResult() {
-		info = null;
-		details = null;
+	public DocumentResult1() {
+		fields = null;
 	}
 
-	public CommonResult(String info) {
-		this.info = info;
-	}
-
+	/**
+	 * @param fields
+	 *            the fields to set
+	 */
 	@XmlTransient
 	@JsonIgnore
-	public CommonResult setInfo(String info) {
-		this.info = info;
-		return this;
-	}
-
-	@XmlTransient
-	@JsonIgnore
-	public CommonResult addDetail(String key, Object value) {
-		if (value == null)
-			return this;
-		if (details == null)
-			details = new LinkedHashMap<String, String>();
-		details.put(key.intern(), value.toString());
-		return this;
+	public void setFields(List<FieldValueList> fields) {
+		this.fields = fields;
 	}
 
 }

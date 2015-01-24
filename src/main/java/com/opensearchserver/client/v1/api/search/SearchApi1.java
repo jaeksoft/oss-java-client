@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.opensearchserver.client.api.search;
+package com.opensearchserver.client.v1.api.search;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
@@ -25,10 +25,11 @@ import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.fluent.Request;
 import org.apache.http.client.utils.URIBuilder;
 
-import com.opensearchserver.client.JsonClient;
+import com.opensearchserver.client.JsonClientAbstract;
 import com.opensearchserver.client.api.search.query.SearchFieldQuery;
 import com.opensearchserver.client.api.search.query.SearchQueryBatch;
 import com.opensearchserver.client.api.search.result.SearchResult;
+import com.opensearchserver.client.v1.JsonClient1;
 import com.opensearchserver.utils.HttpUtils;
 import com.opensearchserver.utils.LinkUtils;
 
@@ -37,11 +38,15 @@ import com.opensearchserver.utils.LinkUtils;
  */
 public class SearchApi1 {
 
+	private final JsonClientAbstract client;
+
+	public SearchApi1(JsonClient1 client) {
+		this.client = client;
+	}
+
 	/**
 	 * Create or update a search field template
 	 * 
-	 * @param client
-	 *            The client instance
 	 * @param indexName
 	 *            The name of the index
 	 * @param template
@@ -55,11 +60,11 @@ public class SearchApi1 {
 	 * @throws IOException
 	 * @throws URISyntaxException
 	 */
-	public void createSearchFieldTemplate(JsonClient client, String indexName,
-			String template, SearchFieldQuery query, int msTimeOut)
+	public void createSearchFieldTemplate(String indexName, String template,
+			SearchFieldQuery query, int msTimeOut)
 			throws ClientProtocolException, UnsupportedEncodingException,
 			IOException, URISyntaxException {
-		URIBuilder uriBuilder = client.getBaseUrl1("index/",
+		URIBuilder uriBuilder = client.getBaseUrl("index/",
 				LinkUtils.UTF8_URL_Encode(indexName), "/search/field/",
 				LinkUtils.UTF8_URL_Encode(template));
 		Request request = Request.Put(uriBuilder.build());
@@ -70,8 +75,6 @@ public class SearchApi1 {
 	/**
 	 * Make a search with a search field template
 	 * 
-	 * @param client
-	 *            The client instance
 	 * @param indexName
 	 *            The name of the index
 	 * @param template
@@ -85,11 +88,10 @@ public class SearchApi1 {
 	 * @throws IOException
 	 * @throws URISyntaxException
 	 */
-	public SearchResult searchFieldTemplate(JsonClient client,
-			String indexName, String template, SearchFieldQuery query,
-			int msTimeOut) throws ClientProtocolException, IOException,
-			URISyntaxException {
-		URIBuilder uriBuilder = client.getBaseUrl1("index/",
+	public SearchResult searchFieldTemplate(String indexName, String template,
+			SearchFieldQuery query, int msTimeOut)
+			throws ClientProtocolException, IOException, URISyntaxException {
+		URIBuilder uriBuilder = client.getBaseUrl("index/",
 				LinkUtils.UTF8_URL_Encode(indexName), "/search/field/",
 				LinkUtils.UTF8_URL_Encode(template));
 		Request request = Request.Post(uriBuilder.build());
@@ -100,8 +102,6 @@ public class SearchApi1 {
 	/**
 	 * Make a search on fields
 	 * 
-	 * @param client
-	 *            The client instance
 	 * @param indexName
 	 *            The name of the index
 	 * @param query
@@ -113,10 +113,10 @@ public class SearchApi1 {
 	 * @throws IOException
 	 * @throws URISyntaxException
 	 */
-	public SearchResult searchField(JsonClient client, String indexName,
-			SearchFieldQuery query, int msTimeOut)
-			throws ClientProtocolException, IOException, URISyntaxException {
-		URIBuilder uriBuilder = client.getBaseUrl1("index/",
+	public SearchResult searchField(String indexName, SearchFieldQuery query,
+			int msTimeOut) throws ClientProtocolException, IOException,
+			URISyntaxException {
+		URIBuilder uriBuilder = client.getBaseUrl("index/",
 				LinkUtils.UTF8_URL_Encode(indexName), "/search/field");
 		Request request = Request.Post(uriBuilder.build());
 		return client.execute(request, msTimeOut, query, SearchResult.class,
@@ -126,8 +126,6 @@ public class SearchApi1 {
 	/**
 	 * Make a batch search
 	 * 
-	 * @param client
-	 *            The client instance
 	 * @param indexName
 	 *            The name of the index
 	 * @param queryBatch
@@ -139,10 +137,10 @@ public class SearchApi1 {
 	 * @throws IOException
 	 * @throws URISyntaxException
 	 */
-	public List<SearchResult> searchBatch(JsonClient client, String indexName,
+	public List<SearchResult> searchBatch(String indexName,
 			SearchQueryBatch queryBatch, int msTimeOut)
 			throws ClientProtocolException, IOException, URISyntaxException {
-		URIBuilder uriBuilder = client.getBaseUrl1("index/",
+		URIBuilder uriBuilder = client.getBaseUrl("index/",
 				LinkUtils.UTF8_URL_Encode(indexName), "/search/batch");
 		Request request = Request.Post(uriBuilder.build());
 		return client.execute(request, msTimeOut, queryBatch,

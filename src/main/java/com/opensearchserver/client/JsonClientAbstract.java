@@ -25,18 +25,18 @@ import org.apache.http.client.utils.URIBuilder;
 import org.apache.http.entity.ContentType;
 
 import com.fasterxml.jackson.core.type.TypeReference;
-import com.opensearchserver.utils.StringUtils;
 import com.opensearchserver.utils.json.JsonHttpResponseHandler;
 import com.opensearchserver.utils.json.JsonMapper;
 
-public class JsonClient {
+public abstract class JsonClientAbstract {
 
-	private final String hostname;
-	private final int port;
-	private final String login;
-	private final String key;
+	protected final String hostname;
+	protected final int port;
+	protected final String login;
+	protected final String key;
 
-	public JsonClient(String hostname, Integer port, String login, String key) {
+	public JsonClientAbstract(String hostname, Integer port, String login,
+			String key) {
 		this.hostname = hostname;
 		this.port = port == null ? 9090 : port;
 		this.login = login;
@@ -44,36 +44,14 @@ public class JsonClient {
 	}
 
 	/**
-	 * Build an URL for OpenSearchServer 1.5
+	 * Build an URL
 	 * 
 	 * @param paths
 	 * @return a prepared URIBuilder
 	 * @throws URISyntaxException
 	 */
-	final public URIBuilder getBaseUrl1(String... paths)
-			throws URISyntaxException {
-		URIBuilder uriBuilder = new URIBuilder().setHost(hostname)
-				.setPort(port).setPath(StringUtils.fastConcat(paths));
-		if (!StringUtils.isEmpty(login))
-			uriBuilder.addParameter("login", login);
-		if (!StringUtils.isEmpty(key))
-			uriBuilder.addParameter("key", key);
-		return uriBuilder;
-	}
-
-	/**
-	 * Build an URL for OpenSearchServer 2.x
-	 * 
-	 * @param paths
-	 * @return a prepared URIBuilder
-	 */
-	final public URIBuilder getBaseUrl2(String... paths) {
-		URIBuilder uriBuilder = new URIBuilder().setHost(hostname).setPath(
-				StringUtils.fastConcat(paths));
-		if (!StringUtils.isEmpty(login) && !StringUtils.isEmpty(key))
-			uriBuilder.setUserInfo(login, key);
-		return uriBuilder;
-	}
+	public abstract URIBuilder getBaseUrl(String... paths)
+			throws URISyntaxException;
 
 	/**
 	 * Execute an HTTP request returning the expected object.

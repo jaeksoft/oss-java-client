@@ -101,7 +101,7 @@ public abstract class SearchQueryAbstract extends QueryAbstract {
 	 */
 	@JsonIgnore
 	@XmlTransient
-	SearchQueryAbstract setQuery(String query) {
+	public SearchQueryAbstract setQuery(String query) {
 		this.query = query;
 		return this;
 	}
@@ -230,6 +230,19 @@ public abstract class SearchQueryAbstract extends QueryAbstract {
 		if (returnedFields == null)
 			returnedFields = new ArrayList<String>(1);
 		returnedFields.add(returnedField);
+		return this;
+	}
+
+	/**
+	 * Replace the returnedField list
+	 * 
+	 * @param returnedField
+	 *            the returnedField to add
+	 */
+	@JsonIgnore
+	@XmlTransient
+	public SearchQueryAbstract setReturnedFields(List<String> returnedFields) {
+		this.returnedFields = returnedFields;
 		return this;
 	}
 

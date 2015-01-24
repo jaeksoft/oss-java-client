@@ -15,57 +15,30 @@
  */
 package com.opensearchserver.client.api;
 
-import java.util.LinkedHashMap;
-import java.util.Map;
+import java.util.List;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
-@XmlAccessorType(XmlAccessType.FIELD)
 @XmlRootElement(name = "result")
+@XmlAccessorType(XmlAccessType.NONE)
 @JsonInclude(Include.NON_EMPTY)
-@JsonIgnoreProperties(ignoreUnknown = true)
-public class CommonResult {
+public class CommonListResult<T> extends CommonResult {
 
-	@XmlElement
-	public String info;
+	public List<T> items;
 
-	@XmlElement
-	public Map<String, String> details;
-
-	public CommonResult() {
-		info = null;
-		details = null;
-	}
-
-	public CommonResult(String info) {
-		this.info = info;
+	public CommonListResult() {
+		items = null;
 	}
 
 	@XmlTransient
-	@JsonIgnore
-	public CommonResult setInfo(String info) {
-		this.info = info;
+	public CommonListResult<T> setList(List<T> items) {
+		this.items = items;
 		return this;
 	}
-
-	@XmlTransient
-	@JsonIgnore
-	public CommonResult addDetail(String key, Object value) {
-		if (value == null)
-			return this;
-		if (details == null)
-			details = new LinkedHashMap<String, String>();
-		details.put(key.intern(), value.toString());
-		return this;
-	}
-
 }
