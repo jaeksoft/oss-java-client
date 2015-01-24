@@ -234,10 +234,10 @@ public abstract class SearchQueryAbstract extends QueryAbstract {
 	}
 
 	/**
-	 * Replace the returnedField list
+	 * Replace the returnedFields list
 	 * 
-	 * @param returnedField
-	 *            the returnedField to add
+	 * @param returnedFields
+	 *            the returnedFields to add
 	 */
 	@JsonIgnore
 	@XmlTransient

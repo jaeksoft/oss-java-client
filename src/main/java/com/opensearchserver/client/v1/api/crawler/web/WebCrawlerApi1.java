@@ -79,7 +79,6 @@ public class WebCrawlerApi1 {
 	 *            The URL to crawl
 	 * @param msTimeOut
 	 *            The timeout in milliseconds
-	 * @return
 	 * @throws ClientProtocolException
 	 * @throws IOException
 	 * @throws URISyntaxException
@@ -106,7 +105,6 @@ public class WebCrawlerApi1 {
 	 *            Enable or disable inclusion list
 	 * @param msTimeOut
 	 *            The timeout in milliseconds
-	 * @return
 	 * @throws ClientProtocolException
 	 * @throws IOException
 	 * @throws URISyntaxException
