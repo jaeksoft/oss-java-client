@@ -81,8 +81,8 @@ public class SearchResult extends CommonResult {
 	}
 
 	/**
-	 * @param documents
-	 *            the documents to set
+	 * @param document
+	 *            the DocumentResult to add
 	 */
 	public SearchResult addDocument(DocumentResult document) {
 		if (documents == null)
@@ -92,8 +92,8 @@ public class SearchResult extends CommonResult {
 	}
 
 	/**
-	 * @param facets
-	 *            the facets to set
+	 * @param facet
+	 *            the FacetResult to add
 	 */
 	public SearchResult addFacet(FacetResult facet) {
 		if (facets == null)

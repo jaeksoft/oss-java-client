@@ -342,33 +342,6 @@ public class OssRestApi {
 	}
 
 	/**
-	 * Create the Search Field request
-	 * 
-	 * @param indexName
-	 *            The name of the index
-	 * @param requestName
-	 *            The name of the request
-	 * @param json
-	 *            The JSON structure of the request
-	 * @throws ClientProtocolException
-	 * @throws UnsupportedEncodingException
-	 * @throws IOException
-	 * @throws URISyntaxException
-	 */
-	public void createSearchFieldRequest(String indexName, String requestName,
-			String json) throws ClientProtocolException,
-			UnsupportedEncodingException, IOException, URISyntaxException {
-		URIBuilder uriBuilder = baseUrl("index/", utf8encode(indexName),
-				"/search/field/", utf8encode(requestName));
-		HttpResponse response = Request.Put(uriBuilder.build())
-				.addHeader("accept", ContentType.APPLICATION_JSON.toString())
-				.bodyString(json, ContentType.APPLICATION_JSON)
-				.connectTimeout(msTimeOut).socketTimeout(msTimeOut).execute()
-				.returnResponse();
-		checkHttpResponse(response, 200);
-	}
-
-	/**
 	 * Put document(s) in the index
 	 * 
 	 * @param indexName
@@ -502,90 +475,6 @@ public class OssRestApi {
 				.connectTimeout(msTimeOut).socketTimeout(msTimeOut).execute()
 				.returnResponse();
 		checkHttpResponse(response, 200);
-	}
-
-	/**
-	 * Make a search
-	 * 
-	 * @param indexName
-	 *            The name of the index
-	 * @param template
-	 *            The name of the template
-	 * @param json
-	 *            Any overriding information in JSON format
-	 * @return InputStream
-	 * @throws ClientProtocolException
-	 * @throws IOException
-	 * @throws URISyntaxException
-	 */
-	public InputStream searchFieldTemplate(String indexName, String template,
-			String json) throws ClientProtocolException, IOException,
-			URISyntaxException {
-		URIBuilder uriBuilder = baseUrl("index/", utf8encode(indexName),
-				"/search/field/", utf8encode(template));
-		HttpResponse response = Request.Post(uriBuilder.build())
-				.addHeader("accept", ContentType.APPLICATION_JSON.toString())
-				.connectTimeout(msTimeOut).socketTimeout(msTimeOut)
-				.bodyString(json, ContentType.APPLICATION_JSON).execute()
-				.returnResponse();
-		HttpEntity entity = response.getEntity();
-		checkHttpResponse(response, 200);
-		checkContentType(entity, ContentType.APPLICATION_JSON);
-		return entity.getContent();
-	}
-
-	/**
-	 * Make a search on fields
-	 * 
-	 * @param indexName
-	 *            The name of the index
-	 * @param json
-	 *            Any overriding information in JSON format
-	 * @return InputStream
-	 * @throws ClientProtocolException
-	 * @throws IOException
-	 * @throws URISyntaxException
-	 */
-	public InputStream searchField(String indexName, String json)
-			throws ClientProtocolException, IOException, URISyntaxException {
-		URIBuilder uriBuilder = baseUrl("index/", utf8encode(indexName),
-				"/search/field");
-		HttpResponse response = Request.Post(uriBuilder.build())
-				.addHeader("accept", ContentType.APPLICATION_JSON.toString())
-				.connectTimeout(msTimeOut).socketTimeout(msTimeOut)
-				.bodyString(json, ContentType.APPLICATION_JSON).execute()
-				.returnResponse();
-		HttpEntity entity = response.getEntity();
-		checkHttpResponse(response, 200);
-		checkContentType(entity, ContentType.APPLICATION_JSON);
-		return entity.getContent();
-	}
-
-	/**
-	 * Make a batch search
-	 * 
-	 * @param indexName
-	 *            The name of the index
-	 * @param json
-	 *            JSON queries
-	 * @return A JSON structure with the documents found
-	 * @throws ClientProtocolException
-	 * @throws IOException
-	 * @throws URISyntaxException
-	 */
-	public InputStream searchBatch(String indexName, String json)
-			throws ClientProtocolException, IOException, URISyntaxException {
-		URIBuilder uriBuilder = baseUrl("index/", utf8encode(indexName),
-				"/search/batch");
-		HttpResponse response = Request.Post(uriBuilder.build())
-				.addHeader("accept", ContentType.APPLICATION_JSON.toString())
-				.connectTimeout(msTimeOut).socketTimeout(msTimeOut)
-				.bodyString(json, ContentType.APPLICATION_JSON).execute()
-				.returnResponse();
-		checkHttpResponse(response, 200);
-		HttpEntity entity = response.getEntity();
-		checkContentType(entity, ContentType.APPLICATION_JSON);
-		return entity.getContent();
 	}
 
 	/**

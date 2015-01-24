@@ -47,7 +47,7 @@ public class JsonClient {
 	 * Build an URL for OpenSearchServer 1.5
 	 * 
 	 * @param paths
-	 * @return
+	 * @return a prepared URIBuilder
 	 * @throws URISyntaxException
 	 */
 	final public URIBuilder getBaseUrl1(String... paths)
@@ -65,7 +65,7 @@ public class JsonClient {
 	 * Build an URL for OpenSearchServer 2.x
 	 * 
 	 * @param paths
-	 * @return
+	 * @return a prepared URIBuilder
 	 */
 	final public URIBuilder getBaseUrl2(String... paths) {
 		URIBuilder uriBuilder = new URIBuilder().setHost(hostname).setPath(
@@ -114,7 +114,7 @@ public class JsonClient {
 	 * @param bodyObject
 	 * @param typeRef
 	 * @param expectedCodes
-	 * @return
+	 * @return An instance of the expected type
 	 * @throws ClientProtocolException
 	 * @throws IOException
 	 */

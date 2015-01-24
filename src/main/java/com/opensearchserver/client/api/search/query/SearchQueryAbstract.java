@@ -184,8 +184,8 @@ public abstract class SearchQueryAbstract extends QueryAbstract {
 	}
 
 	/**
-	 * @param filters
-	 *            the filters to set
+	 * @param filter
+	 *            the filter to add
 	 */
 	@JsonIgnore
 	@XmlTransient
@@ -208,8 +208,8 @@ public abstract class SearchQueryAbstract extends QueryAbstract {
 	}
 
 	/**
-	 * @param sorts
-	 *            the sorts to set
+	 * @param sortField
+	 *            the sortField to add
 	 */
 	@JsonIgnore
 	@XmlTransient
@@ -221,19 +221,21 @@ public abstract class SearchQueryAbstract extends QueryAbstract {
 	}
 
 	/**
-	 * @param returnedFields
-	 *            the returnedFields to set
+	 * @param returnedField
+	 *            the returnedField to add
 	 */
 	@JsonIgnore
 	@XmlTransient
-	public SearchQueryAbstract setReturnedFields(List<String> returnedFields) {
-		this.returnedFields = returnedFields;
+	public SearchQueryAbstract addReturnedField(String returnedField) {
+		if (returnedFields == null)
+			returnedFields = new ArrayList<String>(1);
+		returnedFields.add(returnedField);
 		return this;
 	}
 
 	/**
-	 * @param snippets
-	 *            the snippets to set
+	 * @param snippet
+	 *            the SnippetField to add
 	 */
 	@JsonIgnore
 	@XmlTransient
@@ -245,8 +247,8 @@ public abstract class SearchQueryAbstract extends QueryAbstract {
 	}
 
 	/**
-	 * @param facets
-	 *            the facets to set
+	 * @param facet
+	 *            the FacetField to add
 	 */
 	@JsonIgnore
 	@XmlTransient
@@ -258,8 +260,8 @@ public abstract class SearchQueryAbstract extends QueryAbstract {
 	}
 
 	/**
-	 * @param joins
-	 *            the joins to set
+	 * @param join
+	 *            the JoinItem to add
 	 */
 	@JsonIgnore
 	@XmlTransient
@@ -271,8 +273,8 @@ public abstract class SearchQueryAbstract extends QueryAbstract {
 	}
 
 	/**
-	 * @param scorings
-	 *            the scorings to set
+	 * @param scoring
+	 *            the Scoring to add
 	 */
 	@JsonIgnore
 	@XmlTransient
@@ -284,8 +286,8 @@ public abstract class SearchQueryAbstract extends QueryAbstract {
 	}
 
 	/**
-	 * @param boostingQueries
-	 *            the boostingQueries to set
+	 * @param boostingQuery
+	 *            the BoostingQuery to add
 	 */
 	@JsonIgnore
 	@XmlTransient
@@ -308,8 +310,8 @@ public abstract class SearchQueryAbstract extends QueryAbstract {
 	}
 
 	/**
-	 * @param customLogs
-	 *            the customLogs to set
+	 * @param customLog
+	 *            the customLog to add
 	 */
 	@JsonIgnore
 	@XmlTransient

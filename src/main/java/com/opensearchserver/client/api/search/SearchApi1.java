@@ -40,24 +40,28 @@ public class SearchApi1 {
 	/**
 	 * Create or update a search field template
 	 * 
+	 * @param client
+	 *            The client instance
 	 * @param indexName
 	 *            The name of the index
-	 * @param requestName
-	 *            The name of the request
-	 * @param json
-	 *            The JSON structure of the request
+	 * @param template
+	 *            The name of the template
+	 * @param query
+	 *            The query
+	 * @param msTimeOut
+	 *            The timeout in milliseconds
 	 * @throws ClientProtocolException
 	 * @throws UnsupportedEncodingException
 	 * @throws IOException
 	 * @throws URISyntaxException
 	 */
 	public void createSearchFieldTemplate(JsonClient client, String indexName,
-			String requestName, SearchFieldQuery query, int msTimeOut)
+			String template, SearchFieldQuery query, int msTimeOut)
 			throws ClientProtocolException, UnsupportedEncodingException,
 			IOException, URISyntaxException {
 		URIBuilder uriBuilder = client.getBaseUrl1("index/",
 				LinkUtils.UTF8_URL_Encode(indexName), "/search/field/",
-				LinkUtils.UTF8_URL_Encode(requestName));
+				LinkUtils.UTF8_URL_Encode(template));
 		Request request = Request.Put(uriBuilder.build());
 		HttpResponse response = client.execute(request, msTimeOut, query);
 		HttpUtils.checkStatusCodes(response.getStatusLine(), 200, 201);
@@ -66,24 +70,28 @@ public class SearchApi1 {
 	/**
 	 * Make a search with a search field template
 	 * 
+	 * @param client
+	 *            The client instance
 	 * @param indexName
 	 *            The name of the index
 	 * @param template
 	 *            The name of the template
-	 * @param json
-	 *            Any overriding information in JSON format
-	 * @return InputStream
+	 * @param query
+	 *            Any overriding query parameter
+	 * @param msTimeOut
+	 *            The timeout in milliseconds
+	 * @return SearchResult
 	 * @throws ClientProtocolException
 	 * @throws IOException
 	 * @throws URISyntaxException
 	 */
 	public SearchResult searchFieldTemplate(JsonClient client,
-			String indexName, String requestName, SearchFieldQuery query,
+			String indexName, String template, SearchFieldQuery query,
 			int msTimeOut) throws ClientProtocolException, IOException,
 			URISyntaxException {
 		URIBuilder uriBuilder = client.getBaseUrl1("index/",
 				LinkUtils.UTF8_URL_Encode(indexName), "/search/field/",
-				LinkUtils.UTF8_URL_Encode(requestName));
+				LinkUtils.UTF8_URL_Encode(template));
 		Request request = Request.Post(uriBuilder.build());
 		return client.execute(request, msTimeOut, query, SearchResult.class,
 				200);
@@ -92,11 +100,15 @@ public class SearchApi1 {
 	/**
 	 * Make a search on fields
 	 * 
+	 * @param client
+	 *            The client instance
 	 * @param indexName
 	 *            The name of the index
-	 * @param json
-	 *            Any overriding information in JSON format
-	 * @return InputStream
+	 * @param query
+	 *            Any overriding query parameter
+	 * @param msTimeOut
+	 *            The timeout in milliseconds
+	 * @return SearchResult
 	 * @throws ClientProtocolException
 	 * @throws IOException
 	 * @throws URISyntaxException
@@ -114,11 +126,15 @@ public class SearchApi1 {
 	/**
 	 * Make a batch search
 	 * 
+	 * @param client
+	 *            The client instance
 	 * @param indexName
 	 *            The name of the index
-	 * @param json
-	 *            JSON queries
-	 * @return A JSON structure with the documents found
+	 * @param queryBatch
+	 *            The queries
+	 * @param msTimeOut
+	 *            The timeout in milliseconds
+	 * @return a list of results
 	 * @throws ClientProtocolException
 	 * @throws IOException
 	 * @throws URISyntaxException
