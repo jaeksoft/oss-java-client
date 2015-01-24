@@ -23,17 +23,23 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.opensearchserver.client.api.CommonResult;
-import com.opensearchserver.client.api.search.result.DocumentResult;
-import com.opensearchserver.client.api.search.result.FacetResult;
 
 @XmlRootElement(name = "result")
 @XmlAccessorType(XmlAccessType.FIELD)
 @JsonInclude(Include.NON_EMPTY)
 public class SearchResult extends CommonResult {
+
+	@XmlTransient
+	@JsonIgnore
+	public final static TypeReference<ArrayList<SearchResult>> LIST_TYPEREF = new TypeReference<ArrayList<SearchResult>>() {
+	};
 
 	@XmlElement(name = "document")
 	public List<DocumentResult> documents;
