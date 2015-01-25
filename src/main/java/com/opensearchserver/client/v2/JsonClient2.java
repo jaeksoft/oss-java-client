@@ -27,9 +27,9 @@ import com.opensearchserver.utils.StringUtils;
  */
 public class JsonClient2 extends JsonClientAbstract {
 
-	public JsonClient2(String url, String login, String key)
+	public JsonClient2(String url, String login, String key, int msTimeOut)
 			throws URISyntaxException {
-		super(url, login, key);
+		super(url, login, key, msTimeOut);
 	}
 
 	/**

@@ -34,9 +34,10 @@ public abstract class JsonClientAbstract {
 	protected final URI uri;
 	protected final String login;
 	protected final String key;
+	public final int msTimeOut;
 
-	public JsonClientAbstract(String url, String login, String key)
-			throws URISyntaxException {
+	public JsonClientAbstract(String url, String login, String key,
+			int msTimeOut) throws URISyntaxException {
 		URI u = new URI(url);
 		String path = u.getPath();
 		if (path.endsWith("/"))
@@ -46,6 +47,7 @@ public abstract class JsonClientAbstract {
 			uri = u;
 		this.login = login;
 		this.key = key;
+		this.msTimeOut = msTimeOut;
 	}
 
 	/**
@@ -70,9 +72,11 @@ public abstract class JsonClientAbstract {
 	 * @throws ClientProtocolException
 	 * @throws IOException
 	 */
-	final public <T> T execute(Request request, int msTimeOut,
-			Object bodyObject, Class<T> jsonResultClass, int... expectedCodes)
+	final public <T> T execute(Request request, Object bodyObject,
+			Integer msTimeOut, Class<T> jsonResultClass, int... expectedCodes)
 			throws ClientProtocolException, IOException {
+		if (msTimeOut == null)
+			msTimeOut = this.msTimeOut;
 		if (bodyObject != null)
 			request = request.bodyString(
 					JsonMapper.MAPPER.writeValueAsString(bodyObject),
@@ -101,9 +105,11 @@ public abstract class JsonClientAbstract {
 	 * @throws ClientProtocolException
 	 * @throws IOException
 	 */
-	final public <T> T execute(Request request, int msTimeOut,
-			Object bodyObject, TypeReference<T> typeRef, int... expectedCodes)
+	final public <T> T execute(Request request, Object bodyObject,
+			Integer msTimeOut, TypeReference<T> typeRef, int... expectedCodes)
 			throws ClientProtocolException, IOException {
+		if (msTimeOut == null)
+			msTimeOut = this.msTimeOut;
 		if (bodyObject != null)
 			request = request.bodyString(
 					JsonMapper.MAPPER.writeValueAsString(bodyObject),
@@ -130,8 +136,10 @@ public abstract class JsonClientAbstract {
 	 * @throws ClientProtocolException
 	 * @throws IOException
 	 */
-	final public HttpResponse execute(Request request, int msTimeOut,
-			Object bodyObject) throws ClientProtocolException, IOException {
+	final public HttpResponse execute(Request request, Object bodyObject,
+			Integer msTimeOut) throws ClientProtocolException, IOException {
+		if (msTimeOut == null)
+			msTimeOut = this.msTimeOut;
 		if (bodyObject != null)
 			request = request.bodyString(
 					JsonMapper.MAPPER.writeValueAsString(bodyObject),
