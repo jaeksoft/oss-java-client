@@ -27,18 +27,17 @@ import org.apache.http.client.utils.URIBuilder;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.core.type.TypeReference;
-import com.opensearchserver.client.JsonClientAbstract;
+import com.opensearchserver.client.api.AbstractApi;
 import com.opensearchserver.client.api.CommonListResult;
 import com.opensearchserver.client.api.CommonResult;
+import com.opensearchserver.client.v1.JsonClient1;
 import com.opensearchserver.client.v1.api.search.result.FieldValueList;
 import com.opensearchserver.utils.LinkUtils;
 
-public class WebCrawlerApi1 {
+public class WebCrawlerApi1 extends AbstractApi<JsonClient1> {
 
-	private final JsonClientAbstract client;
-
-	public WebCrawlerApi1(JsonClientAbstract client) {
-		this.client = client;
+	public WebCrawlerApi1(JsonClient1 client) {
+		super(client);
 	}
 
 	@XmlTransient
@@ -60,14 +59,14 @@ public class WebCrawlerApi1 {
 	 * @throws URISyntaxException
 	 */
 	public CommonListResult<List<FieldValueList>> crawlWithData(
-			String indexName, String url, int msTimeOut)
+			String indexName, String url, Integer msTimeOut)
 			throws ClientProtocolException, IOException, URISyntaxException {
 		URIBuilder uriBuilder = client
 				.getBaseUrl("index/", LinkUtils.UTF8_URL_Encode(indexName),
 						"/crawler/web/crawl").addParameter("url", url)
 				.addParameter("returnData", "true");
 		Request request = Request.Get(uriBuilder.build());
-		return client.execute(request, msTimeOut, null, LISTCRAWL_TYPEREF, 200);
+		return client.execute(request, null, msTimeOut, LISTCRAWL_TYPEREF, 200);
 	}
 
 	/**
@@ -83,7 +82,7 @@ public class WebCrawlerApi1 {
 	 * @throws IOException
 	 * @throws URISyntaxException
 	 */
-	public CommonResult crawl(String indexName, String url, int msTimeOut)
+	public CommonResult crawl(String indexName, String url, Integer msTimeOut)
 			throws ClientProtocolException, IOException, URISyntaxException {
 		URIBuilder uriBuilder = client
 				.getBaseUrl("index/", LinkUtils.UTF8_URL_Encode(indexName),
@@ -91,7 +90,7 @@ public class WebCrawlerApi1 {
 				.addParameter("returnData", "false");
 		Request request = Request.Get(uriBuilder.build());
 		return client
-				.execute(request, msTimeOut, null, CommonResult.class, 200);
+				.execute(request, null, msTimeOut, CommonResult.class, 200);
 	}
 
 	/**
@@ -103,14 +102,12 @@ public class WebCrawlerApi1 {
 	 *            Enable or disable inclusion list
 	 * @param exclusionStatus
 	 *            Enable or disable inclusion list
-	 * @param msTimeOut
-	 *            The timeout in milliseconds
 	 * @throws ClientProtocolException
 	 * @throws IOException
 	 * @throws URISyntaxException
 	 */
 	public CommonResult setPatternStatus(String indexName,
-			Boolean inclusionStatus, Boolean exclusionStatus, int msTimeOut)
+			Boolean inclusionStatus, Boolean exclusionStatus)
 			throws ClientProtocolException, IOException, URISyntaxException {
 		URIBuilder uriBuilder = client.getBaseUrl("index/",
 				LinkUtils.UTF8_URL_Encode(indexName),
@@ -120,7 +117,6 @@ public class WebCrawlerApi1 {
 		if (exclusionStatus != null)
 			uriBuilder.addParameter("exclusion", exclusionStatus.toString());
 		Request request = Request.Get(uriBuilder.build());
-		return client
-				.execute(request, msTimeOut, null, CommonResult.class, 200);
+		return client.execute(request, null, null, CommonResult.class, 200);
 	}
 }

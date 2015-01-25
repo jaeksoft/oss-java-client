@@ -25,7 +25,7 @@ import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.fluent.Request;
 import org.apache.http.client.utils.URIBuilder;
 
-import com.opensearchserver.client.JsonClientAbstract;
+import com.opensearchserver.client.api.AbstractApi;
 import com.opensearchserver.client.api.search.query.SearchFieldQuery;
 import com.opensearchserver.client.api.search.query.SearchQueryBatch;
 import com.opensearchserver.client.v1.JsonClient1;
@@ -36,12 +36,10 @@ import com.opensearchserver.utils.LinkUtils;
 /**
  * @version For OpenSearchServer v1.5.x
  */
-public class SearchApi1 {
-
-	private final JsonClientAbstract client;
+public class SearchApi1 extends AbstractApi<JsonClient1> {
 
 	public SearchApi1(JsonClient1 client) {
-		this.client = client;
+		super(client);
 	}
 
 	/**
@@ -61,14 +59,13 @@ public class SearchApi1 {
 	 * @throws URISyntaxException
 	 */
 	public void createSearchFieldTemplate(String indexName, String template,
-			SearchFieldQuery query, int msTimeOut)
-			throws ClientProtocolException, UnsupportedEncodingException,
-			IOException, URISyntaxException {
+			SearchFieldQuery query) throws ClientProtocolException,
+			UnsupportedEncodingException, IOException, URISyntaxException {
 		URIBuilder uriBuilder = client.getBaseUrl("index/",
 				LinkUtils.UTF8_URL_Encode(indexName), "/search/field/",
 				LinkUtils.UTF8_URL_Encode(template));
 		Request request = Request.Put(uriBuilder.build());
-		HttpResponse response = client.execute(request, msTimeOut, query);
+		HttpResponse response = client.execute(request, query, null);
 		HttpUtils.checkStatusCodes(response.getStatusLine(), 200, 201);
 	}
 
@@ -89,14 +86,13 @@ public class SearchApi1 {
 	 * @throws URISyntaxException
 	 */
 	public SearchResult1 searchFieldTemplate(String indexName, String template,
-			SearchFieldQuery query, int msTimeOut)
-			throws ClientProtocolException, IOException, URISyntaxException {
+			SearchFieldQuery query) throws ClientProtocolException,
+			IOException, URISyntaxException {
 		URIBuilder uriBuilder = client.getBaseUrl("index/",
 				LinkUtils.UTF8_URL_Encode(indexName), "/search/field/",
 				LinkUtils.UTF8_URL_Encode(template));
 		Request request = Request.Post(uriBuilder.build());
-		return client.execute(request, msTimeOut, query, SearchResult1.class,
-				200);
+		return client.execute(request, query, null, SearchResult1.class, 200);
 	}
 
 	/**
@@ -113,14 +109,12 @@ public class SearchApi1 {
 	 * @throws IOException
 	 * @throws URISyntaxException
 	 */
-	public SearchResult1 searchField(String indexName, SearchFieldQuery query,
-			int msTimeOut) throws ClientProtocolException, IOException,
-			URISyntaxException {
+	public SearchResult1 searchField(String indexName, SearchFieldQuery query)
+			throws ClientProtocolException, IOException, URISyntaxException {
 		URIBuilder uriBuilder = client.getBaseUrl("index/",
 				LinkUtils.UTF8_URL_Encode(indexName), "/search/field");
 		Request request = Request.Post(uriBuilder.build());
-		return client.execute(request, msTimeOut, query, SearchResult1.class,
-				200);
+		return client.execute(request, query, null, SearchResult1.class, 200);
 	}
 
 	/**
@@ -138,12 +132,12 @@ public class SearchApi1 {
 	 * @throws URISyntaxException
 	 */
 	public List<SearchResult1> searchBatch(String indexName,
-			SearchQueryBatch queryBatch, int msTimeOut)
-			throws ClientProtocolException, IOException, URISyntaxException {
+			SearchQueryBatch queryBatch) throws ClientProtocolException,
+			IOException, URISyntaxException {
 		URIBuilder uriBuilder = client.getBaseUrl("index/",
 				LinkUtils.UTF8_URL_Encode(indexName), "/search/batch");
 		Request request = Request.Post(uriBuilder.build());
-		return client.execute(request, msTimeOut, queryBatch,
+		return client.execute(request, queryBatch, null,
 				SearchResult1.LIST_TYPEREF, 200);
 	}
 }
