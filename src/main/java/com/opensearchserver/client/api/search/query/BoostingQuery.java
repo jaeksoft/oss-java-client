@@ -17,14 +17,12 @@ package com.opensearchserver.client.api.search.query;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlTransient;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
-@JsonInclude(Include.NON_EMPTY)
 @XmlAccessorType(XmlAccessType.FIELD)
+@JsonInclude(Include.NON_EMPTY)
 public class BoostingQuery {
 
 	public String patternQuery;
@@ -39,8 +37,6 @@ public class BoostingQuery {
 	 * @param patternQuery
 	 *            the patternQuery to set
 	 */
-	@JsonIgnore
-	@XmlTransient
 	public BoostingQuery setPatternQuery(String patternQuery) {
 		this.patternQuery = patternQuery;
 		return this;
@@ -50,8 +46,6 @@ public class BoostingQuery {
 	 * @param boost
 	 *            the boost to set
 	 */
-	@JsonIgnore
-	@XmlTransient
 	public BoostingQuery setBoost(Float boost) {
 		this.boost = boost;
 		return this;

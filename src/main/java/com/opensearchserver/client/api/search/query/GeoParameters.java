@@ -17,14 +17,12 @@ package com.opensearchserver.client.api.search.query;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlTransient;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
-@JsonInclude(Include.NON_EMPTY)
 @XmlAccessorType(XmlAccessType.FIELD)
+@JsonInclude(Include.NON_EMPTY)
 public class GeoParameters {
 
 	public static enum CoordUnitEnum {
@@ -55,60 +53,54 @@ public class GeoParameters {
 	 * @param latitudeField
 	 *            the latitudeField to set
 	 */
-	@JsonIgnore
-	@XmlTransient
-	public void setLatitudeField(String latitudeField) {
+	public GeoParameters setLatitudeField(String latitudeField) {
 		this.latitudeField = latitudeField;
+		return this;
 	}
 
 	/**
 	 * @param longitudeField
 	 *            the longitudeField to set
 	 */
-	@JsonIgnore
-	@XmlTransient
-	public void setLongitudeField(String longitudeField) {
+	public GeoParameters setLongitudeField(String longitudeField) {
 		this.longitudeField = longitudeField;
+		return this;
 	}
 
 	/**
 	 * @param latitude
 	 *            the latitude to set
 	 */
-	@JsonIgnore
-	@XmlTransient
-	public void setLatitude(Double latitude) {
+	public GeoParameters setLatitude(Double latitude) {
 		this.latitude = latitude;
+		return this;
 	}
 
 	/**
 	 * @param longitude
 	 *            the longitude to set
 	 */
-	@JsonIgnore
-	@XmlTransient
-	public void setLongitude(Double longitude) {
+	public GeoParameters setLongitude(Double longitude) {
 		this.longitude = longitude;
+		return this;
 	}
 
 	/**
 	 * @param coordUnit
 	 *            the coordUnit to set
 	 */
-	@JsonIgnore
-	@XmlTransient
-	public void setCoordUnit(CoordUnitEnum coordUnit) {
+	public GeoParameters setCoordUnit(CoordUnitEnum coordUnit) {
 		this.coordUnit = coordUnit;
+		return this;
 	}
 
 	/**
 	 * @param distanceReturn
 	 *            the distanceReturn to set
 	 */
-	@JsonIgnore
-	@XmlTransient
-	public void setDistanceReturn(DistanceReturnEnum distanceReturn) {
+	public GeoParameters setDistanceReturn(DistanceReturnEnum distanceReturn) {
 		this.distanceReturn = distanceReturn;
+		return this;
 	}
 
 }

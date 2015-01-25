@@ -18,16 +18,14 @@ package com.opensearchserver.client.api.search.query.filter;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 import javax.xml.bind.annotation.XmlType;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 
-@JsonInclude(Include.NON_EMPTY)
 @XmlAccessorType(XmlAccessType.FIELD)
+@JsonInclude(Include.NON_EMPTY)
 @XmlType(name = "GeoFilter")
 @XmlRootElement(name = "GeoFilter")
 @JsonTypeName("GeoFilter")
@@ -58,22 +56,16 @@ public class GeoFilter extends AbstractFilter {
 		setDistance(distance);
 	}
 
-	@JsonIgnore
-	@XmlTransient
 	public GeoFilter setUnit(GeoUnit unit) {
 		this.unit = unit;
 		return this;
 	}
 
-	@JsonIgnore
-	@XmlTransient
 	public GeoFilter setType(GeoType shape) {
 		this.shape = shape;
 		return this;
 	}
 
-	@JsonIgnore
-	@XmlTransient
 	public GeoFilter setDistance(Double distance) {
 		this.distance = distance;
 		return this;

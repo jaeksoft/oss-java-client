@@ -16,6 +16,7 @@
 package com.opensearchserver.client;
 
 import java.io.IOException;
+import java.net.URI;
 import java.net.URISyntaxException;
 
 import org.apache.http.HttpResponse;
@@ -30,15 +31,19 @@ import com.opensearchserver.utils.json.JsonMapper;
 
 public abstract class JsonClientAbstract {
 
-	protected final String hostname;
-	protected final int port;
+	protected final URI uri;
 	protected final String login;
 	protected final String key;
 
-	public JsonClientAbstract(String hostname, Integer port, String login,
-			String key) {
-		this.hostname = hostname;
-		this.port = port == null ? 9090 : port;
+	public JsonClientAbstract(String url, String login, String key)
+			throws URISyntaxException {
+		URI u = new URI(url);
+		String path = u.getPath();
+		if (path.endsWith("/"))
+			uri = new URI(u.getScheme(), u.getHost(), path.substring(0,
+					path.length() - 1), u.getFragment());
+		else
+			uri = u;
 		this.login = login;
 		this.key = key;
 	}

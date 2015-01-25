@@ -36,8 +36,8 @@ import com.opensearchserver.client.api.search.query.filter.RelativeDateFilter;
 import com.opensearchserver.client.api.search.query.filter.RequestTemplateFilter;
 import com.opensearchserver.client.api.search.query.filter.TermFilter;
 
-@JsonInclude(Include.NON_EMPTY)
 @XmlAccessorType(XmlAccessType.FIELD)
+@JsonInclude(Include.NON_EMPTY)
 public abstract class SearchQueryAbstract extends QueryAbstract {
 
 	public static enum OperatorEnum {
@@ -99,8 +99,6 @@ public abstract class SearchQueryAbstract extends QueryAbstract {
 	 * @param query
 	 *            the query to set
 	 */
-	@JsonIgnore
-	@XmlTransient
 	public SearchQueryAbstract setQuery(String query) {
 		this.query = query;
 		return this;
@@ -110,8 +108,6 @@ public abstract class SearchQueryAbstract extends QueryAbstract {
 	 * @param start
 	 *            the start to set
 	 */
-	@JsonIgnore
-	@XmlTransient
 	public SearchQueryAbstract setStart(Integer start) {
 		this.start = start;
 		return this;
@@ -121,8 +117,6 @@ public abstract class SearchQueryAbstract extends QueryAbstract {
 	 * @param rows
 	 *            the rows to set
 	 */
-	@JsonIgnore
-	@XmlTransient
 	public SearchQueryAbstract setRows(Integer rows) {
 		this.rows = rows;
 		return this;
@@ -132,8 +126,6 @@ public abstract class SearchQueryAbstract extends QueryAbstract {
 	 * @param lang
 	 *            the lang to set
 	 */
-	@JsonIgnore
-	@XmlTransient
 	public SearchQueryAbstract setLang(LanguageEnum lang) {
 		this.lang = lang;
 		return this;
@@ -143,8 +135,6 @@ public abstract class SearchQueryAbstract extends QueryAbstract {
 	 * @param operator
 	 *            the operator to set
 	 */
-	@JsonIgnore
-	@XmlTransient
 	public SearchQueryAbstract setOperator(OperatorEnum operator) {
 		this.operator = operator;
 		return this;
@@ -154,8 +144,6 @@ public abstract class SearchQueryAbstract extends QueryAbstract {
 	 * @param collapsing
 	 *            the collapsing to set
 	 */
-	@JsonIgnore
-	@XmlTransient
 	public SearchQueryAbstract setCollapsing(CollapsingParameters collapsing) {
 		this.collapsing = collapsing;
 		return this;
@@ -165,8 +153,6 @@ public abstract class SearchQueryAbstract extends QueryAbstract {
 	 * @param geo
 	 *            the geo to set
 	 */
-	@JsonIgnore
-	@XmlTransient
 	public SearchQueryAbstract setGeoParameters(GeoParameters geo) {
 		this.geo = geo;
 		return this;
@@ -176,8 +162,6 @@ public abstract class SearchQueryAbstract extends QueryAbstract {
 	 * @param emptyReturnsAll
 	 *            the emptyReturnsAll to set
 	 */
-	@JsonIgnore
-	@XmlTransient
 	public SearchQueryAbstract setEmptyReturnsAll(Boolean emptyReturnsAll) {
 		this.emptyReturnsAll = emptyReturnsAll;
 		return this;
@@ -197,11 +181,20 @@ public abstract class SearchQueryAbstract extends QueryAbstract {
 	}
 
 	/**
+	 * Replace the filter list
+	 * 
+	 * @param filters
+	 *            the filters to set
+	 */
+	public SearchQueryAbstract setFilters(List<AbstractFilter> filters) {
+		this.filters = filters;
+		return this;
+	}
+
+	/**
 	 * @param filterOperator
 	 *            the filterOperator to set
 	 */
-	@JsonIgnore
-	@XmlTransient
 	public SearchQueryAbstract setFilterOperator(OperatorEnum filterOperator) {
 		this.filterOperator = filterOperator;
 		return this;
@@ -239,8 +232,6 @@ public abstract class SearchQueryAbstract extends QueryAbstract {
 	 * @param returnedFields
 	 *            the returnedFields to add
 	 */
-	@JsonIgnore
-	@XmlTransient
 	public SearchQueryAbstract setReturnedFields(List<String> returnedFields) {
 		this.returnedFields = returnedFields;
 		return this;
@@ -260,12 +251,21 @@ public abstract class SearchQueryAbstract extends QueryAbstract {
 	}
 
 	/**
+	 * @param snippets
+	 *            the SnippetField list to set
+	 */
+	public SearchQueryAbstract setSnippets(List<SnippetField> snippets) {
+		this.snippets = snippets;
+		return this;
+	}
+
+	/**
 	 * @param facet
 	 *            the FacetField to add
 	 */
 	@JsonIgnore
 	@XmlTransient
-	public SearchQueryAbstract setFacets(FacetField facet) {
+	public SearchQueryAbstract addFacet(FacetField facet) {
 		if (facets == null)
 			facets = new ArrayList<FacetField>(1);
 		facets.add(facet);
@@ -273,15 +273,31 @@ public abstract class SearchQueryAbstract extends QueryAbstract {
 	}
 
 	/**
+	 * @param facets
+	 *            the FacetField list to set
+	 */
+	public SearchQueryAbstract setFacets(List<FacetField> facets) {
+		this.facets = facets;
+		return this;
+	}
+
+	/**
 	 * @param join
 	 *            the JoinItem to add
 	 */
-	@JsonIgnore
-	@XmlTransient
 	public SearchQueryAbstract addJoin(JoinItem join) {
 		if (joins == null)
 			joins = new ArrayList<JoinItem>(1);
 		joins.add(join);
+		return this;
+	}
+
+	/**
+	 * @param joins
+	 *            the JoinItem list to set
+	 */
+	public SearchQueryAbstract setJoins(List<JoinItem> joins) {
+		this.joins = joins;
 		return this;
 	}
 
@@ -299,6 +315,15 @@ public abstract class SearchQueryAbstract extends QueryAbstract {
 	}
 
 	/**
+	 * @param scorings
+	 *            the Scoring list to set
+	 */
+	public SearchQueryAbstract setScorings(List<Scoring> scorings) {
+		this.scorings = scorings;
+		return this;
+	}
+
+	/**
 	 * @param boostingQuery
 	 *            the BoostingQuery to add
 	 */
@@ -312,11 +337,19 @@ public abstract class SearchQueryAbstract extends QueryAbstract {
 	}
 
 	/**
+	 * @param boostingQueries
+	 *            the boostingQueries to set
+	 */
+	public SearchQueryAbstract setBoostingQueries(
+			List<BoostingQuery> boostingQueries) {
+		this.boostingQueries = boostingQueries;
+		return this;
+	}
+
+	/**
 	 * @param enableLog
 	 *            the enableLog to set
 	 */
-	@JsonIgnore
-	@XmlTransient
 	public SearchQueryAbstract setEnableLog(Boolean enableLog) {
 		this.enableLog = enableLog;
 		return this;
@@ -332,6 +365,15 @@ public abstract class SearchQueryAbstract extends QueryAbstract {
 		if (customLogs == null)
 			customLogs = new ArrayList<String>(1);
 		customLogs.add(customLog);
+		return this;
+	}
+
+	/**
+	 * @param customLogs
+	 *            the customLogs to set
+	 */
+	public SearchQueryAbstract setCustomLogs(List<String> customLogs) {
+		this.customLogs = customLogs;
 		return this;
 	}
 

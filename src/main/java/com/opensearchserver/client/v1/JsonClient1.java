@@ -28,8 +28,9 @@ import com.opensearchserver.utils.StringUtils;
  */
 public class JsonClient1 extends JsonClientAbstract {
 
-	public JsonClient1(String hostname, Integer port, String login, String key) {
-		super(hostname, port, login, key);
+	public JsonClient1(String url, String login, String key)
+			throws URISyntaxException {
+		super(url, login, key);
 	}
 
 	/**
@@ -42,13 +43,16 @@ public class JsonClient1 extends JsonClientAbstract {
 	@Override
 	final public URIBuilder getBaseUrl(String... paths)
 			throws URISyntaxException {
-		URIBuilder uriBuilder = new URIBuilder().setHost(hostname)
-				.setPort(port).setPath(StringUtils.fastConcat(paths));
+		URIBuilder uriBuilder = new URIBuilder()
+				.setScheme(uri.getScheme())
+				.setHost(uri.getHost())
+				.setPath(
+						StringUtils.fastConcat(uri.getPath(),
+								"/services/rest/", paths));
 		if (!StringUtils.isEmpty(login))
 			uriBuilder.addParameter("login", login);
 		if (!StringUtils.isEmpty(key))
 			uriBuilder.addParameter("key", key);
 		return uriBuilder;
 	}
-
 }

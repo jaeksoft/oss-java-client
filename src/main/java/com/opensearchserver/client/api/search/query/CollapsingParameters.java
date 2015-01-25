@@ -26,8 +26,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
-@JsonInclude(Include.NON_EMPTY)
 @XmlAccessorType(XmlAccessType.FIELD)
+@JsonInclude(Include.NON_EMPTY)
 public class CollapsingParameters {
 
 	public static enum ModeEnum {
@@ -56,29 +56,21 @@ public class CollapsingParameters {
 		functionFields = null;
 	}
 
-	@JsonIgnore
-	@XmlTransient
 	public CollapsingParameters setField(String field) {
 		this.field = field;
 		return this;
 	}
 
-	@JsonIgnore
-	@XmlTransient
 	public CollapsingParameters setMax(Integer max) {
 		this.max = max;
 		return this;
 	}
 
-	@JsonIgnore
-	@XmlTransient
 	public CollapsingParameters setMode(ModeEnum mode) {
 		this.mode = mode;
 		return this;
 	}
 
-	@JsonIgnore
-	@XmlTransient
 	public CollapsingParameters setType(TypeEnum type) {
 		this.type = type;
 		return this;
@@ -86,16 +78,21 @@ public class CollapsingParameters {
 
 	@JsonIgnore
 	@XmlTransient
-	public FunctionField addFunctionField() {
+	public CollapsingParameters addFunctionField(FunctionField functionField) {
 		if (functionFields == null)
 			functionFields = new ArrayList<FunctionField>(1);
-		FunctionField functionField = new FunctionField();
 		functionFields.add(functionField);
-		return functionField;
+		return this;
 	}
 
-	@JsonInclude(Include.NON_EMPTY)
+	public CollapsingParameters setFunctionField(
+			List<FunctionField> functionFields) {
+		this.functionFields = functionFields;
+		return this;
+	}
+
 	@XmlAccessorType(XmlAccessType.FIELD)
+	@JsonInclude(Include.NON_EMPTY)
 	public static class FunctionField {
 
 		public FunctionEnum function;
@@ -106,15 +103,11 @@ public class CollapsingParameters {
 			field = null;
 		}
 
-		@JsonIgnore
-		@XmlTransient
 		public FunctionField setFunction(FunctionEnum function) {
 			this.function = function;
 			return this;
 		}
 
-		@JsonIgnore
-		@XmlTransient
 		public FunctionField setField(String field) {
 			this.field = field;
 			return this;

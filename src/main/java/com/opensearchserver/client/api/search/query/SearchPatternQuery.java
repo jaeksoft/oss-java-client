@@ -17,9 +17,7 @@ package com.opensearchserver.client.api.search.query;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlTransient;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
@@ -39,8 +37,6 @@ public class SearchPatternQuery extends SearchQueryAbstract {
 	 * @param patternSearchQuery
 	 *            the patternSearchQuery to set
 	 */
-	@JsonIgnore
-	@XmlTransient
 	public SearchPatternQuery setPatternSearchQuery(String patternSearchQuery) {
 		this.patternSearchQuery = patternSearchQuery;
 		return this;
@@ -50,8 +46,6 @@ public class SearchPatternQuery extends SearchQueryAbstract {
 	 * @param patternSnippetQuery
 	 *            the patternSnippetQuery to set
 	 */
-	@JsonIgnore
-	@XmlTransient
 	public SearchPatternQuery setPatternSnippetQuery(String patternSnippetQuery) {
 		this.patternSnippetQuery = patternSnippetQuery;
 		return this;

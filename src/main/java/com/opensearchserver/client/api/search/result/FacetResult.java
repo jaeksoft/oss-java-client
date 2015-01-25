@@ -20,16 +20,14 @@ import java.util.Map;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlTransient;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
+@XmlAccessorType(XmlAccessType.FIELD)
 @JsonInclude(Include.NON_EMPTY)
 @JsonIgnoreProperties(ignoreUnknown = true)
-@XmlAccessorType(XmlAccessType.FIELD)
 public class FacetResult {
 
 	@XmlElement(name = "fieldName")
@@ -47,8 +45,6 @@ public class FacetResult {
 	 * @param fieldName
 	 *            the fieldName to set
 	 */
-	@XmlTransient
-	@JsonIgnore
 	public FacetResult setFieldName(String fieldName) {
 		this.fieldName = fieldName;
 		return this;
@@ -58,10 +54,9 @@ public class FacetResult {
 	 * @param terms
 	 *            the terms to set
 	 */
-	@XmlTransient
-	@JsonIgnore
-	public void setTerms(Map<String, Long> terms) {
+	public FacetResult setTerms(Map<String, Long> terms) {
 		this.terms = terms;
+		return this;
 	}
 
 }

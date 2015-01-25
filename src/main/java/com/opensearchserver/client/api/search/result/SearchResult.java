@@ -84,6 +84,8 @@ public class SearchResult extends CommonResult {
 	 * @param document
 	 *            the DocumentResult to add
 	 */
+	@XmlTransient
+	@JsonIgnore
 	public SearchResult addDocument(DocumentResult document) {
 		if (documents == null)
 			documents = new ArrayList<DocumentResult>(1);
@@ -95,6 +97,8 @@ public class SearchResult extends CommonResult {
 	 * @param facet
 	 *            the FacetResult to add
 	 */
+	@XmlTransient
+	@JsonIgnore
 	public SearchResult addFacet(FacetResult facet) {
 		if (facets == null)
 			facets = new ArrayList<FacetResult>(1);
@@ -162,6 +166,24 @@ public class SearchResult extends CommonResult {
 	 */
 	public SearchResult setMaxScore(Float maxScore) {
 		this.maxScore = maxScore;
+		return this;
+	}
+
+	/**
+	 * @param documents
+	 *            the documents to set
+	 */
+	public SearchResult setDocuments(List<DocumentResult> documents) {
+		this.documents = documents;
+		return this;
+	}
+
+	/**
+	 * @param facets
+	 *            the facets to set
+	 */
+	public SearchResult setFacets(List<FacetResult> facets) {
+		this.facets = facets;
 		return this;
 	}
 

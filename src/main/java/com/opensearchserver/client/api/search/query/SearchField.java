@@ -17,9 +17,7 @@ package com.opensearchserver.client.api.search.query;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlTransient;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
@@ -49,8 +47,6 @@ public class SearchField {
 	 * @param field
 	 *            the field to set
 	 */
-	@JsonIgnore
-	@XmlTransient
 	public SearchField setField(String field) {
 		this.field = field;
 		return this;
@@ -60,8 +56,6 @@ public class SearchField {
 	 * @param mode
 	 *            the mode to set
 	 */
-	@JsonIgnore
-	@XmlTransient
 	public SearchField setMode(SearchFieldMode mode) {
 		this.mode = mode;
 		return this;
@@ -71,8 +65,6 @@ public class SearchField {
 	 * @param boost
 	 *            the boost to set
 	 */
-	@JsonIgnore
-	@XmlTransient
 	public SearchField setBoost(Double boost) {
 		this.boost = boost;
 		return this;
@@ -82,8 +74,6 @@ public class SearchField {
 	 * @param phraseBoost
 	 *            the phraseBoost to set
 	 */
-	@JsonIgnore
-	@XmlTransient
 	public SearchField setPhraseBoost(Double phraseBoost) {
 		this.phraseBoost = phraseBoost;
 		return this;
@@ -93,8 +83,6 @@ public class SearchField {
 	 * @param phraseSlop
 	 *            the phraseSlop to set
 	 */
-	@JsonIgnore
-	@XmlTransient
 	public SearchField setPhraseSlop(Integer phraseSlop) {
 		this.phraseSlop = phraseSlop;
 		return this;

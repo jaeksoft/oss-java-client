@@ -38,4 +38,22 @@ public class VectorPosition {
 		this.end = end;
 	}
 
+	/**
+	 * @param start
+	 *            the start to set
+	 */
+	public VectorPosition setStart(Integer start) {
+		this.start = start;
+		return this;
+	}
+
+	/**
+	 * @param end
+	 *            the end to set
+	 */
+	public VectorPosition setEnd(Integer end) {
+		this.end = end;
+		return this;
+	}
+
 }

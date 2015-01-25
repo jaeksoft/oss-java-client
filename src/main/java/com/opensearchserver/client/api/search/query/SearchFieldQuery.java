@@ -57,4 +57,22 @@ public class SearchFieldQuery extends SearchQueryAbstract {
 		queryStringMap.put(field.intern(), value);
 		return this;
 	}
+
+	/**
+	 * @param searchFields
+	 *            the searchFields to set
+	 */
+	public SearchFieldQuery setSearchFields(List<SearchField> searchFields) {
+		this.searchFields = searchFields;
+		return this;
+	}
+
+	/**
+	 * @param queryStringMap
+	 *            the queryStringMap to set
+	 */
+	public SearchFieldQuery setQueryStringMap(Map<String, String> queryStringMap) {
+		this.queryStringMap = queryStringMap;
+		return this;
+	}
 }

@@ -17,9 +17,7 @@ package com.opensearchserver.client.api.search.query;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlTransient;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
@@ -47,8 +45,6 @@ public class Scoring {
 	 * @param ascending
 	 *            the ascending to set
 	 */
-	@JsonIgnore
-	@XmlTransient
 	public Scoring setAscending(Boolean ascending) {
 		this.ascending = ascending;
 		return this;
@@ -58,8 +54,6 @@ public class Scoring {
 	 * @param fieldName
 	 *            the fieldName to set
 	 */
-	@JsonIgnore
-	@XmlTransient
 	public Scoring setFieldName(String fieldName) {
 		this.fieldName = fieldName;
 		return this;
@@ -69,8 +63,6 @@ public class Scoring {
 	 * @param weight
 	 *            the weight to set
 	 */
-	@JsonIgnore
-	@XmlTransient
 	public Scoring setWeight(Double weight) {
 		this.weight = weight;
 		return this;
@@ -80,8 +72,6 @@ public class Scoring {
 	 * @param type
 	 *            the type to set
 	 */
-	@JsonIgnore
-	@XmlTransient
 	public Scoring setType(ScoringTypeEnum type) {
 		this.type = type;
 		return this;

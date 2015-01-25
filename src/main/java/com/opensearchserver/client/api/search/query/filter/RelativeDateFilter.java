@@ -18,10 +18,8 @@ package com.opensearchserver.client.api.search.query.filter;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 import javax.xml.bind.annotation.XmlType;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonTypeName;
@@ -37,8 +35,8 @@ public class RelativeDateFilter extends AbstractFilter {
 		days, hours, minutes;
 	}
 
-	@JsonInclude(Include.NON_EMPTY)
 	@XmlAccessorType(XmlAccessType.FIELD)
+	@JsonInclude(Include.NON_EMPTY)
 	public static class TimeInterval {
 
 		public IntervalUnit unit;
@@ -54,15 +52,11 @@ public class RelativeDateFilter extends AbstractFilter {
 			setInterval(interval);
 		}
 
-		@JsonIgnore
-		@XmlTransient
 		public TimeInterval setUnit(IntervalUnit unit) {
 			this.unit = unit;
 			return this;
 		}
 
-		@JsonIgnore
-		@XmlTransient
 		public TimeInterval setInterval(Long interval) {
 			this.interval = interval;
 			return this;
@@ -81,29 +75,21 @@ public class RelativeDateFilter extends AbstractFilter {
 		dateFormat = null;
 	}
 
-	@JsonIgnore
-	@XmlTransient
 	public RelativeDateFilter setFrom(TimeInterval from) {
 		this.from = from;
 		return this;
 	}
 
-	@JsonIgnore
-	@XmlTransient
 	public RelativeDateFilter setTo(TimeInterval to) {
 		this.to = to;
 		return this;
 	}
 
-	@JsonIgnore
-	@XmlTransient
 	public RelativeDateFilter setField(String field) {
 		this.field = field;
 		return this;
 	}
 
-	@JsonIgnore
-	@XmlTransient
 	public RelativeDateFilter setDateFormat(String dateFormat) {
 		this.dateFormat = dateFormat;
 		return this;

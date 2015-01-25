@@ -20,7 +20,6 @@ import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
@@ -36,7 +35,6 @@ public class CommonListResult<T> extends CommonResult {
 		items = null;
 	}
 
-	@XmlTransient
 	public CommonListResult<T> setList(List<T> items) {
 		this.items = items;
 		return this;

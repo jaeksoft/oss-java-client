@@ -16,7 +16,6 @@
 package com.opensearchserver.client.api.search.query;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 import javax.xml.bind.annotation.XmlTransient;
@@ -33,8 +32,6 @@ public abstract class QueryAbstract {
 		groups = null;
 	}
 
-	@JsonIgnore
-	@XmlTransient
 	public QueryAbstract setUser(String user) {
 		this.user = user;
 		return this;
@@ -51,14 +48,10 @@ public abstract class QueryAbstract {
 		return this;
 	}
 
-	@JsonIgnore
-	@XmlTransient
-	public QueryAbstract addGroups(Collection<String> groups) {
+	public QueryAbstract setGroups(List<String> groups) {
 		if (groups == null)
 			return this;
-		if (this.groups == null)
-			this.groups = new ArrayList<String>(groups.size());
-		this.groups.addAll(groups);
+		this.groups = groups;
 		return this;
 	}
 }

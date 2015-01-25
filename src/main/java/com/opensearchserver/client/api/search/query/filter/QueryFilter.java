@@ -18,10 +18,8 @@ package com.opensearchserver.client.api.search.query.filter;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 import javax.xml.bind.annotation.XmlType;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonTypeName;
@@ -33,18 +31,16 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 @JsonTypeName("QueryFilter")
 public class QueryFilter extends AbstractFilter {
 
-	public String query = null;
+	public String query;
 
 	public QueryFilter() {
 		query = null;
 	}
 
 	public QueryFilter(String query) {
-		setQuery(query);
+		this.query = query;
 	}
 
-	@JsonIgnore
-	@XmlTransient
 	public QueryFilter setQuery(String query) {
 		this.query = query;
 		return this;

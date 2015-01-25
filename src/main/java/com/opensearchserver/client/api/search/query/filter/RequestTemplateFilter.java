@@ -18,16 +18,14 @@ package com.opensearchserver.client.api.search.query.filter;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 import javax.xml.bind.annotation.XmlType;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 
-@JsonInclude(Include.NON_EMPTY)
 @XmlAccessorType(XmlAccessType.FIELD)
+@JsonInclude(Include.NON_EMPTY)
 @XmlType(name = "RequestTemplateFilter")
 @XmlRootElement(name = "RequestTemplateFilter")
 @JsonTypeName("RequestTemplateFilter")
@@ -46,15 +44,11 @@ public class RequestTemplateFilter extends AbstractFilter {
 		setQueryString(queryString);
 	}
 
-	@JsonIgnore
-	@XmlTransient
 	public RequestTemplateFilter setRequestName(String requestName) {
 		this.requestName = requestName;
 		return this;
 	}
 
-	@JsonIgnore
-	@XmlTransient
 	public RequestTemplateFilter setQueryString(String queryString) {
 		this.queryString = queryString;
 		return this;

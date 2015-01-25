@@ -30,10 +30,10 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 public class FieldValueList {
 
 	@XmlElement(name = "name")
-	public final String fieldName;
+	public String fieldName;
 
 	@XmlElement(name = "value")
-	public final List<String> values;
+	public List<String> values;
 
 	public FieldValueList() {
 		fieldName = null;
@@ -43,6 +43,24 @@ public class FieldValueList {
 	public FieldValueList(String fieldName) {
 		this.fieldName = fieldName;
 		values = new ArrayList<String>(1);
+	}
+
+	/**
+	 * @param fieldName
+	 *            the fieldName to set
+	 */
+	public FieldValueList setFieldName(String fieldName) {
+		this.fieldName = fieldName;
+		return this;
+	}
+
+	/**
+	 * @param values
+	 *            the values to set
+	 */
+	public FieldValueList setValues(List<String> values) {
+		this.values = values;
+		return this;
 	}
 
 }

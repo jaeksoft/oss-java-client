@@ -17,7 +17,6 @@ package com.opensearchserver.client.api.search.query.filter;
 
 import javax.xml.bind.annotation.XmlTransient;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.annotation.JsonTypeInfo.Id;
@@ -41,8 +40,6 @@ public abstract class AbstractFilter {
 		type = getClass().getSimpleName();
 	}
 
-	@JsonIgnore
-	@XmlTransient
 	public AbstractFilter setNegative(Boolean negative) {
 		this.negative = negative;
 		return this;

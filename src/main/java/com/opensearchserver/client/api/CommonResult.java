@@ -50,8 +50,6 @@ public class CommonResult {
 		this.info = info;
 	}
 
-	@XmlTransient
-	@JsonIgnore
 	public CommonResult setInfo(String info) {
 		this.info = info;
 		return this;
@@ -65,6 +63,15 @@ public class CommonResult {
 		if (details == null)
 			details = new LinkedHashMap<String, String>();
 		details.put(key.intern(), value.toString());
+		return this;
+	}
+
+	/**
+	 * @param details
+	 *            the details to set
+	 */
+	public CommonResult setDetails(Map<String, String> details) {
+		this.details = details;
 		return this;
 	}
 

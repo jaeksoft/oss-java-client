@@ -17,14 +17,12 @@ package com.opensearchserver.client.api.search.query;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlTransient;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
-@JsonInclude(Include.NON_EMPTY)
 @XmlAccessorType(XmlAccessType.FIELD)
+@JsonInclude(Include.NON_EMPTY)
 public class FacetField {
 
 	public String field;
@@ -43,8 +41,6 @@ public class FacetField {
 	 * @param field
 	 *            the field to set
 	 */
-	@JsonIgnore
-	@XmlTransient
 	public FacetField setField(String field) {
 		this.field = field;
 		return this;
@@ -54,8 +50,6 @@ public class FacetField {
 	 * @param minCount
 	 *            the minCount to set
 	 */
-	@JsonIgnore
-	@XmlTransient
 	public FacetField setMinCount(Integer minCount) {
 		this.minCount = minCount;
 		return this;
@@ -65,8 +59,6 @@ public class FacetField {
 	 * @param multivalued
 	 *            the multivalued to set
 	 */
-	@JsonIgnore
-	@XmlTransient
 	public FacetField setMultivalued(Boolean multivalued) {
 		this.multivalued = multivalued;
 		return this;
@@ -76,8 +68,6 @@ public class FacetField {
 	 * @param postCollapsing
 	 *            the postCollapsing to set
 	 */
-	@JsonIgnore
-	@XmlTransient
 	public FacetField setPostCollapsing(Boolean postCollapsing) {
 		this.postCollapsing = postCollapsing;
 		return this;

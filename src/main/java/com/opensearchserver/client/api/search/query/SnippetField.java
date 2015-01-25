@@ -17,14 +17,12 @@ package com.opensearchserver.client.api.search.query;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlTransient;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
-@JsonInclude(Include.NON_EMPTY)
 @XmlAccessorType(XmlAccessType.FIELD)
+@JsonInclude(Include.NON_EMPTY)
 public class SnippetField {
 
 	public static enum FragmenterEnum {
@@ -51,8 +49,6 @@ public class SnippetField {
 	 * @param field
 	 *            the field to set
 	 */
-	@JsonIgnore
-	@XmlTransient
 	public SnippetField setField(String field) {
 		this.field = field;
 		return this;
@@ -62,8 +58,6 @@ public class SnippetField {
 	 * @param tag
 	 *            the tag to set
 	 */
-	@JsonIgnore
-	@XmlTransient
 	public SnippetField setTag(String tag) {
 		this.tag = tag;
 		return this;
@@ -73,8 +67,6 @@ public class SnippetField {
 	 * @param separator
 	 *            the separator to set
 	 */
-	@JsonIgnore
-	@XmlTransient
 	public SnippetField setSeparator(String separator) {
 		this.separator = separator;
 		return this;
@@ -84,8 +76,6 @@ public class SnippetField {
 	 * @param maxSize
 	 *            the maxSize to set
 	 */
-	@JsonIgnore
-	@XmlTransient
 	public SnippetField setMaxSize(Integer maxSize) {
 		this.maxSize = maxSize;
 		return this;
@@ -95,8 +85,6 @@ public class SnippetField {
 	 * @param maxNumber
 	 *            the maxNumber to set
 	 */
-	@JsonIgnore
-	@XmlTransient
 	public SnippetField setMaxNumber(Integer maxNumber) {
 		this.maxNumber = maxNumber;
 		return this;
@@ -106,8 +94,6 @@ public class SnippetField {
 	 * @param fragmenter
 	 *            the fragmenter to set
 	 */
-	@JsonIgnore
-	@XmlTransient
 	public SnippetField setFragmenter(FragmenterEnum fragmenter) {
 		this.fragmenter = fragmenter;
 		return this;

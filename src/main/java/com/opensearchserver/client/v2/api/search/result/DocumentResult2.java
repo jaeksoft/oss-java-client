@@ -21,9 +21,7 @@ import java.util.Map;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlTransient;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
@@ -45,8 +43,6 @@ public class DocumentResult2 extends DocumentResult {
 	 * @param fields
 	 *            the fields to set
 	 */
-	@XmlTransient
-	@JsonIgnore
 	public void setFields(Map<String, List<String>> fields) {
 		this.fields = fields;
 	}

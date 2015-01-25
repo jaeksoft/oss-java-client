@@ -68,8 +68,11 @@ public class SearchQueryBatch {
 		return this;
 	}
 
-	@JsonIgnore
-	@XmlTransient
+	public SearchQueryBatch addQuery(List<SearchQueryAbstract> queries) {
+		this.queries = queries;
+		return this;
+	}
+
 	public SearchQueryBatch seMode(QueryModeEnum mode) {
 		this.mode = mode;
 		return this;
@@ -85,8 +88,6 @@ public class SearchQueryBatch {
 			template = null;
 		}
 
-		@JsonIgnore
-		@XmlTransient
 		public SearchFieldTemplateQuery setTemplate(String template) {
 			this.template = template;
 			return this;
@@ -103,8 +104,6 @@ public class SearchQueryBatch {
 			template = null;
 		}
 
-		@JsonIgnore
-		@XmlTransient
 		public SearchPatternTemplateQuery setTemplate(String template) {
 			this.template = template;
 			return this;

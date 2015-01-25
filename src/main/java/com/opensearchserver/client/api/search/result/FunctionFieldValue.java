@@ -17,15 +17,13 @@ package com.opensearchserver.client.api.search.result;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlTransient;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.opensearchserver.client.api.search.query.CollapsingParameters.FunctionEnum;
 
-@JsonInclude(Include.NON_EMPTY)
 @XmlAccessorType(XmlAccessType.FIELD)
+@JsonInclude(Include.NON_EMPTY)
 public class FunctionFieldValue {
 
 	public FunctionEnum function;
@@ -44,22 +42,16 @@ public class FunctionFieldValue {
 		this.value = value;
 	}
 
-	@JsonIgnore
-	@XmlTransient
 	public FunctionFieldValue setFunction(FunctionEnum function) {
 		this.function = function;
 		return this;
 	}
 
-	@JsonIgnore
-	@XmlTransient
 	public FunctionFieldValue setField(String field) {
 		this.field = field;
 		return this;
 	}
 
-	@JsonIgnore
-	@XmlTransient
 	public FunctionFieldValue setValue(String value) {
 		this.value = value;
 		return this;

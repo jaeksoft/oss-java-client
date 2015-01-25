@@ -18,16 +18,14 @@ package com.opensearchserver.client.api.search.query.filter;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 import javax.xml.bind.annotation.XmlType;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 
-@JsonInclude(Include.NON_EMPTY)
 @XmlAccessorType(XmlAccessType.FIELD)
+@JsonInclude(Include.NON_EMPTY)
 @XmlType(name = "TermFilter")
 @XmlRootElement(name = "TermFilter")
 @JsonTypeName("TermFilter")
@@ -42,19 +40,15 @@ public class TermFilter extends AbstractFilter {
 	}
 
 	public TermFilter(String field, String term) {
-		setField(field);
-		setTerm(term);
+		this.field = field;
+		this.term = term;
 	}
 
-	@JsonIgnore
-	@XmlTransient
 	public TermFilter setField(String field) {
 		this.field = field;
 		return this;
 	}
 
-	@JsonIgnore
-	@XmlTransient
 	public TermFilter setTerm(String term) {
 		this.term = term;
 		return this;

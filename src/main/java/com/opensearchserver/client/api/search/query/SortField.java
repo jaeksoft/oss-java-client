@@ -17,14 +17,12 @@ package com.opensearchserver.client.api.search.query;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlTransient;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
-@JsonInclude(Include.NON_EMPTY)
 @XmlAccessorType(XmlAccessType.FIELD)
+@JsonInclude(Include.NON_EMPTY)
 public class SortField {
 
 	public static enum DirectionEnum {
@@ -47,29 +45,21 @@ public class SortField {
 		empty = null;
 	}
 
-	@JsonIgnore
-	@XmlTransient
 	public SortField setJoinNumber(Integer joinNumber) {
 		this.joinNumber = joinNumber;
 		return this;
 	}
 
-	@JsonIgnore
-	@XmlTransient
 	public SortField setField(String field) {
 		this.field = field;
 		return this;
 	}
 
-	@JsonIgnore
-	@XmlTransient
 	public SortField setDirection(DirectionEnum direction) {
 		this.direction = direction;
 		return this;
 	}
 
-	@JsonIgnore
-	@XmlTransient
 	public SortField setEmpty(EmptyEnum empty) {
 		this.empty = empty;
 		return this;

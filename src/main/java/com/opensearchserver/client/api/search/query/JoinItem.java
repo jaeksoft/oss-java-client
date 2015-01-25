@@ -17,14 +17,12 @@ package com.opensearchserver.client.api.search.query;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlTransient;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
-@JsonInclude(Include.NON_EMPTY)
 @XmlAccessorType(XmlAccessType.FIELD)
+@JsonInclude(Include.NON_EMPTY)
 public class JoinItem {
 
 	public static enum JoinTypeEnum {
@@ -57,8 +55,6 @@ public class JoinItem {
 	 * @param indexName
 	 *            the indexName to set
 	 */
-	@JsonIgnore
-	@XmlTransient
 	public JoinItem setIndexName(String indexName) {
 		this.indexName = indexName;
 		return this;
@@ -68,8 +64,6 @@ public class JoinItem {
 	 * @param queryTemplate
 	 *            the queryTemplate to set
 	 */
-	@JsonIgnore
-	@XmlTransient
 	public JoinItem setQueryTemplate(String queryTemplate) {
 		this.queryTemplate = queryTemplate;
 		return this;
@@ -79,8 +73,6 @@ public class JoinItem {
 	 * @param queryString
 	 *            the queryString to set
 	 */
-	@JsonIgnore
-	@XmlTransient
 	public JoinItem setQueryString(String queryString) {
 		this.queryString = queryString;
 		return this;
@@ -90,8 +82,6 @@ public class JoinItem {
 	 * @param localField
 	 *            the localField to set
 	 */
-	@JsonIgnore
-	@XmlTransient
 	public JoinItem setLocalField(String localField) {
 		this.localField = localField;
 		return this;
@@ -101,8 +91,6 @@ public class JoinItem {
 	 * @param foreignField
 	 *            the foreignField to set
 	 */
-	@JsonIgnore
-	@XmlTransient
 	public JoinItem setForeignField(String foreignField) {
 		this.foreignField = foreignField;
 		return this;
@@ -112,8 +100,6 @@ public class JoinItem {
 	 * @param type
 	 *            the type to set
 	 */
-	@JsonIgnore
-	@XmlTransient
 	public JoinItem setType(JoinTypeEnum type) {
 		this.type = type;
 		return this;
@@ -123,8 +109,6 @@ public class JoinItem {
 	 * @param returnFields
 	 *            the returnFields to set
 	 */
-	@JsonIgnore
-	@XmlTransient
 	public JoinItem setReturnFields(Boolean returnFields) {
 		this.returnFields = returnFields;
 		return this;
@@ -134,8 +118,6 @@ public class JoinItem {
 	 * @param returnScores
 	 *            the returnScores to set
 	 */
-	@JsonIgnore
-	@XmlTransient
 	public JoinItem setReturnScores(Boolean returnScores) {
 		this.returnScores = returnScores;
 		return this;
@@ -145,8 +127,6 @@ public class JoinItem {
 	 * @param returnFacets
 	 *            the returnFacets to set
 	 */
-	@JsonIgnore
-	@XmlTransient
 	public JoinItem setReturnFacets(Boolean returnFacets) {
 		this.returnFacets = returnFacets;
 		return this;
