@@ -21,63 +21,48 @@ import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlTransient;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.opensearchserver.client.api.search.result.AbstractDocumentResult;
 
 @XmlAccessorType(XmlAccessType.FIELD)
+@JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(Include.NON_EMPTY)
-public class FieldValueList {
+public class SearchResult1 extends AbstractDocumentResult {
 
-	@XmlElement(name = "name")
-	public String fieldName;
+	@XmlTransient
+	@JsonIgnore
+	public final static TypeReference<ArrayList<SearchResult1>> LIST_TYPEREF = new TypeReference<ArrayList<SearchResult1>>() {
+	};
 
-	@XmlElement(name = "value")
-	public List<String> values;
+	@XmlElement(name = "document")
+	public List<DocumentResult1> documents;
 
-	public Boolean highlighted;
-
-	public FieldValueList() {
-		fieldName = null;
-		values = null;
-	}
-
-	public FieldValueList(String fieldName) {
-		this.fieldName = fieldName;
-		values = new ArrayList<String>(1);
+	public SearchResult1() {
+		documents = null;
 	}
 
 	/**
-	 * @param fieldName
-	 *            the fieldName to set
+	 * @param documents
+	 *            the documents to set
 	 */
-	public FieldValueList setFieldName(String fieldName) {
-		this.fieldName = fieldName;
+	public SearchResult1 setDocuments(List<DocumentResult1> documents) {
+		this.documents = documents;
 		return this;
 	}
 
-	/**
-	 * @param values
-	 *            the values to set
-	 */
-	public FieldValueList setValues(List<String> values) {
-		this.values = values;
+	@XmlTransient
+	@JsonIgnore
+	public SearchResult1 addDocument(DocumentResult1 document) {
+		if (documents == null)
+			documents = new ArrayList<DocumentResult1>();
+		documents.add(document);
 		return this;
 	}
 
-	/**
-	 * @return the highlighted
-	 */
-	public Boolean getHighlighted() {
-		return highlighted;
-	}
-
-	/**
-	 * @param highlighted
-	 *            the highlighted to set
-	 */
-	public FieldValueList setHighlighted(Boolean highlighted) {
-		this.highlighted = highlighted;
-		return this;
-	}
 }

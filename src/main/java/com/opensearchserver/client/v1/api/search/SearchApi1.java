@@ -28,8 +28,8 @@ import org.apache.http.client.utils.URIBuilder;
 import com.opensearchserver.client.JsonClientAbstract;
 import com.opensearchserver.client.api.search.query.SearchFieldQuery;
 import com.opensearchserver.client.api.search.query.SearchQueryBatch;
-import com.opensearchserver.client.api.search.result.SearchResult;
 import com.opensearchserver.client.v1.JsonClient1;
+import com.opensearchserver.client.v1.api.search.result.SearchResult1;
 import com.opensearchserver.utils.HttpUtils;
 import com.opensearchserver.utils.LinkUtils;
 
@@ -88,14 +88,14 @@ public class SearchApi1 {
 	 * @throws IOException
 	 * @throws URISyntaxException
 	 */
-	public SearchResult searchFieldTemplate(String indexName, String template,
+	public SearchResult1 searchFieldTemplate(String indexName, String template,
 			SearchFieldQuery query, int msTimeOut)
 			throws ClientProtocolException, IOException, URISyntaxException {
 		URIBuilder uriBuilder = client.getBaseUrl("index/",
 				LinkUtils.UTF8_URL_Encode(indexName), "/search/field/",
 				LinkUtils.UTF8_URL_Encode(template));
 		Request request = Request.Post(uriBuilder.build());
-		return client.execute(request, msTimeOut, query, SearchResult.class,
+		return client.execute(request, msTimeOut, query, SearchResult1.class,
 				200);
 	}
 
@@ -113,13 +113,13 @@ public class SearchApi1 {
 	 * @throws IOException
 	 * @throws URISyntaxException
 	 */
-	public SearchResult searchField(String indexName, SearchFieldQuery query,
+	public SearchResult1 searchField(String indexName, SearchFieldQuery query,
 			int msTimeOut) throws ClientProtocolException, IOException,
 			URISyntaxException {
 		URIBuilder uriBuilder = client.getBaseUrl("index/",
 				LinkUtils.UTF8_URL_Encode(indexName), "/search/field");
 		Request request = Request.Post(uriBuilder.build());
-		return client.execute(request, msTimeOut, query, SearchResult.class,
+		return client.execute(request, msTimeOut, query, SearchResult1.class,
 				200);
 	}
 
@@ -137,13 +137,13 @@ public class SearchApi1 {
 	 * @throws IOException
 	 * @throws URISyntaxException
 	 */
-	public List<SearchResult> searchBatch(String indexName,
+	public List<SearchResult1> searchBatch(String indexName,
 			SearchQueryBatch queryBatch, int msTimeOut)
 			throws ClientProtocolException, IOException, URISyntaxException {
 		URIBuilder uriBuilder = client.getBaseUrl("index/",
 				LinkUtils.UTF8_URL_Encode(indexName), "/search/batch");
 		Request request = Request.Post(uriBuilder.build());
 		return client.execute(request, msTimeOut, queryBatch,
-				SearchResult.LIST_TYPEREF, 200);
+				SearchResult1.LIST_TYPEREF, 200);
 	}
 }

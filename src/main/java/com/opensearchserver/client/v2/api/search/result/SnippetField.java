@@ -13,9 +13,8 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.opensearchserver.client.v1.api.search.result;
+package com.opensearchserver.client.v2.api.search.result;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -27,56 +26,32 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 @XmlAccessorType(XmlAccessType.FIELD)
 @JsonInclude(Include.NON_EMPTY)
-public class FieldValueList {
-
-	@XmlElement(name = "name")
-	public String fieldName;
+public class SnippetField {
 
 	@XmlElement(name = "value")
 	public List<String> values;
 
 	public Boolean highlighted;
 
-	public FieldValueList() {
-		fieldName = null;
+	public SnippetField() {
+		highlighted = null;
 		values = null;
-	}
-
-	public FieldValueList(String fieldName) {
-		this.fieldName = fieldName;
-		values = new ArrayList<String>(1);
-	}
-
-	/**
-	 * @param fieldName
-	 *            the fieldName to set
-	 */
-	public FieldValueList setFieldName(String fieldName) {
-		this.fieldName = fieldName;
-		return this;
 	}
 
 	/**
 	 * @param values
 	 *            the values to set
 	 */
-	public FieldValueList setValues(List<String> values) {
+	public SnippetField setValues(List<String> values) {
 		this.values = values;
 		return this;
-	}
-
-	/**
-	 * @return the highlighted
-	 */
-	public Boolean getHighlighted() {
-		return highlighted;
 	}
 
 	/**
 	 * @param highlighted
 	 *            the highlighted to set
 	 */
-	public FieldValueList setHighlighted(Boolean highlighted) {
+	public SnippetField setHighlighted(Boolean highlighted) {
 		this.highlighted = highlighted;
 		return this;
 	}

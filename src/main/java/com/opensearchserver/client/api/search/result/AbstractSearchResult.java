@@ -28,21 +28,12 @@ import javax.xml.bind.annotation.XmlTransient;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
-import com.fasterxml.jackson.core.type.TypeReference;
 import com.opensearchserver.client.api.CommonResult;
 
 @XmlRootElement(name = "result")
 @XmlAccessorType(XmlAccessType.FIELD)
 @JsonInclude(Include.NON_EMPTY)
-public class SearchResult extends CommonResult {
-
-	@XmlTransient
-	@JsonIgnore
-	public final static TypeReference<ArrayList<SearchResult>> LIST_TYPEREF = new TypeReference<ArrayList<SearchResult>>() {
-	};
-
-	@XmlElement(name = "document")
-	public List<DocumentResult> documents;
+public abstract class AbstractSearchResult extends CommonResult {
 
 	@XmlElement(name = "facet")
 	public List<FacetResult> facets;
@@ -68,8 +59,7 @@ public class SearchResult extends CommonResult {
 	@XmlAttribute
 	public Float maxScore;
 
-	public SearchResult() {
-		documents = null;
+	public AbstractSearchResult() {
 		query = null;
 		facets = null;
 		rows = null;
@@ -81,25 +71,12 @@ public class SearchResult extends CommonResult {
 	}
 
 	/**
-	 * @param document
-	 *            the DocumentResult to add
-	 */
-	@XmlTransient
-	@JsonIgnore
-	public SearchResult addDocument(DocumentResult document) {
-		if (documents == null)
-			documents = new ArrayList<DocumentResult>(1);
-		documents.add(document);
-		return this;
-	}
-
-	/**
 	 * @param facet
 	 *            the FacetResult to add
 	 */
 	@XmlTransient
 	@JsonIgnore
-	public SearchResult addFacet(FacetResult facet) {
+	public AbstractSearchResult addFacet(FacetResult facet) {
 		if (facets == null)
 			facets = new ArrayList<FacetResult>(1);
 		facets.add(facet);
@@ -110,7 +87,7 @@ public class SearchResult extends CommonResult {
 	 * @param query
 	 *            the query to set
 	 */
-	public SearchResult setQuery(String query) {
+	public AbstractSearchResult setQuery(String query) {
 		this.query = query;
 		return this;
 	}
@@ -119,7 +96,7 @@ public class SearchResult extends CommonResult {
 	 * @param rows
 	 *            the rows to set
 	 */
-	public SearchResult setRows(Integer rows) {
+	public AbstractSearchResult setRows(Integer rows) {
 		this.rows = rows;
 		return this;
 	}
@@ -128,7 +105,7 @@ public class SearchResult extends CommonResult {
 	 * @param start
 	 *            the start to set
 	 */
-	public SearchResult setStart(Integer start) {
+	public AbstractSearchResult setStart(Integer start) {
 		this.start = start;
 		return this;
 	}
@@ -137,7 +114,7 @@ public class SearchResult extends CommonResult {
 	 * @param numFound
 	 *            the numFound to set
 	 */
-	public SearchResult setNumFound(Long numFound) {
+	public AbstractSearchResult setNumFound(Long numFound) {
 		this.numFound = numFound;
 		return this;
 	}
@@ -146,7 +123,7 @@ public class SearchResult extends CommonResult {
 	 * @param time
 	 *            the time to set
 	 */
-	public SearchResult setTime(Long time) {
+	public AbstractSearchResult setTime(Long time) {
 		this.time = time;
 		return this;
 	}
@@ -155,7 +132,7 @@ public class SearchResult extends CommonResult {
 	 * @param collapsedDocCount
 	 *            the collapsedDocCount to set
 	 */
-	public SearchResult setCollapsedDocCount(Long collapsedDocCount) {
+	public AbstractSearchResult setCollapsedDocCount(Long collapsedDocCount) {
 		this.collapsedDocCount = collapsedDocCount;
 		return this;
 	}
@@ -164,17 +141,8 @@ public class SearchResult extends CommonResult {
 	 * @param maxScore
 	 *            the maxScore to set
 	 */
-	public SearchResult setMaxScore(Float maxScore) {
+	public AbstractSearchResult setMaxScore(Float maxScore) {
 		this.maxScore = maxScore;
-		return this;
-	}
-
-	/**
-	 * @param documents
-	 *            the documents to set
-	 */
-	public SearchResult setDocuments(List<DocumentResult> documents) {
-		this.documents = documents;
 		return this;
 	}
 
@@ -182,7 +150,7 @@ public class SearchResult extends CommonResult {
 	 * @param facets
 	 *            the facets to set
 	 */
-	public SearchResult setFacets(List<FacetResult> facets) {
+	public AbstractSearchResult setFacets(List<FacetResult> facets) {
 		this.facets = facets;
 		return this;
 	}
