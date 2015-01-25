@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.opensearchserver.client.api;
+package com.opensearchserver.client.api.index;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
@@ -25,10 +25,29 @@ import org.apache.http.client.fluent.Request;
 import org.apache.http.client.utils.URIBuilder;
 
 import com.opensearchserver.client.JsonClientAbstract;
+import com.opensearchserver.client.api.AbstractApi;
 import com.opensearchserver.utils.HttpUtils;
 import com.opensearchserver.utils.LinkUtils;
 
 public class IndexApi extends AbstractApi<JsonClientAbstract> {
+
+	public enum TemplateEnum {
+
+		/**
+		 * This index does not contains any field
+		 */
+		EMPTY_INDEX,
+
+		/**
+		 * A preconfigured index for web crawling
+		 */
+		WEB_CRAWLER,
+
+		/**
+		 * A prefonfigured index for file system crawling
+		 */
+		FILE_CRAWLER;
+	}
 
 	public IndexApi(JsonClientAbstract client) {
 		super(client);
@@ -47,12 +66,12 @@ public class IndexApi extends AbstractApi<JsonClientAbstract> {
 	 * @throws IOException
 	 * @throws URISyntaxException
 	 */
-	public void create(String indexName, String templateName)
+	public void createIndex(String indexName, TemplateEnum template)
 			throws ClientProtocolException, UnsupportedEncodingException,
 			IOException, URISyntaxException {
 		URIBuilder uriBuilder = client.getBaseUrl("index/",
 				LinkUtils.UTF8_URL_Encode(indexName), "/template/",
-				LinkUtils.UTF8_URL_Encode(templateName));
+				LinkUtils.UTF8_URL_Encode(template.name()));
 		Request request = Request.Post(uriBuilder.build());
 		HttpResponse response = client.execute(request, null, null);
 		HttpUtils.checkStatusCodes(response.getStatusLine(), 200);
@@ -76,7 +95,7 @@ public class IndexApi extends AbstractApi<JsonClientAbstract> {
 	 * @throws URISyntaxException
 	 * @throws ClientProtocolException
 	 */
-	public boolean exists(String indexName) throws URISyntaxException,
+	public boolean indexExists(String indexName) throws URISyntaxException,
 			IOException {
 		URIBuilder uriBuilder = client.getBaseUrl("index/",
 				LinkUtils.UTF8_URL_Encode(indexName));
@@ -99,11 +118,13 @@ public class IndexApi extends AbstractApi<JsonClientAbstract> {
 	 * @throws IOException
 	 * @throws URISyntaxException
 	 */
-	public void delete(String indexName) throws IOException, URISyntaxException {
+	public void deleteIndex(String indexName) throws IOException,
+			URISyntaxException {
 		URIBuilder uriBuilder = client.getBaseUrl("index/",
 				LinkUtils.UTF8_URL_Encode(indexName));
 		Request request = Request.Delete(uriBuilder.build());
 		HttpResponse response = client.execute(request, null, null);
 		HttpUtils.checkStatusCodes(response.getStatusLine(), 200);
 	}
+
 }
