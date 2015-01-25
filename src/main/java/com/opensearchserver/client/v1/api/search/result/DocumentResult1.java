@@ -24,26 +24,51 @@ import javax.xml.bind.annotation.XmlElement;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
-import com.opensearchserver.client.api.search.result.DocumentResult;
+import com.opensearchserver.client.api.search.result.AbstractDocumentResult;
 
 @XmlAccessorType(XmlAccessType.FIELD)
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(Include.NON_EMPTY)
-public class DocumentResult1 extends DocumentResult {
+public class DocumentResult1 extends AbstractDocumentResult {
 
 	@XmlElement(name = "field")
 	public List<FieldValueList> fields;
 
+	@XmlElement(name = "snippet")
+	public List<FieldValueList> snippets;
+
+	@XmlElement(name = "join")
+	public List<DocumentResult1> joins;
+
 	public DocumentResult1() {
 		fields = null;
+		snippets = null;
+		joins = null;
 	}
 
 	/**
 	 * @param fields
 	 *            the fields to set
 	 */
-	public void setFields(List<FieldValueList> fields) {
+	public DocumentResult1 setFields(List<FieldValueList> fields) {
 		this.fields = fields;
+		return this;
 	}
 
+	/**
+	 * @param snippets
+	 *            the snippets to set
+	 */
+	public DocumentResult1 setSnippets(List<FieldValueList> snippets) {
+		this.snippets = snippets;
+		return this;
+	}
+
+	/**
+	 * @param joins
+	 *            the joins to set
+	 */
+	public void setJoins(List<DocumentResult1> joins) {
+		this.joins = joins;
+	}
 }

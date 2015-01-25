@@ -16,7 +16,6 @@
 package com.opensearchserver.client.api.search.result;
 
 import java.util.List;
-import java.util.Map;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -30,7 +29,7 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 @XmlAccessorType(XmlAccessType.FIELD)
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(Include.NON_EMPTY)
-public class DocumentResult {
+public abstract class AbstractDocumentResult {
 
 	@XmlAttribute
 	public Integer pos;
@@ -47,27 +46,19 @@ public class DocumentResult {
 	@XmlAttribute
 	public String joinParameter;
 
-	@XmlElement(name = "snippet")
-	public Map<String, List<String>> snippets;
-
 	@XmlElement(name = "function")
 	public List<FunctionFieldValue> functions;
 
 	@XmlElement(name = "position")
 	public List<VectorPosition> positions;
 
-	@XmlElement(name = "join")
-	public List<DocumentResult> joins;
-
-	public DocumentResult() {
-		snippets = null;
+	public AbstractDocumentResult() {
 		functions = null;
 		positions = null;
 		collapseCount = null;
 		pos = null;
 		score = null;
 		distance = null;
-		joins = null;
 		joinParameter = null;
 	}
 
@@ -112,14 +103,6 @@ public class DocumentResult {
 	}
 
 	/**
-	 * @param snippets
-	 *            the snippets to set
-	 */
-	public void setSnippets(Map<String, List<String>> snippets) {
-		this.snippets = snippets;
-	}
-
-	/**
 	 * @param functions
 	 *            the functions to set
 	 */
@@ -133,14 +116,6 @@ public class DocumentResult {
 	 */
 	public void setPositions(List<VectorPosition> positions) {
 		this.positions = positions;
-	}
-
-	/**
-	 * @param joins
-	 *            the joins to set
-	 */
-	public void setJoins(List<DocumentResult> joins) {
-		this.joins = joins;
 	}
 
 }

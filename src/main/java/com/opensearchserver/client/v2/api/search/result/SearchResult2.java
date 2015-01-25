@@ -15,62 +15,54 @@
  */
 package com.opensearchserver.client.v2.api.search.result;
 
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlTransient;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.opensearchserver.client.api.search.result.AbstractDocumentResult;
 
 @XmlAccessorType(XmlAccessType.FIELD)
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(Include.NON_EMPTY)
-public class DocumentResult2 extends AbstractDocumentResult {
+public class SearchResult2 extends AbstractDocumentResult {
 
-	@XmlElement(name = "field")
-	public Map<String, List<String>> fields;
+	@XmlTransient
+	@JsonIgnore
+	public final static TypeReference<ArrayList<SearchResult2>> LIST_TYPEREF = new TypeReference<ArrayList<SearchResult2>>() {
+	};
 
-	@XmlElement(name = "snippet")
-	public Map<String, SnippetField> snippets;
+	@XmlElement(name = "document")
+	public List<DocumentResult2> documents;
 
-	@XmlElement(name = "join")
-	public List<DocumentResult2> joins;
-
-	public DocumentResult2() {
-		fields = null;
-		snippets = null;
-		joins = null;
+	public SearchResult2() {
+		documents = null;
 	}
 
 	/**
-	 * @param fields
-	 *            the fields to set
+	 * @param documents
+	 *            the documents to set
 	 */
-	public DocumentResult2 setFields(Map<String, List<String>> fields) {
-		this.fields = fields;
+	public SearchResult2 setDocuments(List<DocumentResult2> documents) {
+		this.documents = documents;
 		return this;
 	}
 
-	/**
-	 * @param snippets
-	 *            the snippets to set
-	 */
-	public DocumentResult2 setSnippets(Map<String, SnippetField> snippets) {
-		this.snippets = snippets;
+	@XmlTransient
+	@JsonIgnore
+	public SearchResult2 addDocument(DocumentResult2 document) {
+		if (documents == null)
+			documents = new ArrayList<DocumentResult2>();
+		documents.add(document);
 		return this;
-	}
-
-	/**
-	 * @param joins
-	 *            the joins to set
-	 */
-	public void setJoins(List<DocumentResult2> joins) {
-		this.joins = joins;
 	}
 
 }
