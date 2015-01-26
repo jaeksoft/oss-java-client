@@ -16,12 +16,10 @@
 package com.opensearchserver.client.v1;
 
 import java.io.IOException;
-import java.io.UnsupportedEncodingException;
 import java.net.URISyntaxException;
 import java.util.List;
 
 import org.apache.http.HttpResponse;
-import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.fluent.Request;
 import org.apache.http.client.utils.URIBuilder;
 
@@ -83,10 +81,8 @@ public class FieldApi1 extends AbstractApi<JsonClientAbstract> {
 	 * 
 	 * @param indexName
 	 *            The name of the index
-	 * @param json
-	 *            A JSON structure defining the fields
-	 * @throws ClientProtocolException
-	 * @throws UnsupportedEncodingException
+	 * @param field
+	 *            The field to create or update
 	 * @throws IOException
 	 * @throws URISyntaxException
 	 */

@@ -90,7 +90,6 @@ public class DictionaryApi1 extends AbstractApi<JsonClientAbstract> {
 	 *            The name of the index.
 	 * @param listName
 	 *            The name of the list.
-	 * @return true if the analyzer exists, false if not.
 	 * @throws IOException
 	 * @throws URISyntaxException
 	 */
@@ -111,7 +110,7 @@ public class DictionaryApi1 extends AbstractApi<JsonClientAbstract> {
 	 *            The name of the index
 	 * @param listName
 	 *            Name of the list
-	 * @param listSynonyms
+	 * @param stopwordsList
 	 *            List of synonyms, one set of synonyms by line, raw text
 	 * @throws IOException
 	 * @throws URISyntaxException
@@ -160,7 +159,6 @@ public class DictionaryApi1 extends AbstractApi<JsonClientAbstract> {
 	 *            The name of the index.
 	 * @param listName
 	 *            The name of the list.
-	 * @return true if the analyzer exists, false if not.
 	 * @throws IOException
 	 * @throws URISyntaxException
 	 */

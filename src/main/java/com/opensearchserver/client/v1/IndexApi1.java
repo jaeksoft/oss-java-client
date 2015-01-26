@@ -16,11 +16,9 @@
 package com.opensearchserver.client.v1;
 
 import java.io.IOException;
-import java.io.UnsupportedEncodingException;
 import java.net.URISyntaxException;
 
 import org.apache.http.HttpResponse;
-import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.fluent.Request;
 import org.apache.http.client.utils.URIBuilder;
 
@@ -42,17 +40,13 @@ public class IndexApi1 extends AbstractApi<JsonClientAbstract> {
 	 * 
 	 * @param indexName
 	 *            The name of the index
-	 * @param templateName
+	 * @param template
 	 *            The template
-	 * @param msTimeOut
-	 * @throws ClientProtocolException
-	 * @throws UnsupportedEncodingException
 	 * @throws IOException
 	 * @throws URISyntaxException
 	 */
 	public void createIndex(String indexName, TemplateEnum template)
-			throws ClientProtocolException, UnsupportedEncodingException,
-			IOException, URISyntaxException {
+			throws IOException, URISyntaxException {
 		URIBuilder uriBuilder = client.getBaseUrl("index/",
 				LinkUtils.UTF8_URL_Encode(indexName), "/template/",
 				LinkUtils.UTF8_URL_Encode(template.name()));
@@ -69,15 +63,6 @@ public class IndexApi1 extends AbstractApi<JsonClientAbstract> {
 	 * @return true if the index exists, false if not.
 	 * @throws IOException
 	 * @throws URISyntaxException
-	 */
-	/**
-	 * 
-	 * @param indexName
-	 * @param msTimeOut
-	 * @return
-	 * @throws IOException
-	 * @throws URISyntaxException
-	 * @throws ClientProtocolException
 	 */
 	public boolean indexExists(String indexName) throws URISyntaxException,
 			IOException {

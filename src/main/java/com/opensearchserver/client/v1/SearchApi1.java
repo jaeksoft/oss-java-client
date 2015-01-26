@@ -16,12 +16,10 @@
 package com.opensearchserver.client.v1;
 
 import java.io.IOException;
-import java.io.UnsupportedEncodingException;
 import java.net.URISyntaxException;
 import java.util.List;
 
 import org.apache.http.HttpResponse;
-import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.fluent.Request;
 import org.apache.http.client.utils.URIBuilder;
 
@@ -51,16 +49,11 @@ public class SearchApi1 extends AbstractApi<JsonClient1> {
 	 *            The name of the template
 	 * @param query
 	 *            The query
-	 * @param msTimeOut
-	 *            The timeout in milliseconds
-	 * @throws ClientProtocolException
-	 * @throws UnsupportedEncodingException
 	 * @throws IOException
 	 * @throws URISyntaxException
 	 */
 	public void createSearchFieldTemplate(String indexName, String template,
-			SearchFieldQuery query) throws ClientProtocolException,
-			UnsupportedEncodingException, IOException, URISyntaxException {
+			SearchFieldQuery query) throws IOException, URISyntaxException {
 		URIBuilder uriBuilder = client.getBaseUrl("index/",
 				LinkUtils.UTF8_URL_Encode(indexName), "/search/field/",
 				LinkUtils.UTF8_URL_Encode(template));
@@ -70,7 +63,7 @@ public class SearchApi1 extends AbstractApi<JsonClient1> {
 	}
 
 	/**
-	 * Make a search with a search field template
+	 * Execute a search with a search field template
 	 * 
 	 * @param indexName
 	 *            The name of the index
@@ -78,16 +71,13 @@ public class SearchApi1 extends AbstractApi<JsonClient1> {
 	 *            The name of the template
 	 * @param query
 	 *            Any overriding query parameter
-	 * @param msTimeOut
-	 *            The timeout in milliseconds
-	 * @return SearchResult
-	 * @throws ClientProtocolException
+	 * @return the search result
 	 * @throws IOException
 	 * @throws URISyntaxException
 	 */
-	public SearchResult1 searchFieldTemplate(String indexName, String template,
-			SearchFieldQuery query) throws ClientProtocolException,
-			IOException, URISyntaxException {
+	public SearchResult1 executeSearchFieldTemplate(String indexName,
+			String template, SearchFieldQuery query) throws IOException,
+			URISyntaxException {
 		URIBuilder uriBuilder = client.getBaseUrl("index/",
 				LinkUtils.UTF8_URL_Encode(indexName), "/search/field/",
 				LinkUtils.UTF8_URL_Encode(template));
@@ -102,16 +92,12 @@ public class SearchApi1 extends AbstractApi<JsonClient1> {
 	 *            The name of the index
 	 * @param query
 	 *            Any overriding query parameter
-	 * @param msTimeOut
-	 *            The timeout in milliseconds
-	 * @return SearchResult
-	 * @throws ClientProtocolException
+	 * @return the search result
 	 * @throws IOException
 	 * @throws URISyntaxException
 	 */
 	public SearchResult1 executeSearchField(String indexName,
-			SearchFieldQuery query) throws ClientProtocolException,
-			IOException, URISyntaxException {
+			SearchFieldQuery query) throws IOException, URISyntaxException {
 		URIBuilder uriBuilder = client.getBaseUrl("index/",
 				LinkUtils.UTF8_URL_Encode(indexName), "/search/field");
 		Request request = Request.Post(uriBuilder.build());
@@ -125,16 +111,12 @@ public class SearchApi1 extends AbstractApi<JsonClient1> {
 	 *            The name of the index
 	 * @param queryBatch
 	 *            The queries
-	 * @param msTimeOut
-	 *            The timeout in milliseconds
 	 * @return a list of results
-	 * @throws ClientProtocolException
 	 * @throws IOException
 	 * @throws URISyntaxException
 	 */
 	public List<SearchResult1> searchBatch(String indexName,
-			SearchQueryBatch queryBatch) throws ClientProtocolException,
-			IOException, URISyntaxException {
+			SearchQueryBatch queryBatch) throws IOException, URISyntaxException {
 		URIBuilder uriBuilder = client.getBaseUrl("index/",
 				LinkUtils.UTF8_URL_Encode(indexName), "/search/batch");
 		Request request = Request.Post(uriBuilder.build());
