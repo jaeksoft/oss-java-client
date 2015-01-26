@@ -6,7 +6,7 @@
 	<name>OpenSearchServer Java Client</name>
 	<packaging>jar</packaging>
 	<prerequisites>
-		<maven>3.0</maven>
+		<maven>3.2.1</maven>
 	</prerequisites>
 	<url>https://github.com/opensearchserver/oss-java-client</url>
 	<licenses>
@@ -28,9 +28,11 @@
 	</scm>
 	<issueManagement>
 		<url>https://github.com/opensearchserver/oss-java-client/issues</url>
+		<system>GIT</system>
 	</issueManagement>
 	<ciManagement>
 		<url>http://www.open-search-server.com/jenkins</url>
+		<system>Jenkins</system>
 	</ciManagement>
 	<parent>
 		<groupId>org.sonatype.oss</groupId>
@@ -93,10 +95,15 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-javadoc-plugin</artifactId>
-				<version>2.9.1</version>
+				<version>2.10.1</version>
 				<configuration>
 					<aggregate>true</aggregate>
-					<show>public</show>
+					<show>protected</show>
+					<nohelp>true</nohelp>
+					<links>
+						<link>http://github.com:opensearchserver/oss-java-client</link>
+						<link>http://www.opensearchserver.com/</link>
+					</links>
 				</configuration>
 				<executions>
 					<execution>
