@@ -1,0 +1,13 @@
+com.opensearchserver.client
+com.opensearchserver.client.api
+com.opensearchserver.client.api.index
+com.opensearchserver.client.api.index.result
+com.opensearchserver.client.api.search.query
+com.opensearchserver.client.api.search.query.filter
+com.opensearchserver.client.api.search.result
+com.opensearchserver.client.v1
+com.opensearchserver.client.v1.api.crawler.web
+com.opensearchserver.client.v1.api.search
+com.opensearchserver.client.v1.api.search.result
+com.opensearchserver.client.v2
+com.opensearchserver.client.v2.api.search.result
