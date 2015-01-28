@@ -46,6 +46,8 @@ public class JsonClient1 extends JsonClientAbstract {
 		URIBuilder uriBuilder = new URIBuilder()
 				.setScheme(uri.getScheme())
 				.setHost(uri.getHost())
+				.setPort(uri.getPort())
+				.setFragment(uri.getFragment())
 				.setPath(
 						StringUtils.fastConcat(uri.getPath(),
 								"/services/rest/", paths));

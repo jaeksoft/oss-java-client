@@ -41,7 +41,7 @@ public class JsonClient2 extends JsonClientAbstract {
 	@Override
 	final public URIBuilder getBaseUrl(String... paths) {
 		URIBuilder uriBuilder = new URIBuilder().setScheme(uri.getScheme())
-				.setHost(uri.getHost())
+				.setHost(uri.getHost()).setPort(uri.getPort())
 				.setPath(StringUtils.fastConcat(uri.getPath(), paths));
 		if (!StringUtils.isEmpty(login) && !StringUtils.isEmpty(key))
 			uriBuilder.setUserInfo(login, key);
