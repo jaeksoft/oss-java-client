@@ -45,7 +45,6 @@ public abstract class JsonClientAbstract {
 					u.getFragment());
 		else
 			uri = u;
-		System.out.println("URI: " + uri);
 		this.login = login;
 		this.key = key;
 		this.msTimeOut = msTimeOut;
