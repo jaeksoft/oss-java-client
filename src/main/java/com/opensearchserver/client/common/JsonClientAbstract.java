@@ -40,8 +40,9 @@ public abstract class JsonClientAbstract {
 		URI u = new URI(url);
 		String path = u.getPath();
 		if (path.endsWith("/"))
-			uri = new URI(u.getScheme(), u.getHost(), path.substring(0,
-					path.length() - 1), u.getFragment());
+			uri = new URI(u.getScheme(), null, u.getHost(), u.getPort(),
+					path.substring(0, path.length() - 1), u.getQuery(),
+					u.getFragment());
 		else
 			uri = u;
 		this.login = login;
@@ -88,6 +89,7 @@ public abstract class JsonClientAbstract {
 						new JsonHttpResponseHandler.JsonValueResponse<T>(
 								ContentType.APPLICATION_JSON, jsonResultClass,
 								expectedCodes));
+
 	}
 
 	/**
