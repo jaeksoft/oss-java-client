@@ -43,6 +43,9 @@ public class SearchResult2 extends AbstractDocumentResult {
 	@XmlElement(name = "document")
 	public List<DocumentResult2> documents;
 
+	@XmlElement(name = "facet")
+	public List<FacetResult2> facets;
+
 	public SearchResult2() {
 		documents = null;
 	}
@@ -62,6 +65,28 @@ public class SearchResult2 extends AbstractDocumentResult {
 		if (documents == null)
 			documents = new ArrayList<DocumentResult2>();
 		documents.add(document);
+		return this;
+	}
+
+	/**
+	 * @param facet
+	 *            the FacetResult to add
+	 */
+	@XmlTransient
+	@JsonIgnore
+	public SearchResult2 addFacet(FacetResult2 facet) {
+		if (facets == null)
+			facets = new ArrayList<FacetResult2>(1);
+		facets.add(facet);
+		return this;
+	}
+
+	/**
+	 * @param facets
+	 *            the facets to set
+	 */
+	public SearchResult2 setFacets(List<FacetResult2> facets) {
+		this.facets = facets;
 		return this;
 	}
 
