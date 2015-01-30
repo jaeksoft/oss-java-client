@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.opensearchserver.client.common.search.result;
+package com.opensearchserver.client.v2.search;
 
 import java.util.Map;
 
@@ -28,7 +28,7 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 @XmlAccessorType(XmlAccessType.FIELD)
 @JsonInclude(Include.NON_EMPTY)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class FacetResult {
+public class FacetResult2 {
 
 	@XmlElement(name = "fieldName")
 	public String fieldName;
@@ -36,7 +36,7 @@ public class FacetResult {
 	@XmlElement(name = "terms")
 	public Map<String, Long> terms;
 
-	public FacetResult() {
+	public FacetResult2() {
 		terms = null;
 		fieldName = null;
 	}
@@ -45,7 +45,7 @@ public class FacetResult {
 	 * @param fieldName
 	 *            the fieldName to set
 	 */
-	public FacetResult setFieldName(String fieldName) {
+	public FacetResult2 setFieldName(String fieldName) {
 		this.fieldName = fieldName;
 		return this;
 	}
@@ -54,7 +54,7 @@ public class FacetResult {
 	 * @param terms
 	 *            the terms to set
 	 */
-	public FacetResult setTerms(Map<String, Long> terms) {
+	public FacetResult2 setTerms(Map<String, Long> terms) {
 		this.terms = terms;
 		return this;
 	}

@@ -15,17 +15,12 @@
  */
 package com.opensearchserver.client.common.search.result;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.opensearchserver.client.common.CommonResult;
@@ -34,9 +29,6 @@ import com.opensearchserver.client.common.CommonResult;
 @XmlAccessorType(XmlAccessType.FIELD)
 @JsonInclude(Include.NON_EMPTY)
 public abstract class AbstractSearchResult extends CommonResult {
-
-	@XmlElement(name = "facet")
-	public List<FacetResult> facets;
 
 	@XmlElement
 	public String query;
@@ -61,26 +53,12 @@ public abstract class AbstractSearchResult extends CommonResult {
 
 	public AbstractSearchResult() {
 		query = null;
-		facets = null;
 		rows = null;
 		start = null;
 		numFound = null;
 		time = null;
 		collapsedDocCount = null;
 		maxScore = null;
-	}
-
-	/**
-	 * @param facet
-	 *            the FacetResult to add
-	 */
-	@XmlTransient
-	@JsonIgnore
-	public AbstractSearchResult addFacet(FacetResult facet) {
-		if (facets == null)
-			facets = new ArrayList<FacetResult>(1);
-		facets.add(facet);
-		return this;
 	}
 
 	/**
@@ -143,15 +121,6 @@ public abstract class AbstractSearchResult extends CommonResult {
 	 */
 	public AbstractSearchResult setMaxScore(Float maxScore) {
 		this.maxScore = maxScore;
-		return this;
-	}
-
-	/**
-	 * @param facets
-	 *            the facets to set
-	 */
-	public AbstractSearchResult setFacets(List<FacetResult> facets) {
-		this.facets = facets;
 		return this;
 	}
 

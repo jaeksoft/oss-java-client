@@ -28,12 +28,12 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.core.type.TypeReference;
-import com.opensearchserver.client.common.search.result.AbstractDocumentResult;
+import com.opensearchserver.client.common.search.result.AbstractSearchResult;
 
 @XmlAccessorType(XmlAccessType.FIELD)
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(Include.NON_EMPTY)
-public class SearchResult1 extends AbstractDocumentResult {
+public class SearchResult1 extends AbstractSearchResult {
 
 	@XmlTransient
 	@JsonIgnore
@@ -42,6 +42,9 @@ public class SearchResult1 extends AbstractDocumentResult {
 
 	@XmlElement(name = "document")
 	public List<DocumentResult1> documents;
+
+	@XmlElement(name = "facet")
+	public List<FacetResult1> facets;
 
 	public SearchResult1() {
 		documents = null;
@@ -62,6 +65,28 @@ public class SearchResult1 extends AbstractDocumentResult {
 		if (documents == null)
 			documents = new ArrayList<DocumentResult1>();
 		documents.add(document);
+		return this;
+	}
+
+	/**
+	 * @param facet
+	 *            the FacetResult to add
+	 */
+	@XmlTransient
+	@JsonIgnore
+	public SearchResult1 addFacet(FacetResult1 facet) {
+		if (facets == null)
+			facets = new ArrayList<FacetResult1>(1);
+		facets.add(facet);
+		return this;
+	}
+
+	/**
+	 * @param facets
+	 *            the facets to set
+	 */
+	public SearchResult1 setFacets(List<FacetResult1> facets) {
+		this.facets = facets;
 		return this;
 	}
 

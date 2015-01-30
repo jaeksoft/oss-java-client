@@ -41,10 +41,14 @@ public class DocumentResult2 extends AbstractDocumentResult {
 	@XmlElement(name = "join")
 	public List<DocumentResult2> joins;
 
+	@XmlElement(name = "collapsed")
+	public List<DocumentResult2> collapsedDocs;
+
 	public DocumentResult2() {
 		fields = null;
 		snippets = null;
 		joins = null;
+		collapsedDocs = null;
 	}
 
 	/**
@@ -69,8 +73,18 @@ public class DocumentResult2 extends AbstractDocumentResult {
 	 * @param joins
 	 *            the joins to set
 	 */
-	public void setJoins(List<DocumentResult2> joins) {
+	public DocumentResult2 setJoins(List<DocumentResult2> joins) {
 		this.joins = joins;
+		return this;
+	}
+
+	/**
+	 * @param collapsedDocs
+	 *            the collapsedDocs to set
+	 */
+	public DocumentResult2 setCollapsedDocs(List<DocumentResult2> collapsedDocs) {
+		this.collapsedDocs = collapsedDocs;
+		return this;
 	}
 
 }
