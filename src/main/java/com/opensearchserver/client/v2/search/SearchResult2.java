@@ -28,12 +28,12 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.core.type.TypeReference;
-import com.opensearchserver.client.common.search.result.AbstractDocumentResult;
+import com.opensearchserver.client.common.search.result.AbstractSearchResult;
 
 @XmlAccessorType(XmlAccessType.FIELD)
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(Include.NON_EMPTY)
-public class SearchResult2 extends AbstractDocumentResult {
+public class SearchResult2 extends AbstractSearchResult {
 
 	@XmlTransient
 	@JsonIgnore
