@@ -50,11 +50,17 @@ public class UpdateApi1 extends AbstractApi<JsonClientAbstract> {
 	 */
 	public void deleteDocumentsByFieldValue(String indexName, String fieldName,
 			List<String> values) throws IOException, URISyntaxException {
+		StringBuilder deleteValues = new StringBuilder();
+		for (String value : values) {
+			deleteValues.append('/');
+			deleteValues.append(LinkUtils.UTF8_URL_Encode(value));
+		}
 		URIBuilder uriBuilder = client.getBaseUrl("index/",
 				LinkUtils.UTF8_URL_Encode(indexName),
-				"/document/" + LinkUtils.UTF8_URL_Encode(fieldName));
+				"/document/" + LinkUtils.UTF8_URL_Encode(fieldName)
+						+ deleteValues.toString());
 		Request request = Request.Delete(uriBuilder.build());
-		HttpResponse response = client.execute(request, values, null);
+		HttpResponse response = client.execute(request, null, null);
 		HttpUtils.checkStatusCodes(response.getStatusLine(), 200);
 	}
 

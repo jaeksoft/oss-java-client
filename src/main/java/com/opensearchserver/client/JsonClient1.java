@@ -21,6 +21,7 @@ import org.apache.http.client.utils.URIBuilder;
 
 import com.opensearchserver.client.common.JsonClientAbstract;
 import com.opensearchserver.utils.StringUtils;
+import com.opensearchserver.utils.json.ServerResource;
 
 /**
  * This client is for OpenSearchServer v1.5.x
@@ -31,6 +32,10 @@ public class JsonClient1 extends JsonClientAbstract {
 	public JsonClient1(String url, String login, String key, int msTimeout)
 			throws URISyntaxException {
 		super(url, login, key, msTimeout);
+	}
+
+	public JsonClient1(ServerResource serverResource) throws URISyntaxException {
+		super(serverResource);
 	}
 
 	/**

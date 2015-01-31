@@ -27,13 +27,14 @@ import org.apache.http.entity.ContentType;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.opensearchserver.utils.json.JsonHttpResponseHandler;
 import com.opensearchserver.utils.json.JsonMapper;
+import com.opensearchserver.utils.json.ServerResource;
 
 public abstract class JsonClientAbstract {
 
 	protected final URI uri;
 	protected final String login;
 	protected final String key;
-	public final int msTimeOut;
+	protected final int msTimeOut;
 
 	public JsonClientAbstract(String url, String login, String key,
 			int msTimeOut) throws URISyntaxException {
@@ -48,6 +49,12 @@ public abstract class JsonClientAbstract {
 		this.login = login;
 		this.key = key;
 		this.msTimeOut = msTimeOut;
+	}
+
+	public JsonClientAbstract(ServerResource serverResource)
+			throws URISyntaxException {
+		this(serverResource.url, serverResource.login, serverResource.api_key,
+				serverResource.time_out);
 	}
 
 	/**
