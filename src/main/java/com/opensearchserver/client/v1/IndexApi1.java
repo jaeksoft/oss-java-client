@@ -47,6 +47,8 @@ public class IndexApi1 extends AbstractApi<JsonClientAbstract> {
 	 */
 	public void createIndex(String indexName, TemplateEnum template)
 			throws IOException, URISyntaxException {
+		if (indexName == null || indexName.isEmpty())
+			throw new IllegalArgumentException("The index name is missing.");
 		URIBuilder uriBuilder = client.getBaseUrl("index/",
 				LinkUtils.UTF8_URL_Encode(indexName), "/template/",
 				LinkUtils.UTF8_URL_Encode(template.name()));
@@ -66,6 +68,8 @@ public class IndexApi1 extends AbstractApi<JsonClientAbstract> {
 	 */
 	public boolean indexExists(String indexName) throws URISyntaxException,
 			IOException {
+		if (indexName == null || indexName.isEmpty())
+			throw new IllegalArgumentException("The index name is missing.");
 		URIBuilder uriBuilder = client.getBaseUrl("index/",
 				LinkUtils.UTF8_URL_Encode(indexName));
 		Request request = Request.Get(uriBuilder.build());
@@ -89,6 +93,8 @@ public class IndexApi1 extends AbstractApi<JsonClientAbstract> {
 	 */
 	public void deleteIndex(String indexName) throws IOException,
 			URISyntaxException {
+		if (indexName == null || indexName.isEmpty())
+			throw new IllegalArgumentException("The index name is missing.");
 		URIBuilder uriBuilder = client.getBaseUrl("index/",
 				LinkUtils.UTF8_URL_Encode(indexName));
 		Request request = Request.Delete(uriBuilder.build());
