@@ -34,6 +34,7 @@ public class SearchField {
 	public Double boost;
 	public Double phraseBoost;
 	public Integer phraseSlop;
+	public Integer booleanGroup;
 
 	public SearchField() {
 		field = null;
@@ -41,6 +42,7 @@ public class SearchField {
 		boost = null;
 		phraseBoost = null;
 		phraseSlop = null;
+		booleanGroup = null;
 	}
 
 	/**
@@ -88,4 +90,12 @@ public class SearchField {
 		return this;
 	}
 
+	/**
+	 * @param booleanGroup
+	 *            the booleanGroup to set
+	 */
+	public SearchField setBooleanGroup(Integer booleanGroup) {
+		this.booleanGroup = booleanGroup;
+		return this;
+	}
 }
