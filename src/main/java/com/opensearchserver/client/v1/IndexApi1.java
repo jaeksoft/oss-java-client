@@ -27,7 +27,6 @@ import com.opensearchserver.client.common.AbstractApi;
 import com.opensearchserver.client.common.JsonClientAbstract;
 import com.opensearchserver.client.common.index.TemplateEnum;
 import com.opensearchserver.utils.HttpUtils;
-import com.opensearchserver.utils.LinkUtils;
 
 public class IndexApi1 extends AbstractApi<JsonClientAbstract> {
 
@@ -49,9 +48,8 @@ public class IndexApi1 extends AbstractApi<JsonClientAbstract> {
 			throws IOException, URISyntaxException {
 		if (indexName == null || indexName.isEmpty())
 			throw new IllegalArgumentException("The index name is missing.");
-		URIBuilder uriBuilder = client.getBaseUrl("index/",
-				LinkUtils.UTF8_URL_Encode(indexName), "/template/",
-				LinkUtils.UTF8_URL_Encode(template.name()));
+		URIBuilder uriBuilder = client.getBaseUrl("index/", indexName,
+				"/template/", template.name());
 		Request request = Request.Post(uriBuilder.build());
 		HttpResponse response = client.execute(request, null, null);
 		HttpUtils.checkStatusCodes(response.getStatusLine(), 200);
@@ -70,8 +68,7 @@ public class IndexApi1 extends AbstractApi<JsonClientAbstract> {
 			IOException {
 		if (indexName == null || indexName.isEmpty())
 			throw new IllegalArgumentException("The index name is missing.");
-		URIBuilder uriBuilder = client.getBaseUrl("index/",
-				LinkUtils.UTF8_URL_Encode(indexName));
+		URIBuilder uriBuilder = client.getBaseUrl("index/", indexName);
 		Request request = Request.Get(uriBuilder.build());
 		HttpResponse response = client.execute(request, null, null);
 		switch (HttpUtils.checkStatusCodes(response.getStatusLine(), 200, 404)) {
@@ -95,8 +92,7 @@ public class IndexApi1 extends AbstractApi<JsonClientAbstract> {
 			URISyntaxException {
 		if (indexName == null || indexName.isEmpty())
 			throw new IllegalArgumentException("The index name is missing.");
-		URIBuilder uriBuilder = client.getBaseUrl("index/",
-				LinkUtils.UTF8_URL_Encode(indexName));
+		URIBuilder uriBuilder = client.getBaseUrl("index/", indexName);
 		Request request = Request.Delete(uriBuilder.build());
 		HttpResponse response = client.execute(request, null, null);
 		HttpUtils.checkStatusCodes(response.getStatusLine(), 200);
