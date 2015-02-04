@@ -28,7 +28,6 @@ import com.opensearchserver.client.common.AbstractApi;
 import com.opensearchserver.client.common.JsonClientAbstract;
 import com.opensearchserver.client.common.update.DocumentUpdate;
 import com.opensearchserver.utils.HttpUtils;
-import com.opensearchserver.utils.LinkUtils;
 
 public class UpdateApi1 extends AbstractApi<JsonClientAbstract> {
 
@@ -53,12 +52,10 @@ public class UpdateApi1 extends AbstractApi<JsonClientAbstract> {
 		StringBuilder deleteValues = new StringBuilder();
 		for (String value : values) {
 			deleteValues.append('/');
-			deleteValues.append(LinkUtils.UTF8_URL_Encode(value));
+			deleteValues.append(value);
 		}
-		URIBuilder uriBuilder = client.getBaseUrl("index/",
-				LinkUtils.UTF8_URL_Encode(indexName),
-				"/document/" + LinkUtils.UTF8_URL_Encode(fieldName)
-						+ deleteValues.toString());
+		URIBuilder uriBuilder = client.getBaseUrl("index/", indexName,
+				"/document/" + fieldName + deleteValues.toString());
 		Request request = Request.Delete(uriBuilder.build());
 		HttpResponse response = client.execute(request, null, null);
 		HttpUtils.checkStatusCodes(response.getStatusLine(), 200);
@@ -76,8 +73,8 @@ public class UpdateApi1 extends AbstractApi<JsonClientAbstract> {
 	 */
 	public void updateDocuments(String indexName, List<DocumentUpdate> documents)
 			throws IOException, URISyntaxException {
-		URIBuilder uriBuilder = client.getBaseUrl("index/",
-				LinkUtils.UTF8_URL_Encode(indexName), "/document");
+		URIBuilder uriBuilder = client.getBaseUrl("index/", indexName,
+				"/document");
 		Request request = Request.Put(uriBuilder.build());
 		HttpResponse response = client.execute(request, documents, null);
 		HttpUtils.checkStatusCodes(response.getStatusLine(), 200);

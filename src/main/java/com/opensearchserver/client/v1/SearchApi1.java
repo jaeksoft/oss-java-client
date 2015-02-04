@@ -29,7 +29,6 @@ import com.opensearchserver.client.common.search.query.SearchFieldQuery;
 import com.opensearchserver.client.common.search.query.SearchQueryBatch;
 import com.opensearchserver.client.v1.search.SearchResult1;
 import com.opensearchserver.utils.HttpUtils;
-import com.opensearchserver.utils.LinkUtils;
 
 /**
  * @version For OpenSearchServer v1.5.x
@@ -54,9 +53,8 @@ public class SearchApi1 extends AbstractApi<JsonClient1> {
 	 */
 	public void createSearchFieldTemplate(String indexName, String template,
 			SearchFieldQuery query) throws IOException, URISyntaxException {
-		URIBuilder uriBuilder = client.getBaseUrl("index/",
-				LinkUtils.UTF8_URL_Encode(indexName), "/search/field/",
-				LinkUtils.UTF8_URL_Encode(template));
+		URIBuilder uriBuilder = client.getBaseUrl("index/", indexName,
+				"/search/field/", template);
 		Request request = Request.Put(uriBuilder.build());
 		HttpResponse response = client.execute(request, query, null);
 		HttpUtils.checkStatusCodes(response.getStatusLine(), 200, 201);
@@ -78,9 +76,8 @@ public class SearchApi1 extends AbstractApi<JsonClient1> {
 	public SearchResult1 executeSearchFieldTemplate(String indexName,
 			String template, SearchFieldQuery query) throws IOException,
 			URISyntaxException {
-		URIBuilder uriBuilder = client.getBaseUrl("index/",
-				LinkUtils.UTF8_URL_Encode(indexName), "/search/field/",
-				LinkUtils.UTF8_URL_Encode(template));
+		URIBuilder uriBuilder = client.getBaseUrl("index/", indexName,
+				"/search/field/", template);
 		Request request = Request.Post(uriBuilder.build());
 		return client.execute(request, query, null, SearchResult1.class, 200);
 	}
@@ -98,8 +95,8 @@ public class SearchApi1 extends AbstractApi<JsonClient1> {
 	 */
 	public SearchResult1 executeSearchField(String indexName,
 			SearchFieldQuery query) throws IOException, URISyntaxException {
-		URIBuilder uriBuilder = client.getBaseUrl("index/",
-				LinkUtils.UTF8_URL_Encode(indexName), "/search/field");
+		URIBuilder uriBuilder = client.getBaseUrl("index/", indexName,
+				"/search/field");
 		Request request = Request.Post(uriBuilder.build());
 		return client.execute(request, query, null, SearchResult1.class, 200);
 	}
@@ -117,10 +114,11 @@ public class SearchApi1 extends AbstractApi<JsonClient1> {
 	 */
 	public List<SearchResult1> searchBatch(String indexName,
 			SearchQueryBatch queryBatch) throws IOException, URISyntaxException {
-		URIBuilder uriBuilder = client.getBaseUrl("index/",
-				LinkUtils.UTF8_URL_Encode(indexName), "/search/batch");
+		URIBuilder uriBuilder = client.getBaseUrl("index/", indexName,
+				"/search/batch");
 		Request request = Request.Post(uriBuilder.build());
 		return client.execute(request, queryBatch, null,
 				SearchResult1.LIST_TYPEREF, 200);
 	}
+
 }

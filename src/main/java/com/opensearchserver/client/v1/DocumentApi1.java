@@ -25,7 +25,6 @@ import com.opensearchserver.client.JsonClient1;
 import com.opensearchserver.client.common.AbstractApi;
 import com.opensearchserver.client.common.search.query.DocumentsQuery;
 import com.opensearchserver.client.v1.search.DocumentsResult1;
-import com.opensearchserver.utils.LinkUtils;
 
 /**
  * @version For OpenSearchServer v1.5.x
@@ -50,8 +49,8 @@ public class DocumentApi1 extends AbstractApi<JsonClient1> {
 	 */
 	public DocumentsResult1 documentsSearch(String indexName,
 			DocumentsQuery query) throws IOException, URISyntaxException {
-		URIBuilder uriBuilder = client.getBaseUrl("index/",
-				LinkUtils.UTF8_URL_Encode(indexName), "/documents");
+		URIBuilder uriBuilder = client.getBaseUrl("index/", indexName,
+				"/documents");
 		Request request = Request.Post(uriBuilder.build());
 		return client
 				.execute(request, query, null, DocumentsResult1.class, 200);

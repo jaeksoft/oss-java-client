@@ -30,7 +30,6 @@ import com.opensearchserver.client.v1.field.ResultField;
 import com.opensearchserver.client.v1.field.ResultFieldList;
 import com.opensearchserver.client.v1.field.SchemaField;
 import com.opensearchserver.utils.HttpUtils;
-import com.opensearchserver.utils.LinkUtils;
 
 public class FieldApi1 extends AbstractApi<JsonClientAbstract> {
 
@@ -51,9 +50,8 @@ public class FieldApi1 extends AbstractApi<JsonClientAbstract> {
 	 */
 	public ResultField getField(String indexName, String fieldName)
 			throws IOException, URISyntaxException {
-		URIBuilder uriBuilder = client.getBaseUrl("index/",
-				LinkUtils.UTF8_URL_Encode(indexName), "/field/",
-				LinkUtils.UTF8_URL_Encode(fieldName));
+		URIBuilder uriBuilder = client.getBaseUrl("index/", indexName,
+				"/field/", fieldName);
 		Request request = Request.Get(uriBuilder.build());
 		return client.execute(request, null, null, ResultField.class, 200, 404);
 
@@ -70,8 +68,8 @@ public class FieldApi1 extends AbstractApi<JsonClientAbstract> {
 	 */
 	public ResultFieldList getFields(String indexName) throws IOException,
 			URISyntaxException {
-		URIBuilder uriBuilder = client.getBaseUrl("index/",
-				LinkUtils.UTF8_URL_Encode(indexName), "/field");
+		URIBuilder uriBuilder = client
+				.getBaseUrl("index/", indexName, "/field");
 		Request request = Request.Get(uriBuilder.build());
 		return client.execute(request, null, null, ResultFieldList.class, 200);
 	}
@@ -88,9 +86,8 @@ public class FieldApi1 extends AbstractApi<JsonClientAbstract> {
 	 */
 	public void setField(String indexName, SchemaField field)
 			throws IOException, URISyntaxException {
-		URIBuilder uriBuilder = client.getBaseUrl("index/",
-				LinkUtils.UTF8_URL_Encode(indexName),
-				"/field/" + LinkUtils.UTF8_URL_Encode(field.name));
+		URIBuilder uriBuilder = client.getBaseUrl("index/", indexName,
+				"/field/" + field.name);
 		Request request = Request.Put(uriBuilder.build());
 		HttpResponse response = client.execute(request, field, null);
 		HttpUtils.checkStatusCodes(response.getStatusLine(), 200);
@@ -108,8 +105,8 @@ public class FieldApi1 extends AbstractApi<JsonClientAbstract> {
 	 */
 	public void setFields(String indexName, List<SchemaField> fields)
 			throws IOException, URISyntaxException {
-		URIBuilder uriBuilder = client.getBaseUrl("index/",
-				LinkUtils.UTF8_URL_Encode(indexName), "/field");
+		URIBuilder uriBuilder = client
+				.getBaseUrl("index/", indexName, "/field");
 		Request request = Request.Put(uriBuilder.build());
 		HttpResponse response = client.execute(request, fields, null);
 		HttpUtils.checkStatusCodes(response.getStatusLine(), 200);
@@ -127,9 +124,8 @@ public class FieldApi1 extends AbstractApi<JsonClientAbstract> {
 	 */
 	public void deleteField(String indexName, String fieldName)
 			throws IOException, URISyntaxException {
-		URIBuilder uriBuilder = client.getBaseUrl("index/",
-				LinkUtils.UTF8_URL_Encode(indexName), "/field/",
-				LinkUtils.UTF8_URL_Encode(fieldName));
+		URIBuilder uriBuilder = client.getBaseUrl("index/", indexName,
+				"/field/", fieldName);
 		Request request = Request.Delete(uriBuilder.build());
 		HttpResponse response = client.execute(request, null, null);
 		HttpUtils.checkStatusCodes(response.getStatusLine(), 200, 404);
@@ -150,8 +146,8 @@ public class FieldApi1 extends AbstractApi<JsonClientAbstract> {
 	public void setDefaultUniqueField(String indexName, String defaultField,
 			String uniqueField) throws IOException, URISyntaxException {
 		URIBuilder uriBuilder = client
-				.getBaseUrl("index/", LinkUtils.UTF8_URL_Encode(indexName),
-						"/field").addParameter("default", defaultField)
+				.getBaseUrl("index/", indexName, "/field")
+				.addParameter("default", defaultField)
 				.addParameter("unique", uniqueField);
 		Request request = Request.Post(uriBuilder.build());
 		HttpResponse response = client.execute(request, null, null);

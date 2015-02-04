@@ -32,7 +32,6 @@ import com.opensearchserver.client.common.AbstractApi;
 import com.opensearchserver.client.common.CommonListResult;
 import com.opensearchserver.client.common.CommonResult;
 import com.opensearchserver.client.v1.search.FieldValueList1;
-import com.opensearchserver.utils.LinkUtils;
 
 public class WebCrawlerApi1 extends AbstractApi<JsonClient1> {
 
@@ -62,9 +61,8 @@ public class WebCrawlerApi1 extends AbstractApi<JsonClient1> {
 			String indexName, String url, Integer msTimeOut)
 			throws ClientProtocolException, IOException, URISyntaxException {
 		URIBuilder uriBuilder = client
-				.getBaseUrl("index/", LinkUtils.UTF8_URL_Encode(indexName),
-						"/crawler/web/crawl").addParameter("url", url)
-				.addParameter("returnData", "true");
+				.getBaseUrl("index/", indexName, "/crawler/web/crawl")
+				.addParameter("url", url).addParameter("returnData", "true");
 		Request request = Request.Get(uriBuilder.build());
 		return client.execute(request, null, msTimeOut, LISTCRAWL_TYPEREF, 200);
 	}
@@ -85,9 +83,8 @@ public class WebCrawlerApi1 extends AbstractApi<JsonClient1> {
 	public CommonResult crawl(String indexName, String url, Integer msTimeOut)
 			throws ClientProtocolException, IOException, URISyntaxException {
 		URIBuilder uriBuilder = client
-				.getBaseUrl("index/", LinkUtils.UTF8_URL_Encode(indexName),
-						"/crawler/web/crawl").addParameter("url", url)
-				.addParameter("returnData", "false");
+				.getBaseUrl("index/", indexName, "/crawler/web/crawl")
+				.addParameter("url", url).addParameter("returnData", "false");
 		Request request = Request.Get(uriBuilder.build());
 		return client
 				.execute(request, null, msTimeOut, CommonResult.class, 200);
@@ -109,8 +106,7 @@ public class WebCrawlerApi1 extends AbstractApi<JsonClient1> {
 	public CommonResult setPatternStatus(String indexName,
 			Boolean inclusionStatus, Boolean exclusionStatus)
 			throws ClientProtocolException, IOException, URISyntaxException {
-		URIBuilder uriBuilder = client.getBaseUrl("index/",
-				LinkUtils.UTF8_URL_Encode(indexName),
+		URIBuilder uriBuilder = client.getBaseUrl("index/", indexName,
 				"/crawler/web/patterns/status");
 		if (inclusionStatus != null)
 			uriBuilder.addParameter("inclusion", inclusionStatus.toString());

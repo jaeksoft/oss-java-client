@@ -26,7 +26,6 @@ import com.opensearchserver.client.JsonClient1;
 import com.opensearchserver.client.common.AbstractApi;
 import com.opensearchserver.client.common.JsonClientAbstract;
 import com.opensearchserver.utils.HttpUtils;
-import com.opensearchserver.utils.LinkUtils;
 
 public class DictionaryApi1 extends AbstractApi<JsonClientAbstract> {
 
@@ -48,9 +47,8 @@ public class DictionaryApi1 extends AbstractApi<JsonClientAbstract> {
 	 */
 	public void createSynonymsList(String indexName, String listName,
 			String listSynonyms) throws IOException, URISyntaxException {
-		URIBuilder uriBuilder = client.getBaseUrl("index/",
-				LinkUtils.UTF8_URL_Encode(indexName), "/synonyms/",
-				LinkUtils.UTF8_URL_Encode(listName));
+		URIBuilder uriBuilder = client.getBaseUrl("index/", indexName,
+				"/synonyms/", listName);
 		Request request = Request.Put(uriBuilder.build());
 		HttpResponse response = client.execute(request, listSynonyms, null);
 		HttpUtils.checkStatusCodes(response.getStatusLine(), 200);
@@ -69,9 +67,8 @@ public class DictionaryApi1 extends AbstractApi<JsonClientAbstract> {
 	 */
 	public boolean checkSynonymsListExists(String indexName, String listName)
 			throws IOException, URISyntaxException {
-		URIBuilder uriBuilder = client.getBaseUrl("index/",
-				LinkUtils.UTF8_URL_Encode(indexName), "/synonyms/",
-				LinkUtils.UTF8_URL_Encode(listName));
+		URIBuilder uriBuilder = client.getBaseUrl("index/", indexName,
+				"/synonyms/", listName);
 		Request request = Request.Head(uriBuilder.build());
 		HttpResponse response = client.execute(request, null, null);
 		switch (HttpUtils.checkStatusCodes(response.getStatusLine(), 200, 404)) {
@@ -95,9 +92,8 @@ public class DictionaryApi1 extends AbstractApi<JsonClientAbstract> {
 	 */
 	public void deleteSynonymsList(String indexName, String listName)
 			throws IOException, URISyntaxException {
-		URIBuilder uriBuilder = client.getBaseUrl("index/",
-				LinkUtils.UTF8_URL_Encode(indexName), "/synonyms/",
-				LinkUtils.UTF8_URL_Encode(listName));
+		URIBuilder uriBuilder = client.getBaseUrl("index/", indexName,
+				"/synonyms/", listName);
 		Request request = Request.Delete(uriBuilder.build());
 		HttpResponse response = client.execute(request, null, null);
 		HttpUtils.checkStatusCodes(response.getStatusLine(), 200);
@@ -117,9 +113,8 @@ public class DictionaryApi1 extends AbstractApi<JsonClientAbstract> {
 	 */
 	public void createStopWordsList(String indexName, String listName,
 			String stopwordsList) throws IOException, URISyntaxException {
-		URIBuilder uriBuilder = client.getBaseUrl("index/",
-				LinkUtils.UTF8_URL_Encode(indexName), "/stopwords/",
-				LinkUtils.UTF8_URL_Encode(listName));
+		URIBuilder uriBuilder = client.getBaseUrl("index/", indexName,
+				"/stopwords/", listName);
 		Request request = Request.Put(uriBuilder.build());
 		HttpResponse response = client.execute(request, stopwordsList, null);
 		HttpUtils.checkStatusCodes(response.getStatusLine(), 200);
@@ -138,9 +133,8 @@ public class DictionaryApi1 extends AbstractApi<JsonClientAbstract> {
 	 */
 	public boolean checkStopWordsListExists(String indexName, String listName)
 			throws IOException, URISyntaxException {
-		URIBuilder uriBuilder = client.getBaseUrl("index/",
-				LinkUtils.UTF8_URL_Encode(indexName), "/stopwords/",
-				LinkUtils.UTF8_URL_Encode(listName));
+		URIBuilder uriBuilder = client.getBaseUrl("index/", indexName,
+				"/stopwords/", listName);
 		Request request = Request.Head(uriBuilder.build());
 		HttpResponse response = client.execute(request, null, null);
 		switch (HttpUtils.checkStatusCodes(response.getStatusLine(), 200, 404)) {
@@ -164,9 +158,8 @@ public class DictionaryApi1 extends AbstractApi<JsonClientAbstract> {
 	 */
 	public void deleteStopWordsList(String indexName, String listName)
 			throws IOException, URISyntaxException {
-		URIBuilder uriBuilder = client.getBaseUrl("index/",
-				LinkUtils.UTF8_URL_Encode(indexName), "/stopwords/",
-				LinkUtils.UTF8_URL_Encode(listName));
+		URIBuilder uriBuilder = client.getBaseUrl("index/", indexName,
+				"/stopwords/", listName);
 		Request request = Request.Delete(uriBuilder.build());
 		HttpResponse response = client.execute(request, null, null);
 		HttpUtils.checkStatusCodes(response.getStatusLine(), 200);

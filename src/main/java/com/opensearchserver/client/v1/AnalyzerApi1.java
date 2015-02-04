@@ -30,7 +30,6 @@ import com.opensearchserver.client.common.JsonClientAbstract;
 import com.opensearchserver.client.common.LanguageEnum;
 import com.opensearchserver.client.common.analyzer.AnalyzerItem;
 import com.opensearchserver.utils.HttpUtils;
-import com.opensearchserver.utils.LinkUtils;
 
 public class AnalyzerApi1 extends AbstractApi<JsonClientAbstract> {
 
@@ -53,10 +52,8 @@ public class AnalyzerApi1 extends AbstractApi<JsonClientAbstract> {
 	 */
 	public boolean checkAnalyzerExists(String indexName, String analyzerName,
 			LanguageEnum analyzerLang) throws IOException, URISyntaxException {
-		URIBuilder uriBuilder = client.getBaseUrl("index/",
-				LinkUtils.UTF8_URL_Encode(indexName), "/analyzer/",
-				LinkUtils.UTF8_URL_Encode(analyzerName), "/lang/",
-				analyzerLang.toString());
+		URIBuilder uriBuilder = client.getBaseUrl("index/", indexName,
+				"/analyzer/", analyzerName, "/lang/", analyzerLang.toString());
 		Request request = Request.Get(uriBuilder.build());
 		HttpResponse response = client.execute(request, null, null);
 		switch (HttpUtils.checkStatusCodes(response.getStatusLine(), 200, 404)) {
@@ -88,10 +85,8 @@ public class AnalyzerApi1 extends AbstractApi<JsonClientAbstract> {
 			String analyzerName, LanguageEnum analyzerLang)
 			throws ClientProtocolException, UnsupportedEncodingException,
 			IOException, URISyntaxException {
-		URIBuilder uriBuilder = client.getBaseUrl("index/",
-				LinkUtils.UTF8_URL_Encode(indexName), "/analyzer/",
-				LinkUtils.UTF8_URL_Encode(analyzerName), "/lang/",
-				analyzerLang.toString());
+		URIBuilder uriBuilder = client.getBaseUrl("index/", indexName,
+				"/analyzer/", analyzerName, "/lang/", analyzerLang.toString());
 		Request request = Request.Put(uriBuilder.build());
 		HttpResponse response = client.execute(request, analyzer, null);
 		HttpUtils.checkStatusCodes(response.getStatusLine(), 200);
