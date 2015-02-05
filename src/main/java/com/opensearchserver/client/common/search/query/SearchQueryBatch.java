@@ -36,7 +36,20 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo.Id;
 public class SearchQueryBatch {
 
 	public static enum QueryModeEnum {
-		all, first
+		/**
+		 * All queries are executed
+		 */
+		all,
+
+		/**
+		 * The batch is stopped when a query found a result
+		 */
+		first,
+
+		/**
+		 * The behavior is managed by the batchAction parameter for each query
+		 */
+		manual
 	}
 
 	public QueryModeEnum mode;
@@ -73,7 +86,7 @@ public class SearchQueryBatch {
 		return this;
 	}
 
-	public SearchQueryBatch seMode(QueryModeEnum mode) {
+	public SearchQueryBatch setMode(QueryModeEnum mode) {
 		this.mode = mode;
 		return this;
 	}

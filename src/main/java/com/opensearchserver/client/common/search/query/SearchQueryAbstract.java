@@ -73,6 +73,22 @@ public abstract class SearchQueryAbstract extends QueryAbstract {
 	public Boolean enableLog;
 	public List<String> customLogs;
 
+	public static enum BatchAction {
+
+		/**
+		 * The batch is stopped if the request found documents. IF not document
+		 * was found, the batch execute the next request.
+		 */
+		STOP_IF_FOUND,
+
+		/**
+		 * Go to the next request even if the request found documents.
+		 */
+		CONTINUE
+	}
+
+	public BatchAction batchAction;
+
 	public SearchQueryAbstract() {
 		query = null;
 		start = null;
@@ -93,6 +109,7 @@ public abstract class SearchQueryAbstract extends QueryAbstract {
 		enableLog = null;
 		customLogs = null;
 		emptyReturnsAll = null;
+		batchAction = null;
 	}
 
 	/**
@@ -377,4 +394,12 @@ public abstract class SearchQueryAbstract extends QueryAbstract {
 		return this;
 	}
 
+	/**
+	 * @param batchAction
+	 *            the batchAction to set
+	 */
+	public SearchQueryAbstract setBatchAction(BatchAction batchAction) {
+		this.batchAction = batchAction;
+		return this;
+	}
 }
