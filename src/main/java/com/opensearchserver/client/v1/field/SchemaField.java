@@ -15,6 +15,7 @@
  */
 package com.opensearchserver.client.v1.field;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -111,6 +112,17 @@ public class SchemaField {
 	 */
 	public SchemaField setCopyOf(List<String> copyOf) {
 		this.copyOf = copyOf;
+		return this;
+	}
+
+	/**
+	 * @param copyOf
+	 *            the copyOf to add
+	 */
+	public SchemaField addCopyOf(String copyOf) {
+		if (this.copyOf == null)
+			this.copyOf = new ArrayList<String>(1);
+		this.copyOf.add(copyOf);
 		return this;
 	}
 

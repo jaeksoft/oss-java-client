@@ -37,6 +37,12 @@ public class ClassFactoryItem {
 		scope = null;
 	}
 
+	public ClassFactoryItem(String name) {
+		this.name = null;
+		this.properties = null;
+		this.scope = null;
+	}
+
 	/**
 	 * @param name
 	 *            the name to set
