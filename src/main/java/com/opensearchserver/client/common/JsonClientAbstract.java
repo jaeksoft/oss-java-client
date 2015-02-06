@@ -87,15 +87,11 @@ public abstract class JsonClientAbstract {
 			request = request.bodyString(
 					JsonMapper.MAPPER.writeValueAsString(bodyObject),
 					ContentType.APPLICATION_JSON);
-		return request
-				.connectTimeout(msTimeOut)
-				.socketTimeout(msTimeOut)
+		JsonHttpResponseHandler.JsonValueResponse<T> responseHandler = new JsonHttpResponseHandler.JsonValueResponse<T>(
+				ContentType.APPLICATION_JSON, jsonResultClass, expectedCodes);
+		return request.connectTimeout(msTimeOut).socketTimeout(msTimeOut)
 				.addHeader("accept", ContentType.APPLICATION_JSON.toString())
-				.execute()
-				.handleResponse(
-						new JsonHttpResponseHandler.JsonValueResponse<T>(
-								ContentType.APPLICATION_JSON, jsonResultClass,
-								expectedCodes));
+				.execute().handleResponse(responseHandler);
 
 	}
 

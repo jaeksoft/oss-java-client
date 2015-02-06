@@ -18,6 +18,8 @@ package com.opensearchserver.client.test.v1;
 import java.io.IOException;
 import java.net.URISyntaxException;
 
+import org.junit.Test;
+
 import com.opensearchserver.client.JsonClient1;
 import com.opensearchserver.client.common.search.query.SearchField;
 import com.opensearchserver.client.common.search.query.SearchField.SearchFieldMode;
@@ -29,8 +31,8 @@ import com.opensearchserver.utils.json.JsonMapper;
 
 public class SearchFieldTest {
 
-	public void testSearchBooleanGroup(String[] args) throws IOException,
-			URISyntaxException {
+	@Test
+	public void testSearchBooleanGroup() throws IOException, URISyntaxException {
 		JsonClient1 client = new JsonClient1("http://localhost:8080", null,
 				null, 50000);
 		String queryGroup1 = "open search server";
