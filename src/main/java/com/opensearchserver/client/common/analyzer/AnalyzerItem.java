@@ -15,6 +15,7 @@
  */
 package com.opensearchserver.client.common.analyzer;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -31,6 +32,44 @@ public class AnalyzerItem {
 		queryTokenizer = null;
 		indexTokenizer = null;
 		filters = null;
+	}
+
+	/**
+	 * @param queryTokenizer
+	 *            the queryTokenizer to set
+	 */
+	public AnalyzerItem setQueryTokenizer(ClassFactoryItem queryTokenizer) {
+		this.queryTokenizer = queryTokenizer;
+		return this;
+	}
+
+	/**
+	 * @param indexTokenizer
+	 *            the indexTokenizer to set
+	 */
+	public AnalyzerItem setIndexTokenizer(ClassFactoryItem indexTokenizer) {
+		this.indexTokenizer = indexTokenizer;
+		return this;
+	}
+
+	/**
+	 * @param filters
+	 *            the filters to set
+	 */
+	public AnalyzerItem setFilters(List<ClassFactoryItem> filters) {
+		this.filters = filters;
+		return this;
+	}
+
+	/**
+	 * @param filter
+	 *            the filter to add
+	 * @return
+	 */
+	public AnalyzerItem addFilter(ClassFactoryItem filter) {
+		if (filters == null)
+			filters = new ArrayList<ClassFactoryItem>();
+		return this;
 	}
 
 }
