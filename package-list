@@ -8,5 +8,6 @@ com.opensearchserver.client.common.search.result
 com.opensearchserver.client.common.update
 com.opensearchserver.client.v1
 com.opensearchserver.client.v1.field
+com.opensearchserver.client.v1.replication
 com.opensearchserver.client.v1.search
 com.opensearchserver.client.v2.search
