@@ -38,7 +38,7 @@ public class ClassFactoryItem {
 	}
 
 	public ClassFactoryItem(String name) {
-		this.name = null;
+		this.name = name;
 		this.properties = null;
 		this.scope = null;
 	}
