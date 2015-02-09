@@ -57,7 +57,7 @@ public class SearchApi1 extends AbstractApi<JsonClient1> {
 				"/search/field/", template);
 		Request request = Request.Put(uriBuilder.build());
 		HttpResponse response = client.execute(request, query, null);
-		HttpUtils.checkStatusCodes(response.getStatusLine(), 200, 201);
+		HttpUtils.checkStatusCodes(response, 200, 201);
 	}
 
 	/**

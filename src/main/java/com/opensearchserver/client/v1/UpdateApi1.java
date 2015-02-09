@@ -58,7 +58,7 @@ public class UpdateApi1 extends AbstractApi<JsonClientAbstract> {
 				"/document/" + fieldName + deleteValues.toString());
 		Request request = Request.Delete(uriBuilder.build());
 		HttpResponse response = client.execute(request, null, null);
-		HttpUtils.checkStatusCodes(response.getStatusLine(), 200);
+		HttpUtils.checkStatusCodes(response, 200);
 	}
 
 	/**
@@ -77,7 +77,7 @@ public class UpdateApi1 extends AbstractApi<JsonClientAbstract> {
 				"/document");
 		Request request = Request.Put(uriBuilder.build());
 		HttpResponse response = client.execute(request, documents, null);
-		HttpUtils.checkStatusCodes(response.getStatusLine(), 200);
+		HttpUtils.checkStatusCodes(response, 200);
 	}
 
 }
