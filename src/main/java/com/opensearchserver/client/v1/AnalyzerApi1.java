@@ -56,7 +56,7 @@ public class AnalyzerApi1 extends AbstractApi<JsonClientAbstract> {
 				"/analyzer/", analyzerName, "/lang/", analyzerLang.toString());
 		Request request = Request.Get(uriBuilder.build());
 		HttpResponse response = client.execute(request, null, null);
-		switch (HttpUtils.checkStatusCodes(response.getStatusLine(), 200, 404)) {
+		switch (HttpUtils.checkStatusCodes(response, 200, 404)) {
 		case 200:
 			return true;
 		case 404:
@@ -89,7 +89,7 @@ public class AnalyzerApi1 extends AbstractApi<JsonClientAbstract> {
 				"/analyzer/", analyzerName, "/lang/", analyzerLang.toString());
 		Request request = Request.Put(uriBuilder.build());
 		HttpResponse response = client.execute(request, analyzer, null);
-		HttpUtils.checkStatusCodes(response.getStatusLine(), 200);
+		HttpUtils.checkStatusCodes(response, 200);
 	}
 
 }

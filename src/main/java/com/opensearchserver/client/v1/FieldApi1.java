@@ -90,7 +90,7 @@ public class FieldApi1 extends AbstractApi<JsonClientAbstract> {
 				"/field/" + field.name);
 		Request request = Request.Put(uriBuilder.build());
 		HttpResponse response = client.execute(request, field, null);
-		HttpUtils.checkStatusCodes(response.getStatusLine(), 200);
+		HttpUtils.checkStatusCodes(response, 200);
 	}
 
 	/**
@@ -109,7 +109,7 @@ public class FieldApi1 extends AbstractApi<JsonClientAbstract> {
 				.getBaseUrl("index/", indexName, "/field");
 		Request request = Request.Put(uriBuilder.build());
 		HttpResponse response = client.execute(request, fields, null);
-		HttpUtils.checkStatusCodes(response.getStatusLine(), 200);
+		HttpUtils.checkStatusCodes(response, 200);
 	}
 
 	/**
@@ -128,7 +128,7 @@ public class FieldApi1 extends AbstractApi<JsonClientAbstract> {
 				"/field/", fieldName);
 		Request request = Request.Delete(uriBuilder.build());
 		HttpResponse response = client.execute(request, null, null);
-		HttpUtils.checkStatusCodes(response.getStatusLine(), 200, 404);
+		HttpUtils.checkStatusCodes(response, 200, 404);
 	}
 
 	/**
@@ -151,6 +151,6 @@ public class FieldApi1 extends AbstractApi<JsonClientAbstract> {
 				.addParameter("unique", uniqueField);
 		Request request = Request.Post(uriBuilder.build());
 		HttpResponse response = client.execute(request, null, null);
-		HttpUtils.checkStatusCodes(response.getStatusLine(), 200);
+		HttpUtils.checkStatusCodes(response, 200);
 	}
 }

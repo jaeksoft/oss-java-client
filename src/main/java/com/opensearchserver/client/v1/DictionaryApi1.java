@@ -51,7 +51,7 @@ public class DictionaryApi1 extends AbstractApi<JsonClientAbstract> {
 				"/synonyms/", listName);
 		Request request = Request.Put(uriBuilder.build());
 		HttpResponse response = client.execute(request, listSynonyms, null);
-		HttpUtils.checkStatusCodes(response.getStatusLine(), 200);
+		HttpUtils.checkStatusCodes(response, 200);
 	}
 
 	/**
@@ -71,7 +71,7 @@ public class DictionaryApi1 extends AbstractApi<JsonClientAbstract> {
 				"/synonyms/", listName);
 		Request request = Request.Head(uriBuilder.build());
 		HttpResponse response = client.execute(request, null, null);
-		switch (HttpUtils.checkStatusCodes(response.getStatusLine(), 200, 404)) {
+		switch (HttpUtils.checkStatusCodes(response, 200, 404)) {
 		case 200:
 			return true;
 		case 404:
@@ -96,7 +96,7 @@ public class DictionaryApi1 extends AbstractApi<JsonClientAbstract> {
 				"/synonyms/", listName);
 		Request request = Request.Delete(uriBuilder.build());
 		HttpResponse response = client.execute(request, null, null);
-		HttpUtils.checkStatusCodes(response.getStatusLine(), 200);
+		HttpUtils.checkStatusCodes(response, 200);
 	}
 
 	/**
@@ -117,7 +117,7 @@ public class DictionaryApi1 extends AbstractApi<JsonClientAbstract> {
 				"/stopwords/", listName);
 		Request request = Request.Put(uriBuilder.build());
 		HttpResponse response = client.execute(request, stopwordsList, null);
-		HttpUtils.checkStatusCodes(response.getStatusLine(), 200);
+		HttpUtils.checkStatusCodes(response, 200);
 	}
 
 	/**
@@ -137,7 +137,7 @@ public class DictionaryApi1 extends AbstractApi<JsonClientAbstract> {
 				"/stopwords/", listName);
 		Request request = Request.Head(uriBuilder.build());
 		HttpResponse response = client.execute(request, null, null);
-		switch (HttpUtils.checkStatusCodes(response.getStatusLine(), 200, 404)) {
+		switch (HttpUtils.checkStatusCodes(response, 200, 404)) {
 		case 200:
 			return true;
 		case 404:
@@ -162,6 +162,6 @@ public class DictionaryApi1 extends AbstractApi<JsonClientAbstract> {
 				"/stopwords/", listName);
 		Request request = Request.Delete(uriBuilder.build());
 		HttpResponse response = client.execute(request, null, null);
-		HttpUtils.checkStatusCodes(response.getStatusLine(), 200);
+		HttpUtils.checkStatusCodes(response, 200);
 	}
 }

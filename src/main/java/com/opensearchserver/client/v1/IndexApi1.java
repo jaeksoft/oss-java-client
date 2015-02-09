@@ -52,7 +52,7 @@ public class IndexApi1 extends AbstractApi<JsonClientAbstract> {
 				"/template/", template.name());
 		Request request = Request.Post(uriBuilder.build());
 		HttpResponse response = client.execute(request, null, null);
-		HttpUtils.checkStatusCodes(response.getStatusLine(), 200);
+		HttpUtils.checkStatusCodes(response, 200);
 	}
 
 	/**
@@ -71,7 +71,7 @@ public class IndexApi1 extends AbstractApi<JsonClientAbstract> {
 		URIBuilder uriBuilder = client.getBaseUrl("index/", indexName);
 		Request request = Request.Get(uriBuilder.build());
 		HttpResponse response = client.execute(request, null, null);
-		switch (HttpUtils.checkStatusCodes(response.getStatusLine(), 200, 404)) {
+		switch (HttpUtils.checkStatusCodes(response, 200, 404)) {
 		case 200:
 			return true;
 		case 404:
@@ -95,7 +95,7 @@ public class IndexApi1 extends AbstractApi<JsonClientAbstract> {
 		URIBuilder uriBuilder = client.getBaseUrl("index/", indexName);
 		Request request = Request.Delete(uriBuilder.build());
 		HttpResponse response = client.execute(request, null, null);
-		HttpUtils.checkStatusCodes(response.getStatusLine(), 200);
+		HttpUtils.checkStatusCodes(response, 200);
 	}
 
 }
