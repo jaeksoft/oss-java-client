@@ -112,7 +112,7 @@ public class WebCrawlerApi1 extends AbstractApi<JsonClient1> {
 			uriBuilder.addParameter("inclusion", inclusionStatus.toString());
 		if (exclusionStatus != null)
 			uriBuilder.addParameter("exclusion", exclusionStatus.toString());
-		Request request = Request.Get(uriBuilder.build());
+		Request request = Request.Put(uriBuilder.build());
 		return client.execute(request, null, null, CommonResult.class, 200);
 	}
 }
