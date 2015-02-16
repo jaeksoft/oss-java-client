@@ -32,7 +32,7 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 public abstract class AbstractDocumentResult {
 
 	@XmlAttribute
-	public Integer pos;
+	public Long pos;
 
 	@XmlAttribute
 	public Float score;
@@ -66,7 +66,7 @@ public abstract class AbstractDocumentResult {
 	 * @param pos
 	 *            the pos to set
 	 */
-	public void setPos(Integer pos) {
+	public void setPos(Long pos) {
 		this.pos = pos;
 	}
 
