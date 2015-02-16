@@ -37,7 +37,7 @@ public abstract class AbstractSearchResult extends CommonResult {
 	public Integer rows;
 
 	@XmlAttribute
-	public Integer start;
+	public Long start;
 
 	@XmlAttribute
 	public Long numFound;
@@ -83,7 +83,7 @@ public abstract class AbstractSearchResult extends CommonResult {
 	 * @param start
 	 *            the start to set
 	 */
-	public AbstractSearchResult setStart(Integer start) {
+	public AbstractSearchResult setStart(Long start) {
 		this.start = start;
 		return this;
 	}

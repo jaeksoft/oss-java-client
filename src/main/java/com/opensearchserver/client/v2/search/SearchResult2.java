@@ -16,7 +16,9 @@
 package com.opensearchserver.client.v2.search;
 
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -44,7 +46,7 @@ public class SearchResult2 extends AbstractSearchResult {
 	public List<DocumentResult2> documents;
 
 	@XmlElement(name = "facet")
-	public List<FacetResult2> facets;
+	public Map<String, Map<String, Long>> facets;
 
 	public SearchResult2() {
 		documents = null;
@@ -74,10 +76,10 @@ public class SearchResult2 extends AbstractSearchResult {
 	 */
 	@XmlTransient
 	@JsonIgnore
-	public SearchResult2 addFacet(FacetResult2 facet) {
+	public SearchResult2 addFacet(String name, LinkedHashMap<String, Long> terms) {
 		if (facets == null)
-			facets = new ArrayList<FacetResult2>(1);
-		facets.add(facet);
+			facets = new LinkedHashMap<String, Map<String, Long>>();
+		facets.put(name.intern(), terms);
 		return this;
 	}
 
@@ -85,7 +87,7 @@ public class SearchResult2 extends AbstractSearchResult {
 	 * @param facets
 	 *            the facets to set
 	 */
-	public SearchResult2 setFacets(List<FacetResult2> facets) {
+	public SearchResult2 setFacets(Map<String, Map<String, Long>> facets) {
 		this.facets = facets;
 		return this;
 	}

@@ -15,48 +15,26 @@
  */
 package com.opensearchserver.client.v2.search;
 
-import java.util.Map;
+import java.util.List;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
-@XmlAccessorType(XmlAccessType.FIELD)
+@XmlRootElement(name = "result")
+@XmlAccessorType(XmlAccessType.PUBLIC_MEMBER)
 @JsonInclude(Include.NON_EMPTY)
-@JsonIgnoreProperties(ignoreUnknown = true)
-public class FacetResult2 {
+public class DocumentsResult2 {
 
-	@XmlElement(name = "fieldName")
-	public String fieldName;
+	@XmlElement(name = "document")
+	public List<DocumentResult2> documents;
 
-	@XmlElement(name = "terms")
-	public Map<String, Long> terms;
-
-	public FacetResult2() {
-		terms = null;
-		fieldName = null;
-	}
-
-	/**
-	 * @param fieldName
-	 *            the fieldName to set
-	 */
-	public FacetResult2 setFieldName(String fieldName) {
-		this.fieldName = fieldName;
-		return this;
-	}
-
-	/**
-	 * @param terms
-	 *            the terms to set
-	 */
-	public FacetResult2 setTerms(Map<String, Long> terms) {
-		this.terms = terms;
-		return this;
+	public DocumentsResult2() {
+		documents = null;
 	}
 
 }
