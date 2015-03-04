@@ -15,7 +15,7 @@
 			<distribution>repo</distribution>
 		</license>
 	</licenses>
-	<version>1.0.0</version>
+	<version>1.0.1-SNAPSHOT</version>
 	<organization>
 		<name>OpenSearchServer Inc.</name>
 		<url>http://www.opensearchserver.com</url>
