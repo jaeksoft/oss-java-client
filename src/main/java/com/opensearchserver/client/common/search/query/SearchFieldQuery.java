@@ -40,6 +40,11 @@ public class SearchFieldQuery extends SearchQueryAbstract {
 		queryStringMap = null;
 	}
 
+	/**
+	 * @param searchField
+	 *            the SearchField to add
+	 * @return this instance
+	 */
 	@JsonIgnore
 	@XmlTransient
 	public SearchFieldQuery addSearchField(SearchField searchField) {
@@ -49,6 +54,13 @@ public class SearchFieldQuery extends SearchQueryAbstract {
 		return this;
 	}
 
+	/**
+	 * @param field
+	 *            the name of the field
+	 * @param value
+	 *            the query value for this field
+	 * @return this instance
+	 */
 	@JsonIgnore
 	@XmlTransient
 	public SearchFieldQuery setQueryStringMap(String field, String value) {
@@ -61,6 +73,7 @@ public class SearchFieldQuery extends SearchQueryAbstract {
 	/**
 	 * @param searchFields
 	 *            the searchFields to set
+	 * @return this instance
 	 */
 	public SearchFieldQuery setSearchFields(List<SearchField> searchFields) {
 		this.searchFields = searchFields;
@@ -70,6 +83,7 @@ public class SearchFieldQuery extends SearchQueryAbstract {
 	/**
 	 * @param queryStringMap
 	 *            the queryStringMap to set
+	 * @return this instance
 	 */
 	public SearchFieldQuery setQueryStringMap(Map<String, String> queryStringMap) {
 		this.queryStringMap = queryStringMap;

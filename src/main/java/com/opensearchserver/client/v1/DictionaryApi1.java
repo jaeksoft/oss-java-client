@@ -24,8 +24,8 @@ import org.apache.http.client.utils.URIBuilder;
 
 import com.opensearchserver.client.JsonClient1;
 import com.opensearchserver.client.common.AbstractApi;
-import com.opensearchserver.client.common.JsonClientAbstract;
 import com.opensearchserver.utils.HttpUtils;
+import com.opensearchserver.utils.json.JsonClientAbstract;
 
 public class DictionaryApi1 extends AbstractApi<JsonClientAbstract> {
 
@@ -43,7 +43,9 @@ public class DictionaryApi1 extends AbstractApi<JsonClientAbstract> {
 	 * @param listSynonyms
 	 *            List of synonyms, one set of synonyms by line, raw text
 	 * @throws IOException
+	 *             if any IO error occurs
 	 * @throws URISyntaxException
+	 *             if the URI is not valid
 	 */
 	public void createSynonymsList(String indexName, String listName,
 			String listSynonyms) throws IOException, URISyntaxException {
@@ -63,7 +65,9 @@ public class DictionaryApi1 extends AbstractApi<JsonClientAbstract> {
 	 *            The name of the list.
 	 * @return true if the analyzer exists, false if not.
 	 * @throws IOException
+	 *             if any IO error occurs
 	 * @throws URISyntaxException
+	 *             if the URI is not valid
 	 */
 	public boolean checkSynonymsListExists(String indexName, String listName)
 			throws IOException, URISyntaxException {
@@ -88,7 +92,9 @@ public class DictionaryApi1 extends AbstractApi<JsonClientAbstract> {
 	 * @param listName
 	 *            The name of the list.
 	 * @throws IOException
+	 *             if any IO error occurs
 	 * @throws URISyntaxException
+	 *             if the URI is not valid
 	 */
 	public void deleteSynonymsList(String indexName, String listName)
 			throws IOException, URISyntaxException {
@@ -109,7 +115,9 @@ public class DictionaryApi1 extends AbstractApi<JsonClientAbstract> {
 	 * @param stopwordsList
 	 *            List of synonyms, one set of synonyms by line, raw text
 	 * @throws IOException
+	 *             if any IO error occurs
 	 * @throws URISyntaxException
+	 *             if the URI is not valid
 	 */
 	public void createStopWordsList(String indexName, String listName,
 			String stopwordsList) throws IOException, URISyntaxException {
@@ -129,7 +137,9 @@ public class DictionaryApi1 extends AbstractApi<JsonClientAbstract> {
 	 *            The name of the list.
 	 * @return true if the analyzer exists, false if not.
 	 * @throws IOException
+	 *             if any IO error occurs
 	 * @throws URISyntaxException
+	 *             if the URI is not valid
 	 */
 	public boolean checkStopWordsListExists(String indexName, String listName)
 			throws IOException, URISyntaxException {
@@ -154,7 +164,9 @@ public class DictionaryApi1 extends AbstractApi<JsonClientAbstract> {
 	 * @param listName
 	 *            The name of the list.
 	 * @throws IOException
+	 *             if any IO error occurs
 	 * @throws URISyntaxException
+	 *             if the URI is not valid
 	 */
 	public void deleteStopWordsList(String indexName, String listName)
 			throws IOException, URISyntaxException {

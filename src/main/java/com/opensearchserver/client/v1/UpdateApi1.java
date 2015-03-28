@@ -25,9 +25,9 @@ import org.apache.http.client.utils.URIBuilder;
 
 import com.opensearchserver.client.JsonClient1;
 import com.opensearchserver.client.common.AbstractApi;
-import com.opensearchserver.client.common.JsonClientAbstract;
 import com.opensearchserver.client.common.update.DocumentUpdate;
 import com.opensearchserver.utils.HttpUtils;
+import com.opensearchserver.utils.json.JsonClientAbstract;
 
 public class UpdateApi1 extends AbstractApi<JsonClientAbstract> {
 
@@ -45,7 +45,9 @@ public class UpdateApi1 extends AbstractApi<JsonClientAbstract> {
 	 * @param values
 	 *            A list of value
 	 * @throws IOException
+	 *             if any IO error occurs
 	 * @throws URISyntaxException
+	 *             if the URI is not valid
 	 */
 	public void deleteDocumentsByFieldValue(String indexName, String fieldName,
 			List<String> values) throws IOException, URISyntaxException {
@@ -69,7 +71,9 @@ public class UpdateApi1 extends AbstractApi<JsonClientAbstract> {
 	 * @param documents
 	 *            A list of documents
 	 * @throws IOException
+	 *             if any IO error occurs
 	 * @throws URISyntaxException
+	 *             if the URI is not valid
 	 */
 	public void updateDocuments(String indexName, List<DocumentUpdate> documents)
 			throws IOException, URISyntaxException {

@@ -54,6 +54,7 @@ public class DocumentResult2 extends AbstractDocumentResult {
 	/**
 	 * @param fields
 	 *            the fields to set
+	 * @return this instance
 	 */
 	public DocumentResult2 setFields(Map<String, List<String>> fields) {
 		this.fields = fields;
@@ -63,6 +64,7 @@ public class DocumentResult2 extends AbstractDocumentResult {
 	/**
 	 * @param snippets
 	 *            the snippets to set
+	 * @return this instance
 	 */
 	public DocumentResult2 setSnippets(Map<String, SnippetField2> snippets) {
 		this.snippets = snippets;
@@ -72,6 +74,7 @@ public class DocumentResult2 extends AbstractDocumentResult {
 	/**
 	 * @param joins
 	 *            the joins to set
+	 * @return this instance
 	 */
 	public DocumentResult2 setJoins(List<DocumentResult2> joins) {
 		this.joins = joins;
@@ -81,6 +84,7 @@ public class DocumentResult2 extends AbstractDocumentResult {
 	/**
 	 * @param collapsedDocs
 	 *            the collapsedDocs to set
+	 * @return this instance
 	 */
 	public DocumentResult2 setCollapsedDocs(List<DocumentResult2> collapsedDocs) {
 		this.collapsedDocs = collapsedDocs;

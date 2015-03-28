@@ -57,6 +57,12 @@ public class CommonResult {
 
 	@XmlTransient
 	@JsonIgnore
+	/**
+	 * Add a detail to the current list
+	 * @param key the key information
+	 * @param value the value information
+	 * @return
+	 */
 	public CommonResult addDetail(String key, Object value) {
 		if (value == null)
 			return this;
@@ -69,6 +75,7 @@ public class CommonResult {
 	/**
 	 * @param details
 	 *            the details to set
+	 * @return the current instance
 	 */
 	public CommonResult setDetails(Map<String, String> details) {
 		this.details = details;

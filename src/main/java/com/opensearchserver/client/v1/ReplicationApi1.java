@@ -40,10 +40,14 @@ public class ReplicationApi1 extends AbstractApi<JsonClient1> {
 	 * Retrieve a replication item
 	 * 
 	 * @param indexName
+	 *            the name of the index
 	 * @param replicationName
+	 *            the name of the replication item
 	 * @return a replication item
 	 * @throws IOException
+	 *             if any IO error occurs
 	 * @throws URISyntaxException
+	 *             if the URI is not valid
 	 */
 	public ReplicationResult getReplication(String indexName,
 			String replicationName) throws IOException, URISyntaxException {
@@ -58,10 +62,14 @@ public class ReplicationApi1 extends AbstractApi<JsonClient1> {
 	 * Create or update a replication item
 	 * 
 	 * @param indexName
+	 *            the name of the index
 	 * @param replicationItem
+	 *            the replication item
 	 * @return the status
 	 * @throws IOException
+	 *             if any IO error occurs
 	 * @throws URISyntaxException
+	 *             if the URI is not valid
 	 */
 	public CommonResult createUpdateReplication(String indexName,
 			ReplicationItem replicationItem) throws IOException,
@@ -77,10 +85,14 @@ public class ReplicationApi1 extends AbstractApi<JsonClient1> {
 	 * Start a replication process
 	 * 
 	 * @param indexName
+	 *            the name of the index
 	 * @param replicationName
+	 *            the name of the replication item
 	 * @return the status
 	 * @throws IOException
+	 *             if any IO error occurs
 	 * @throws URISyntaxException
+	 *             if the URI is not valid
 	 */
 	public CommonResult executeReplication(String indexName,
 			String replicationName) throws IOException, URISyntaxException {
@@ -94,10 +106,14 @@ public class ReplicationApi1 extends AbstractApi<JsonClient1> {
 	 * Delete a replication item
 	 * 
 	 * @param indexName
+	 *            the name of the index
 	 * @param replicationName
+	 *            the name of the replication item
 	 * @return the status
 	 * @throws IOException
+	 *             if any IO error occurs
 	 * @throws URISyntaxException
+	 *             if the URI is not valid
 	 */
 	public CommonResult deleteReplication(String indexName,
 			String replicationName) throws IOException, URISyntaxException {

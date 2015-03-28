@@ -43,6 +43,7 @@ public class ThreadResult {
 	/**
 	 * @param info
 	 *            the info to set
+	 * @return this instance
 	 */
 	public ThreadResult setInfo(String info) {
 		this.info = info;
@@ -52,6 +53,7 @@ public class ThreadResult {
 	/**
 	 * @param state
 	 *            the state to set
+	 * @return this instance
 	 */
 	public ThreadResult setState(State state) {
 		this.state = state;
@@ -61,6 +63,7 @@ public class ThreadResult {
 	/**
 	 * @param durationMs
 	 *            the durationMs to set
+	 * @return this instance
 	 */
 	public ThreadResult setDurationMs(Long durationMs) {
 		this.durationMs = durationMs;
@@ -70,6 +73,7 @@ public class ThreadResult {
 	/**
 	 * @param startDate
 	 *            the startDate to set
+	 * @return this instance
 	 */
 	public ThreadResult setStartDate(Date startDate) {
 		this.startDate = startDate;

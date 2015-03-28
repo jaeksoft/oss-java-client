@@ -48,6 +48,7 @@ public class SearchField {
 	/**
 	 * @param field
 	 *            the field to set
+	 * @return this instance
 	 */
 	public SearchField setField(String field) {
 		this.field = field;
@@ -57,6 +58,7 @@ public class SearchField {
 	/**
 	 * @param mode
 	 *            the mode to set
+	 * @return this instance
 	 */
 	public SearchField setMode(SearchFieldMode mode) {
 		this.mode = mode;
@@ -66,6 +68,7 @@ public class SearchField {
 	/**
 	 * @param boost
 	 *            the boost to set
+	 * @return this instance
 	 */
 	public SearchField setBoost(Double boost) {
 		this.boost = boost;
@@ -75,6 +78,7 @@ public class SearchField {
 	/**
 	 * @param phraseBoost
 	 *            the phraseBoost to set
+	 * @return this instance
 	 */
 	public SearchField setPhraseBoost(Double phraseBoost) {
 		this.phraseBoost = phraseBoost;
@@ -84,6 +88,7 @@ public class SearchField {
 	/**
 	 * @param phraseSlop
 	 *            the phraseSlop to set
+	 * @return this instance
 	 */
 	public SearchField setPhraseSlop(Integer phraseSlop) {
 		this.phraseSlop = phraseSlop;
@@ -93,6 +98,7 @@ public class SearchField {
 	/**
 	 * @param booleanGroup
 	 *            the booleanGroup to set
+	 * @return this instance
 	 */
 	public SearchField setBooleanGroup(Integer booleanGroup) {
 		this.booleanGroup = booleanGroup;

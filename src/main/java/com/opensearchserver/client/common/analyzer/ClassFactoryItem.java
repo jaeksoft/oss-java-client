@@ -46,6 +46,7 @@ public class ClassFactoryItem {
 	/**
 	 * @param name
 	 *            the name to set
+	 * @return this instance
 	 */
 	public ClassFactoryItem setName(String name) {
 		this.name = name;
@@ -55,6 +56,7 @@ public class ClassFactoryItem {
 	/**
 	 * @param properties
 	 *            the properties to set
+	 * @return this instance
 	 */
 	public ClassFactoryItem setProperties(Map<String, Object> properties) {
 		this.properties = properties;
@@ -63,8 +65,10 @@ public class ClassFactoryItem {
 
 	/**
 	 * @param name
+	 *            the name of the property
 	 * @param value
 	 *            the property to add
+	 * @return this instance
 	 */
 	@XmlTransient
 	@JsonIgnore
@@ -78,6 +82,7 @@ public class ClassFactoryItem {
 	/**
 	 * @param scope
 	 *            the scope to set
+	 * @return this instance
 	 */
 	public ClassFactoryItem setScope(FilterScope scope) {
 		this.scope = scope;

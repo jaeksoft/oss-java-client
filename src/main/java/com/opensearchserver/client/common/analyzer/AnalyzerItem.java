@@ -37,6 +37,7 @@ public class AnalyzerItem {
 	/**
 	 * @param queryTokenizer
 	 *            the queryTokenizer to set
+	 * @return this instance
 	 */
 	public AnalyzerItem setQueryTokenizer(ClassFactoryItem queryTokenizer) {
 		this.queryTokenizer = queryTokenizer;
@@ -46,6 +47,7 @@ public class AnalyzerItem {
 	/**
 	 * @param indexTokenizer
 	 *            the indexTokenizer to set
+	 * @return this instance
 	 */
 	public AnalyzerItem setIndexTokenizer(ClassFactoryItem indexTokenizer) {
 		this.indexTokenizer = indexTokenizer;
@@ -55,6 +57,7 @@ public class AnalyzerItem {
 	/**
 	 * @param filters
 	 *            the filters to set
+	 * @return this instance
 	 */
 	public AnalyzerItem setFilters(List<ClassFactoryItem> filters) {
 		this.filters = filters;
@@ -64,7 +67,7 @@ public class AnalyzerItem {
 	/**
 	 * @param filter
 	 *            the filter to add
-	 * @return
+	 * @return this instance
 	 */
 	public AnalyzerItem addFilter(ClassFactoryItem filter) {
 		if (filters == null)

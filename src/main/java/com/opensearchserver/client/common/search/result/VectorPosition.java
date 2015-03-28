@@ -41,6 +41,7 @@ public class VectorPosition {
 	/**
 	 * @param start
 	 *            the start to set
+	 * @return this instance
 	 */
 	public VectorPosition setStart(Integer start) {
 		this.start = start;
@@ -50,6 +51,7 @@ public class VectorPosition {
 	/**
 	 * @param end
 	 *            the end to set
+	 * @return this instance
 	 */
 	public VectorPosition setEnd(Integer end) {
 		this.end = end;

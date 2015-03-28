@@ -40,12 +40,13 @@ public class DocumentApi1 extends AbstractApi<JsonClient1> {
 	 * 
 	 * @param indexName
 	 *            The name of the index
-	 * @param template
-	 *            The name of the template
 	 * @param query
 	 *            The query
+	 * @return the current instance
 	 * @throws IOException
+	 *             if any I/O error occurs
 	 * @throws URISyntaxException
+	 *             if the URI is not valid
 	 */
 	public DocumentsResult1 documentsSearch(String indexName,
 			DocumentsQuery query) throws IOException, URISyntaxException {

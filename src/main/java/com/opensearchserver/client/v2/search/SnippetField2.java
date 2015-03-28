@@ -41,6 +41,7 @@ public class SnippetField2 {
 	/**
 	 * @param values
 	 *            the values to set
+	 * @return this instance
 	 */
 	public SnippetField2 setValues(List<String> values) {
 		this.values = values;
@@ -50,6 +51,7 @@ public class SnippetField2 {
 	/**
 	 * @param highlighted
 	 *            the highlighted to set
+	 * @return this instance
 	 */
 	public SnippetField2 setHighlighted(Boolean highlighted) {
 		this.highlighted = highlighted;

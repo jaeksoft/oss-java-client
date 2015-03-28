@@ -54,6 +54,7 @@ public class JoinItem {
 	/**
 	 * @param indexName
 	 *            the indexName to set
+	 * @return this instance
 	 */
 	public JoinItem setIndexName(String indexName) {
 		this.indexName = indexName;
@@ -63,6 +64,7 @@ public class JoinItem {
 	/**
 	 * @param queryTemplate
 	 *            the queryTemplate to set
+	 * @return this instance
 	 */
 	public JoinItem setQueryTemplate(String queryTemplate) {
 		this.queryTemplate = queryTemplate;
@@ -72,6 +74,7 @@ public class JoinItem {
 	/**
 	 * @param queryString
 	 *            the queryString to set
+	 * @return this instance
 	 */
 	public JoinItem setQueryString(String queryString) {
 		this.queryString = queryString;
@@ -81,6 +84,7 @@ public class JoinItem {
 	/**
 	 * @param localField
 	 *            the localField to set
+	 * @return this instance
 	 */
 	public JoinItem setLocalField(String localField) {
 		this.localField = localField;
@@ -90,6 +94,7 @@ public class JoinItem {
 	/**
 	 * @param foreignField
 	 *            the foreignField to set
+	 * @return this instance
 	 */
 	public JoinItem setForeignField(String foreignField) {
 		this.foreignField = foreignField;
@@ -99,6 +104,7 @@ public class JoinItem {
 	/**
 	 * @param type
 	 *            the type to set
+	 * @return this instance
 	 */
 	public JoinItem setType(JoinTypeEnum type) {
 		this.type = type;
@@ -108,6 +114,7 @@ public class JoinItem {
 	/**
 	 * @param returnFields
 	 *            the returnFields to set
+	 * @return this instance
 	 */
 	public JoinItem setReturnFields(Boolean returnFields) {
 		this.returnFields = returnFields;
@@ -117,6 +124,7 @@ public class JoinItem {
 	/**
 	 * @param returnScores
 	 *            the returnScores to set
+	 * @return this instance
 	 */
 	public JoinItem setReturnScores(Boolean returnScores) {
 		this.returnScores = returnScores;
@@ -126,6 +134,7 @@ public class JoinItem {
 	/**
 	 * @param returnFacets
 	 *            the returnFacets to set
+	 * @return this instance
 	 */
 	public JoinItem setReturnFacets(Boolean returnFacets) {
 		this.returnFacets = returnFacets;

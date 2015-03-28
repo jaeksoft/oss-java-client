@@ -53,6 +53,7 @@ public class FieldUpdate {
 	/**
 	 * @param name
 	 *            the name to set
+	 * @return this instance
 	 */
 	public FieldUpdate setName(String name) {
 		this.name = name;
@@ -62,6 +63,7 @@ public class FieldUpdate {
 	/**
 	 * @param boost
 	 *            the boost to set
+	 * @return this instance
 	 */
 	public FieldUpdate setBoost(Float boost) {
 		this.boost = boost;
@@ -71,6 +73,7 @@ public class FieldUpdate {
 	/**
 	 * @param value
 	 *            the value to set
+	 * @return this instance
 	 */
 	public FieldUpdate setValue(String value) {
 		this.value = value;

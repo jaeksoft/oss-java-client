@@ -49,7 +49,9 @@ public class SearchApi1 extends AbstractApi<JsonClient1> {
 	 * @param query
 	 *            The query
 	 * @throws IOException
+	 *             if any IO error occurs
 	 * @throws URISyntaxException
+	 *             if the URI is not valid
 	 */
 	public void createSearchFieldTemplate(String indexName, String template,
 			SearchFieldQuery query) throws IOException, URISyntaxException {
@@ -71,7 +73,9 @@ public class SearchApi1 extends AbstractApi<JsonClient1> {
 	 *            Any overriding query parameter
 	 * @return the search result
 	 * @throws IOException
+	 *             if any IO error occurs
 	 * @throws URISyntaxException
+	 *             if the URI is not valid
 	 */
 	public SearchResult1 executeSearchFieldTemplate(String indexName,
 			String template, SearchFieldQuery query) throws IOException,
@@ -91,7 +95,9 @@ public class SearchApi1 extends AbstractApi<JsonClient1> {
 	 *            Any overriding query parameter
 	 * @return the search result
 	 * @throws IOException
+	 *             if any IO error occurs
 	 * @throws URISyntaxException
+	 *             if the URI is not valid
 	 */
 	public SearchResult1 executeSearchField(String indexName,
 			SearchFieldQuery query) throws IOException, URISyntaxException {
@@ -110,7 +116,9 @@ public class SearchApi1 extends AbstractApi<JsonClient1> {
 	 *            The queries
 	 * @return a list of results
 	 * @throws IOException
+	 *             if any IO error occurs
 	 * @throws URISyntaxException
+	 *             if the URI is not valid
 	 */
 	public List<SearchResult1> searchBatch(String indexName,
 			SearchQueryBatch queryBatch) throws IOException, URISyntaxException {

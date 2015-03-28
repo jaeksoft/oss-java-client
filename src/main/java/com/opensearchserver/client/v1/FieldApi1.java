@@ -25,11 +25,11 @@ import org.apache.http.client.utils.URIBuilder;
 
 import com.opensearchserver.client.JsonClient1;
 import com.opensearchserver.client.common.AbstractApi;
-import com.opensearchserver.client.common.JsonClientAbstract;
 import com.opensearchserver.client.v1.field.ResultField;
 import com.opensearchserver.client.v1.field.ResultFieldList;
 import com.opensearchserver.client.v1.field.SchemaField;
 import com.opensearchserver.utils.HttpUtils;
+import com.opensearchserver.utils.json.JsonClientAbstract;
 
 public class FieldApi1 extends AbstractApi<JsonClientAbstract> {
 
@@ -46,7 +46,9 @@ public class FieldApi1 extends AbstractApi<JsonClientAbstract> {
 	 *            The field name
 	 * @return The field details
 	 * @throws IOException
+	 *             if any IO error occurs
 	 * @throws URISyntaxException
+	 *             if the URI is not valid
 	 */
 	public ResultField getField(String indexName, String fieldName)
 			throws IOException, URISyntaxException {
@@ -64,7 +66,9 @@ public class FieldApi1 extends AbstractApi<JsonClientAbstract> {
 	 *            The index name
 	 * @return A list of fields
 	 * @throws IOException
+	 *             if any IO error occurs
 	 * @throws URISyntaxException
+	 *             if the URI is not valid
 	 */
 	public ResultFieldList getFields(String indexName) throws IOException,
 			URISyntaxException {
@@ -82,7 +86,9 @@ public class FieldApi1 extends AbstractApi<JsonClientAbstract> {
 	 * @param field
 	 *            The field to create or update
 	 * @throws IOException
+	 *             if any IO error occurs
 	 * @throws URISyntaxException
+	 *             if the URI is not valid
 	 */
 	public void setField(String indexName, SchemaField field)
 			throws IOException, URISyntaxException {
@@ -101,7 +107,9 @@ public class FieldApi1 extends AbstractApi<JsonClientAbstract> {
 	 * @param fields
 	 *            A list of fields
 	 * @throws IOException
+	 *             if any IO error occurs
 	 * @throws URISyntaxException
+	 *             if the URI is not valid
 	 */
 	public void setFields(String indexName, List<SchemaField> fields)
 			throws IOException, URISyntaxException {
@@ -120,7 +128,9 @@ public class FieldApi1 extends AbstractApi<JsonClientAbstract> {
 	 * @param fieldName
 	 *            The name of the field to delete
 	 * @throws IOException
+	 *             if any IO error occurs
 	 * @throws URISyntaxException
+	 *             if the URI is not valid
 	 */
 	public void deleteField(String indexName, String fieldName)
 			throws IOException, URISyntaxException {
@@ -141,7 +151,9 @@ public class FieldApi1 extends AbstractApi<JsonClientAbstract> {
 	 * @param uniqueField
 	 *            The name of the unique field
 	 * @throws IOException
+	 *             if any IO error occurs
 	 * @throws URISyntaxException
+	 *             if the URI is not valid
 	 */
 	public void setDefaultUniqueField(String indexName, String defaultField,
 			String uniqueField) throws IOException, URISyntaxException {

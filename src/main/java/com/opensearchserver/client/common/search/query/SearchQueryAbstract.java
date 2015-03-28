@@ -115,6 +115,7 @@ public abstract class SearchQueryAbstract extends QueryAbstract {
 	/**
 	 * @param query
 	 *            the query to set
+	 * @return this instance
 	 */
 	public SearchQueryAbstract setQuery(String query) {
 		this.query = query;
@@ -124,6 +125,7 @@ public abstract class SearchQueryAbstract extends QueryAbstract {
 	/**
 	 * @param start
 	 *            the start to set
+	 * @return this instance
 	 */
 	public SearchQueryAbstract setStart(Integer start) {
 		this.start = start;
@@ -133,6 +135,7 @@ public abstract class SearchQueryAbstract extends QueryAbstract {
 	/**
 	 * @param rows
 	 *            the rows to set
+	 * @return this instance
 	 */
 	public SearchQueryAbstract setRows(Integer rows) {
 		this.rows = rows;
@@ -142,6 +145,7 @@ public abstract class SearchQueryAbstract extends QueryAbstract {
 	/**
 	 * @param lang
 	 *            the lang to set
+	 * @return this instance
 	 */
 	public SearchQueryAbstract setLang(LanguageEnum lang) {
 		this.lang = lang;
@@ -151,6 +155,7 @@ public abstract class SearchQueryAbstract extends QueryAbstract {
 	/**
 	 * @param operator
 	 *            the operator to set
+	 * @return this instance
 	 */
 	public SearchQueryAbstract setOperator(OperatorEnum operator) {
 		this.operator = operator;
@@ -160,6 +165,7 @@ public abstract class SearchQueryAbstract extends QueryAbstract {
 	/**
 	 * @param collapsing
 	 *            the collapsing to set
+	 * @return this instance
 	 */
 	public SearchQueryAbstract setCollapsing(CollapsingParameters collapsing) {
 		this.collapsing = collapsing;
@@ -169,6 +175,7 @@ public abstract class SearchQueryAbstract extends QueryAbstract {
 	/**
 	 * @param geo
 	 *            the geo to set
+	 * @return this instance
 	 */
 	public SearchQueryAbstract setGeoParameters(GeoParameters geo) {
 		this.geo = geo;
@@ -178,6 +185,7 @@ public abstract class SearchQueryAbstract extends QueryAbstract {
 	/**
 	 * @param emptyReturnsAll
 	 *            the emptyReturnsAll to set
+	 * @return this instance
 	 */
 	public SearchQueryAbstract setEmptyReturnsAll(Boolean emptyReturnsAll) {
 		this.emptyReturnsAll = emptyReturnsAll;
@@ -187,6 +195,7 @@ public abstract class SearchQueryAbstract extends QueryAbstract {
 	/**
 	 * @param filter
 	 *            the filter to add
+	 * @return this instance
 	 */
 	@JsonIgnore
 	@XmlTransient
@@ -202,6 +211,7 @@ public abstract class SearchQueryAbstract extends QueryAbstract {
 	 * 
 	 * @param filters
 	 *            the filters to set
+	 * @return this instance
 	 */
 	public SearchQueryAbstract setFilters(List<AbstractFilter> filters) {
 		this.filters = filters;
@@ -211,6 +221,7 @@ public abstract class SearchQueryAbstract extends QueryAbstract {
 	/**
 	 * @param filterOperator
 	 *            the filterOperator to set
+	 * @return this instance
 	 */
 	public SearchQueryAbstract setFilterOperator(OperatorEnum filterOperator) {
 		this.filterOperator = filterOperator;
@@ -220,6 +231,7 @@ public abstract class SearchQueryAbstract extends QueryAbstract {
 	/**
 	 * @param sortField
 	 *            the sortField to add
+	 * @return this instance
 	 */
 	@JsonIgnore
 	@XmlTransient
@@ -233,6 +245,7 @@ public abstract class SearchQueryAbstract extends QueryAbstract {
 	/**
 	 * @param returnedField
 	 *            the returnedField to add
+	 * @return this instance
 	 */
 	@JsonIgnore
 	@XmlTransient
@@ -248,6 +261,7 @@ public abstract class SearchQueryAbstract extends QueryAbstract {
 	 * 
 	 * @param returnedFields
 	 *            the returnedFields to add
+	 * @return this instance
 	 */
 	public SearchQueryAbstract setReturnedFields(List<String> returnedFields) {
 		this.returnedFields = returnedFields;
@@ -257,6 +271,7 @@ public abstract class SearchQueryAbstract extends QueryAbstract {
 	/**
 	 * @param snippet
 	 *            the SnippetField to add
+	 * @return this instance
 	 */
 	@JsonIgnore
 	@XmlTransient
@@ -270,6 +285,7 @@ public abstract class SearchQueryAbstract extends QueryAbstract {
 	/**
 	 * @param snippets
 	 *            the SnippetField list to set
+	 * @return this instance
 	 */
 	public SearchQueryAbstract setSnippets(List<SnippetField> snippets) {
 		this.snippets = snippets;
@@ -279,6 +295,7 @@ public abstract class SearchQueryAbstract extends QueryAbstract {
 	/**
 	 * @param facet
 	 *            the FacetField to add
+	 * @return this instance
 	 */
 	@JsonIgnore
 	@XmlTransient
@@ -292,6 +309,7 @@ public abstract class SearchQueryAbstract extends QueryAbstract {
 	/**
 	 * @param facets
 	 *            the FacetField list to set
+	 * @return this instance
 	 */
 	public SearchQueryAbstract setFacets(List<FacetField> facets) {
 		this.facets = facets;
@@ -301,6 +319,7 @@ public abstract class SearchQueryAbstract extends QueryAbstract {
 	/**
 	 * @param join
 	 *            the JoinItem to add
+	 * @return this instance
 	 */
 	public SearchQueryAbstract addJoin(JoinItem join) {
 		if (joins == null)
@@ -312,6 +331,7 @@ public abstract class SearchQueryAbstract extends QueryAbstract {
 	/**
 	 * @param joins
 	 *            the JoinItem list to set
+	 * @return this instance
 	 */
 	public SearchQueryAbstract setJoins(List<JoinItem> joins) {
 		this.joins = joins;
@@ -321,6 +341,7 @@ public abstract class SearchQueryAbstract extends QueryAbstract {
 	/**
 	 * @param scoring
 	 *            the Scoring to add
+	 * @return this instance
 	 */
 	@JsonIgnore
 	@XmlTransient
@@ -334,6 +355,7 @@ public abstract class SearchQueryAbstract extends QueryAbstract {
 	/**
 	 * @param scorings
 	 *            the Scoring list to set
+	 * @return this instance
 	 */
 	public SearchQueryAbstract setScorings(List<Scoring> scorings) {
 		this.scorings = scorings;
@@ -343,6 +365,7 @@ public abstract class SearchQueryAbstract extends QueryAbstract {
 	/**
 	 * @param boostingQuery
 	 *            the BoostingQuery to add
+	 * @return this instance
 	 */
 	@JsonIgnore
 	@XmlTransient
@@ -356,6 +379,7 @@ public abstract class SearchQueryAbstract extends QueryAbstract {
 	/**
 	 * @param boostingQueries
 	 *            the boostingQueries to set
+	 * @return this instance
 	 */
 	public SearchQueryAbstract setBoostingQueries(
 			List<BoostingQuery> boostingQueries) {
@@ -366,6 +390,7 @@ public abstract class SearchQueryAbstract extends QueryAbstract {
 	/**
 	 * @param enableLog
 	 *            the enableLog to set
+	 * @return this instance
 	 */
 	public SearchQueryAbstract setEnableLog(Boolean enableLog) {
 		this.enableLog = enableLog;
@@ -375,6 +400,7 @@ public abstract class SearchQueryAbstract extends QueryAbstract {
 	/**
 	 * @param customLog
 	 *            the customLog to add
+	 * @return this instance
 	 */
 	@JsonIgnore
 	@XmlTransient
@@ -388,6 +414,7 @@ public abstract class SearchQueryAbstract extends QueryAbstract {
 	/**
 	 * @param customLogs
 	 *            the customLogs to set
+	 * @return this instance
 	 */
 	public SearchQueryAbstract setCustomLogs(List<String> customLogs) {
 		this.customLogs = customLogs;
@@ -397,6 +424,7 @@ public abstract class SearchQueryAbstract extends QueryAbstract {
 	/**
 	 * @param batchAction
 	 *            the batchAction to set
+	 * @return this instance
 	 */
 	public SearchQueryAbstract setBatchAction(BatchAction batchAction) {
 		this.batchAction = batchAction;

@@ -53,12 +53,18 @@ public class SearchResult1 extends AbstractSearchResult {
 	/**
 	 * @param documents
 	 *            the documents to set
+	 * @return this instance
 	 */
 	public SearchResult1 setDocuments(List<DocumentResult1> documents) {
 		this.documents = documents;
 		return this;
 	}
 
+	/**
+	 * @param document
+	 *            add a document
+	 * @return this instance
+	 */
 	@XmlTransient
 	@JsonIgnore
 	public SearchResult1 addDocument(DocumentResult1 document) {
@@ -71,6 +77,7 @@ public class SearchResult1 extends AbstractSearchResult {
 	/**
 	 * @param facet
 	 *            the FacetResult to add
+	 * @return this instance
 	 */
 	@XmlTransient
 	@JsonIgnore
@@ -84,6 +91,7 @@ public class SearchResult1 extends AbstractSearchResult {
 	/**
 	 * @param facets
 	 *            the facets to set
+	 * @return this instance
 	 */
 	public SearchResult1 setFacets(List<FacetResult1> facets) {
 		this.facets = facets;

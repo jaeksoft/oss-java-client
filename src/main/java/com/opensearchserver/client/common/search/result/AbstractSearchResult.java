@@ -64,6 +64,7 @@ public abstract class AbstractSearchResult extends CommonResult {
 	/**
 	 * @param query
 	 *            the query to set
+	 * @return this instance
 	 */
 	public AbstractSearchResult setQuery(String query) {
 		this.query = query;
@@ -73,6 +74,7 @@ public abstract class AbstractSearchResult extends CommonResult {
 	/**
 	 * @param rows
 	 *            the rows to set
+	 * @return this instance
 	 */
 	public AbstractSearchResult setRows(Integer rows) {
 		this.rows = rows;
@@ -82,6 +84,7 @@ public abstract class AbstractSearchResult extends CommonResult {
 	/**
 	 * @param start
 	 *            the start to set
+	 * @return this instance
 	 */
 	public AbstractSearchResult setStart(Long start) {
 		this.start = start;
@@ -91,6 +94,7 @@ public abstract class AbstractSearchResult extends CommonResult {
 	/**
 	 * @param numFound
 	 *            the numFound to set
+	 * @return this instance
 	 */
 	public AbstractSearchResult setNumFound(Long numFound) {
 		this.numFound = numFound;
@@ -100,6 +104,7 @@ public abstract class AbstractSearchResult extends CommonResult {
 	/**
 	 * @param time
 	 *            the time to set
+	 * @return this instance
 	 */
 	public AbstractSearchResult setTime(Long time) {
 		this.time = time;
@@ -109,6 +114,7 @@ public abstract class AbstractSearchResult extends CommonResult {
 	/**
 	 * @param collapsedDocCount
 	 *            the collapsedDocCount to set
+	 * @return this instance
 	 */
 	public AbstractSearchResult setCollapsedDocCount(Long collapsedDocCount) {
 		this.collapsedDocCount = collapsedDocCount;
@@ -118,6 +124,7 @@ public abstract class AbstractSearchResult extends CommonResult {
 	/**
 	 * @param maxScore
 	 *            the maxScore to set
+	 * @return this instance
 	 */
 	public AbstractSearchResult setMaxScore(Float maxScore) {
 		this.maxScore = maxScore;

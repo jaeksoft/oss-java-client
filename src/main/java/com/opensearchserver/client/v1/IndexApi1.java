@@ -24,9 +24,9 @@ import org.apache.http.client.utils.URIBuilder;
 
 import com.opensearchserver.client.JsonClient1;
 import com.opensearchserver.client.common.AbstractApi;
-import com.opensearchserver.client.common.JsonClientAbstract;
 import com.opensearchserver.client.common.index.TemplateEnum;
 import com.opensearchserver.utils.HttpUtils;
+import com.opensearchserver.utils.json.JsonClientAbstract;
 
 public class IndexApi1 extends AbstractApi<JsonClientAbstract> {
 
@@ -42,7 +42,9 @@ public class IndexApi1 extends AbstractApi<JsonClientAbstract> {
 	 * @param template
 	 *            The template
 	 * @throws IOException
+	 *             if any IO error occurs
 	 * @throws URISyntaxException
+	 *             if the URI is not valid
 	 */
 	public void createIndex(String indexName, TemplateEnum template)
 			throws IOException, URISyntaxException {
@@ -62,7 +64,9 @@ public class IndexApi1 extends AbstractApi<JsonClientAbstract> {
 	 *            The name of the index.
 	 * @return true if the index exists, false if not.
 	 * @throws IOException
+	 *             if any IO error occurs
 	 * @throws URISyntaxException
+	 *             if the URI is not valid
 	 */
 	public boolean indexExists(String indexName) throws URISyntaxException,
 			IOException {
@@ -86,7 +90,9 @@ public class IndexApi1 extends AbstractApi<JsonClientAbstract> {
 	 * @param indexName
 	 *            The name of the index
 	 * @throws IOException
+	 *             if any IO error occurs
 	 * @throws URISyntaxException
+	 *             if the URI is not valid
 	 */
 	public void deleteIndex(String indexName) throws IOException,
 			URISyntaxException {

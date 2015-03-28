@@ -16,20 +16,18 @@
 package com.opensearchserver.client.v1;
 
 import java.io.IOException;
-import java.io.UnsupportedEncodingException;
 import java.net.URISyntaxException;
 
 import org.apache.http.HttpResponse;
-import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.fluent.Request;
 import org.apache.http.client.utils.URIBuilder;
 
 import com.opensearchserver.client.JsonClient1;
 import com.opensearchserver.client.common.AbstractApi;
-import com.opensearchserver.client.common.JsonClientAbstract;
 import com.opensearchserver.client.common.LanguageEnum;
 import com.opensearchserver.client.common.analyzer.AnalyzerItem;
 import com.opensearchserver.utils.HttpUtils;
+import com.opensearchserver.utils.json.JsonClientAbstract;
 
 public class AnalyzerApi1 extends AbstractApi<JsonClientAbstract> {
 
@@ -48,7 +46,9 @@ public class AnalyzerApi1 extends AbstractApi<JsonClientAbstract> {
 	 *            Lang of the analyzer.
 	 * @return true if the analyzer exists, false if not.
 	 * @throws IOException
+	 *             if any IO error occurs
 	 * @throws URISyntaxException
+	 *             if the URI is not valid
 	 */
 	public boolean checkAnalyzerExists(String indexName, String analyzerName,
 			LanguageEnum analyzerLang) throws IOException, URISyntaxException {
@@ -76,15 +76,14 @@ public class AnalyzerApi1 extends AbstractApi<JsonClientAbstract> {
 	 *            Name of the analyzer to create
 	 * @param analyzerLang
 	 *            Lang of the analyzer to create
-	 * @throws ClientProtocolException
-	 * @throws UnsupportedEncodingException
 	 * @throws IOException
+	 *             if any IO error occurs
 	 * @throws URISyntaxException
+	 *             if the URI is not valid
 	 */
 	public void createAnalyzer(String indexName, AnalyzerItem analyzer,
-			String analyzerName, LanguageEnum analyzerLang)
-			throws ClientProtocolException, UnsupportedEncodingException,
-			IOException, URISyntaxException {
+			String analyzerName, LanguageEnum analyzerLang) throws IOException,
+			URISyntaxException {
 		URIBuilder uriBuilder = client.getBaseUrl("index/", indexName,
 				"/analyzer/", analyzerName, "/lang/", analyzerLang.toString());
 		Request request = Request.Put(uriBuilder.build());
