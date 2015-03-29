@@ -48,6 +48,7 @@ public class ResultFieldList extends CommonResult {
 	/**
 	 * @param uniqueField
 	 *            the uniqueField to set
+	 * @return this instance
 	 */
 	public ResultFieldList setUniqueField(String uniqueField) {
 		this.uniqueField = uniqueField;
@@ -57,6 +58,7 @@ public class ResultFieldList extends CommonResult {
 	/**
 	 * @param defaultField
 	 *            the defaultField to set
+	 * @return this instance
 	 */
 	public ResultFieldList setDefaultField(String defaultField) {
 		this.defaultField = defaultField;
@@ -66,6 +68,7 @@ public class ResultFieldList extends CommonResult {
 	/**
 	 * @param fields
 	 *            the fields to set
+	 * @return this instance
 	 */
 	public ResultFieldList setFields(List<SchemaField> fields) {
 		this.fields = fields;

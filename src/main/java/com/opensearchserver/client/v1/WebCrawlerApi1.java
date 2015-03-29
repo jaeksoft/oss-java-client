@@ -21,7 +21,6 @@ import java.util.List;
 
 import javax.xml.bind.annotation.XmlTransient;
 
-import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.fluent.Request;
 import org.apache.http.client.utils.URIBuilder;
 
@@ -52,14 +51,16 @@ public class WebCrawlerApi1 extends AbstractApi<JsonClient1> {
 	 * @param url
 	 *            The URL to crawl
 	 * @param msTimeOut
-	 *            The timeout in milliseconds * @return
-	 * @throws ClientProtocolException
+	 *            The timeout in milliseconds *
+	 * @return the result of the crawl
 	 * @throws IOException
+	 *             if any IO error occurs
 	 * @throws URISyntaxException
+	 *             if the URI is not valid
 	 */
 	public CommonListResult<List<FieldValueList1>> crawlWithData(
 			String indexName, String url, Integer msTimeOut)
-			throws ClientProtocolException, IOException, URISyntaxException {
+			throws IOException, URISyntaxException {
 		URIBuilder uriBuilder = client
 				.getBaseUrl("index/", indexName, "/crawler/web/crawl")
 				.addParameter("url", url).addParameter("returnData", "true");
@@ -76,12 +77,14 @@ public class WebCrawlerApi1 extends AbstractApi<JsonClient1> {
 	 *            The URL to crawl
 	 * @param msTimeOut
 	 *            The timeout in milliseconds
-	 * @throws ClientProtocolException
+	 * @return the status of the crawl
 	 * @throws IOException
+	 *             if any IO error occurs
 	 * @throws URISyntaxException
+	 *             if the URI is not valid
 	 */
 	public CommonResult crawl(String indexName, String url, Integer msTimeOut)
-			throws ClientProtocolException, IOException, URISyntaxException {
+			throws IOException, URISyntaxException {
 		URIBuilder uriBuilder = client
 				.getBaseUrl("index/", indexName, "/crawler/web/crawl")
 				.addParameter("url", url).addParameter("returnData", "false");
@@ -99,13 +102,15 @@ public class WebCrawlerApi1 extends AbstractApi<JsonClient1> {
 	 *            Enable or disable inclusion list
 	 * @param exclusionStatus
 	 *            Enable or disable inclusion list
-	 * @throws ClientProtocolException
+	 * @return the result of the call
 	 * @throws IOException
+	 *             if any IO error occurs
 	 * @throws URISyntaxException
+	 *             if the URI is not valid
 	 */
 	public CommonResult setPatternStatus(String indexName,
 			Boolean inclusionStatus, Boolean exclusionStatus)
-			throws ClientProtocolException, IOException, URISyntaxException {
+			throws IOException, URISyntaxException {
 		URIBuilder uriBuilder = client.getBaseUrl("index/", indexName,
 				"/crawler/web/patterns/status");
 		if (inclusionStatus != null)

@@ -45,11 +45,21 @@ public class DocumentsQuery extends QueryAbstract {
 		reverse = null;
 	}
 
+	/**
+	 * @param field
+	 *            the field requested
+	 * @return this instance
+	 */
 	public DocumentsQuery setField(String field) {
 		this.field = field;
 		return this;
 	}
 
+	/**
+	 * @param value
+	 *            the filtered term
+	 * @return this instance
+	 */
 	@JsonIgnore
 	@XmlTransient
 	public DocumentsQuery addValue(String value) {
@@ -62,6 +72,7 @@ public class DocumentsQuery extends QueryAbstract {
 	/**
 	 * @param returnedField
 	 *            the returnedField to add
+	 * @return this instance
 	 */
 	@JsonIgnore
 	@XmlTransient
@@ -72,6 +83,11 @@ public class DocumentsQuery extends QueryAbstract {
 		return this;
 	}
 
+	/**
+	 * @param reverse
+	 *            set to true to invert the result
+	 * @return this instance
+	 */
 	public DocumentsQuery setReverse(Boolean reverse) {
 		this.reverse = reverse;
 		return this;

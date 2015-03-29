@@ -46,6 +46,7 @@ public class DocumentUpdate {
 	/**
 	 * @param lang
 	 *            the lang to set
+	 * @return this instance
 	 */
 	public DocumentUpdate setLang(LanguageEnum lang) {
 		this.lang = lang;
@@ -55,6 +56,7 @@ public class DocumentUpdate {
 	/**
 	 * @param fields
 	 *            the fields to set
+	 * @return this instance
 	 */
 	public DocumentUpdate setFields(List<FieldUpdate> fields) {
 		this.fields = fields;
@@ -64,6 +66,7 @@ public class DocumentUpdate {
 	/**
 	 * @param field
 	 *            the field to add
+	 * @return this instance
 	 */
 	public DocumentUpdate addField(FieldUpdate field) {
 		if (fields == null)

@@ -19,8 +19,8 @@ import java.net.URISyntaxException;
 
 import org.apache.http.client.utils.URIBuilder;
 
-import com.opensearchserver.client.common.JsonClientAbstract;
 import com.opensearchserver.utils.StringUtils;
+import com.opensearchserver.utils.json.JsonClientAbstract;
 import com.opensearchserver.utils.json.ServerResource;
 
 /**
@@ -28,26 +28,34 @@ import com.opensearchserver.utils.json.ServerResource;
  */
 public class JsonClient2 extends JsonClientAbstract {
 
+	private final String login;
+	private final String key;
+
 	public JsonClient2(String url, String login, String key, int msTimeOut)
 			throws URISyntaxException {
-		super(url, login, key, msTimeOut);
+		super(url, msTimeOut);
+		this.login = login;
+		this.key = key;
 	}
 
 	public JsonClient2(ServerResource serverResource) throws URISyntaxException {
-		super(serverResource);
+		this(serverResource.url, serverResource.login, serverResource.api_key,
+				serverResource.time_out);
 	}
 
 	/**
 	 * Build an URL for OpenSearchServer 2.x
 	 * 
 	 * @param paths
+	 *            an array of paths which will be concatened
 	 * @return a prepared URIBuilder
+	 * @throws URISyntaxException
+	 *             if the builded URI is not valid
 	 */
 	@Override
-	final public URIBuilder getBaseUrl(String... paths) {
-		URIBuilder uriBuilder = new URIBuilder().setScheme(uri.getScheme())
-				.setHost(uri.getHost()).setPort(uri.getPort())
-				.setPath(StringUtils.fastConcat(uri.getPath(), paths));
+	final public URIBuilder getBaseUrl(String... paths)
+			throws URISyntaxException {
+		URIBuilder uriBuilder = super.getBaseUrl(paths);
 		if (!StringUtils.isEmpty(login) && !StringUtils.isEmpty(key))
 			uriBuilder.setUserInfo(login, key);
 		return uriBuilder;

@@ -34,6 +34,7 @@ public class ResultField extends CommonResult {
 	/**
 	 * @param field
 	 *            the field to set
+	 * @return this instance
 	 */
 	public ResultField setField(SchemaField field) {
 		this.field = field;

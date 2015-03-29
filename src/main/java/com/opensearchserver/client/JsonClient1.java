@@ -19,8 +19,8 @@ import java.net.URISyntaxException;
 
 import org.apache.http.client.utils.URIBuilder;
 
-import com.opensearchserver.client.common.JsonClientAbstract;
 import com.opensearchserver.utils.StringUtils;
+import com.opensearchserver.utils.json.JsonClientAbstract;
 import com.opensearchserver.utils.json.ServerResource;
 
 /**
@@ -29,33 +29,35 @@ import com.opensearchserver.utils.json.ServerResource;
  */
 public class JsonClient1 extends JsonClientAbstract {
 
+	private final String login;
+	private final String key;
+
 	public JsonClient1(String url, String login, String key, int msTimeout)
 			throws URISyntaxException {
-		super(url, login, key, msTimeout);
+		super(url, msTimeout);
+		this.login = login;
+		this.key = key;
 	}
 
 	public JsonClient1(ServerResource serverResource) throws URISyntaxException {
-		super(serverResource);
+		this(serverResource.url, serverResource.login, serverResource.api_key,
+				serverResource.time_out);
 	}
 
 	/**
 	 * Build an URL for OpenSearchServer 1.5
 	 * 
 	 * @param paths
+	 *            an array of path which will be concatened
 	 * @return a prepared URIBuilder
 	 * @throws URISyntaxException
+	 *             if the builded URI is not valid
 	 */
 	@Override
 	final public URIBuilder getBaseUrl(String... paths)
 			throws URISyntaxException {
-		URIBuilder uriBuilder = new URIBuilder()
-				.setScheme(uri.getScheme())
-				.setHost(uri.getHost())
-				.setPort(uri.getPort())
-				.setFragment(uri.getFragment())
-				.setPath(
-						StringUtils.fastConcat(uri.getPath(),
-								"/services/rest/", paths));
+		URIBuilder uriBuilder = super.getBaseUrl(StringUtils.fastConcat(
+				"/services/rest/", paths));
 		if (!StringUtils.isEmpty(login))
 			uriBuilder.addParameter("login", login);
 		if (!StringUtils.isEmpty(key))

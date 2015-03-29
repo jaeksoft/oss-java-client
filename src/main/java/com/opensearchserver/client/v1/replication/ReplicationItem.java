@@ -44,6 +44,7 @@ public class ReplicationItem {
 	/**
 	 * @param replicationType
 	 *            the replicationType to set
+	 * @return this instance
 	 */
 	public ReplicationItem setReplicationType(ReplicationType replicationType) {
 		this.replicationType = replicationType;
@@ -53,6 +54,7 @@ public class ReplicationItem {
 	/**
 	 * @param remoteUrl
 	 *            the remoteUrl to set
+	 * @return this instance
 	 */
 	public ReplicationItem setRemoteUrl(String remoteUrl) {
 		this.remoteUrl = remoteUrl;
@@ -62,6 +64,7 @@ public class ReplicationItem {
 	/**
 	 * @param remoteLogin
 	 *            the remoteLogin to set
+	 * @return this instance
 	 */
 	public ReplicationItem setRemoteLogin(String remoteLogin) {
 		this.remoteLogin = remoteLogin;
@@ -71,6 +74,7 @@ public class ReplicationItem {
 	/**
 	 * @param remoteApiKey
 	 *            the remoteApiKey to set
+	 * @return this instance
 	 */
 	public ReplicationItem setRemoteApiKey(String remoteApiKey) {
 		this.remoteApiKey = remoteApiKey;
@@ -80,6 +84,7 @@ public class ReplicationItem {
 	/**
 	 * @param remoteIndexName
 	 *            the remoteIndexName to set
+	 * @return this instance
 	 */
 	public ReplicationItem setRemoteIndexName(String remoteIndexName) {
 		this.remoteIndexName = remoteIndexName;
@@ -89,6 +94,7 @@ public class ReplicationItem {
 	/**
 	 * @param secTimeOut
 	 *            the secTimeOut to set
+	 * @return this instance
 	 */
 	public ReplicationItem setSecTimeOut(Integer secTimeOut) {
 		this.secTimeOut = secTimeOut;

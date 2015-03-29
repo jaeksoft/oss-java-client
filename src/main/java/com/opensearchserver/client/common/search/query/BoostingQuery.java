@@ -36,6 +36,7 @@ public class BoostingQuery {
 	/**
 	 * @param patternQuery
 	 *            the patternQuery to set
+	 * @return this instance
 	 */
 	public BoostingQuery setPatternQuery(String patternQuery) {
 		this.patternQuery = patternQuery;
@@ -45,6 +46,7 @@ public class BoostingQuery {
 	/**
 	 * @param boost
 	 *            the boost to set
+	 * @return this instance
 	 */
 	public BoostingQuery setBoost(Float boost) {
 		this.boost = boost;

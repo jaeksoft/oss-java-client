@@ -64,6 +64,7 @@ public class SchemaField {
 	/**
 	 * @param name
 	 *            the name to set
+	 * @return this instance
 	 */
 	public SchemaField setName(String name) {
 		this.name = name;
@@ -73,6 +74,7 @@ public class SchemaField {
 	/**
 	 * @param analyzer
 	 *            the analyzer to set
+	 * @return this instance
 	 */
 	public SchemaField setAnalyzer(String analyzer) {
 		this.analyzer = analyzer;
@@ -82,6 +84,7 @@ public class SchemaField {
 	/**
 	 * @param indexed
 	 *            the indexed to set
+	 * @return this instance
 	 */
 	public SchemaField setIndexed(Indexed indexed) {
 		this.indexed = indexed;
@@ -91,6 +94,7 @@ public class SchemaField {
 	/**
 	 * @param stored
 	 *            the stored to set
+	 * @return this instance
 	 */
 	public SchemaField setStored(Stored stored) {
 		this.stored = stored;
@@ -100,6 +104,7 @@ public class SchemaField {
 	/**
 	 * @param termVector
 	 *            the termVector to set
+	 * @return this instance
 	 */
 	public SchemaField setTermVector(TermVector termVector) {
 		this.termVector = termVector;
@@ -109,6 +114,7 @@ public class SchemaField {
 	/**
 	 * @param copyOf
 	 *            the copyOf to set
+	 * @return this instance
 	 */
 	public SchemaField setCopyOf(List<String> copyOf) {
 		this.copyOf = copyOf;
@@ -118,6 +124,7 @@ public class SchemaField {
 	/**
 	 * @param copyOf
 	 *            the copyOf to add
+	 * @return this instance
 	 */
 	public SchemaField addCopyOf(String copyOf) {
 		if (this.copyOf == null)

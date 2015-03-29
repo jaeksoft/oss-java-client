@@ -53,6 +53,7 @@ public class DocumentResult1 extends AbstractDocumentResult {
 	/**
 	 * @param fields
 	 *            the fields to set
+	 * @return this instance
 	 */
 	public DocumentResult1 setFields(List<FieldValueList1> fields) {
 		this.fields = fields;
@@ -62,6 +63,7 @@ public class DocumentResult1 extends AbstractDocumentResult {
 	/**
 	 * @param snippets
 	 *            the snippets to set
+	 * @return this instance
 	 */
 	public DocumentResult1 setSnippets(List<FieldValueList1> snippets) {
 		this.snippets = snippets;
@@ -71,6 +73,7 @@ public class DocumentResult1 extends AbstractDocumentResult {
 	/**
 	 * @param joins
 	 *            the joins to set
+	 * @return this instance
 	 */
 	public DocumentResult1 setJoins(List<DocumentResult1> joins) {
 		this.joins = joins;
@@ -80,6 +83,7 @@ public class DocumentResult1 extends AbstractDocumentResult {
 	/**
 	 * @param collapsedDocs
 	 *            the collapsedDocs to set
+	 * @return this instance
 	 */
 	public DocumentResult1 setCollapsedDocs(List<DocumentResult1> collapsedDocs) {
 		this.collapsedDocs = collapsedDocs;

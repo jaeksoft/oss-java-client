@@ -40,6 +40,7 @@ public class FacetField {
 	/**
 	 * @param field
 	 *            the field to set
+	 * @return this instance
 	 */
 	public FacetField setField(String field) {
 		this.field = field;
@@ -49,6 +50,7 @@ public class FacetField {
 	/**
 	 * @param minCount
 	 *            the minCount to set
+	 * @return this instance
 	 */
 	public FacetField setMinCount(Integer minCount) {
 		this.minCount = minCount;
@@ -58,6 +60,7 @@ public class FacetField {
 	/**
 	 * @param multivalued
 	 *            the multivalued to set
+	 * @return this instance
 	 */
 	public FacetField setMultivalued(Boolean multivalued) {
 		this.multivalued = multivalued;
@@ -67,6 +70,7 @@ public class FacetField {
 	/**
 	 * @param postCollapsing
 	 *            the postCollapsing to set
+	 * @return this instance
 	 */
 	public FacetField setPostCollapsing(Boolean postCollapsing) {
 		this.postCollapsing = postCollapsing;

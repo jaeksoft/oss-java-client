@@ -48,6 +48,7 @@ public class SnippetField {
 	/**
 	 * @param field
 	 *            the field to set
+	 * @return this instance
 	 */
 	public SnippetField setField(String field) {
 		this.field = field;
@@ -57,6 +58,7 @@ public class SnippetField {
 	/**
 	 * @param tag
 	 *            the tag to set
+	 * @return this instance
 	 */
 	public SnippetField setTag(String tag) {
 		this.tag = tag;
@@ -66,6 +68,7 @@ public class SnippetField {
 	/**
 	 * @param separator
 	 *            the separator to set
+	 * @return this instance
 	 */
 	public SnippetField setSeparator(String separator) {
 		this.separator = separator;
@@ -75,6 +78,7 @@ public class SnippetField {
 	/**
 	 * @param maxSize
 	 *            the maxSize to set
+	 * @return this instance
 	 */
 	public SnippetField setMaxSize(Integer maxSize) {
 		this.maxSize = maxSize;
@@ -84,6 +88,7 @@ public class SnippetField {
 	/**
 	 * @param maxNumber
 	 *            the maxNumber to set
+	 * @return this instance
 	 */
 	public SnippetField setMaxNumber(Integer maxNumber) {
 		this.maxNumber = maxNumber;
@@ -93,6 +98,7 @@ public class SnippetField {
 	/**
 	 * @param fragmenter
 	 *            the fragmenter to set
+	 * @return this instance
 	 */
 	public SnippetField setFragmenter(FragmenterEnum fragmenter) {
 		this.fragmenter = fragmenter;

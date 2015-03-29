@@ -50,6 +50,7 @@ public class FieldValueList1 {
 	/**
 	 * @param fieldName
 	 *            the fieldName to set
+	 * @return this instance
 	 */
 	public FieldValueList1 setFieldName(String fieldName) {
 		this.fieldName = fieldName;
@@ -59,6 +60,7 @@ public class FieldValueList1 {
 	/**
 	 * @param values
 	 *            the values to set
+	 * @return this instance
 	 */
 	public FieldValueList1 setValues(List<String> values) {
 		this.values = values;
@@ -75,6 +77,7 @@ public class FieldValueList1 {
 	/**
 	 * @param highlighted
 	 *            the highlighted to set
+	 * @return this instance
 	 */
 	public FieldValueList1 setHighlighted(Boolean highlighted) {
 		this.highlighted = highlighted;

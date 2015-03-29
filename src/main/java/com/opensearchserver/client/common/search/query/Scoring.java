@@ -44,6 +44,7 @@ public class Scoring {
 	/**
 	 * @param ascending
 	 *            the ascending to set
+	 * @return this instance
 	 */
 	public Scoring setAscending(Boolean ascending) {
 		this.ascending = ascending;
@@ -53,6 +54,7 @@ public class Scoring {
 	/**
 	 * @param fieldName
 	 *            the fieldName to set
+	 * @return this instance
 	 */
 	public Scoring setFieldName(String fieldName) {
 		this.fieldName = fieldName;
@@ -62,6 +64,7 @@ public class Scoring {
 	/**
 	 * @param weight
 	 *            the weight to set
+	 * @return this instance
 	 */
 	public Scoring setWeight(Double weight) {
 		this.weight = weight;
@@ -71,6 +74,7 @@ public class Scoring {
 	/**
 	 * @param type
 	 *            the type to set
+	 * @return this instance
 	 */
 	public Scoring setType(ScoringTypeEnum type) {
 		this.type = type;

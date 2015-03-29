@@ -36,6 +36,7 @@ public class SearchPatternQuery extends SearchQueryAbstract {
 	/**
 	 * @param patternSearchQuery
 	 *            the patternSearchQuery to set
+	 * @return this instance
 	 */
 	public SearchPatternQuery setPatternSearchQuery(String patternSearchQuery) {
 		this.patternSearchQuery = patternSearchQuery;
@@ -45,6 +46,7 @@ public class SearchPatternQuery extends SearchQueryAbstract {
 	/**
 	 * @param patternSnippetQuery
 	 *            the patternSnippetQuery to set
+	 * @return this instance
 	 */
 	public SearchPatternQuery setPatternSnippetQuery(String patternSnippetQuery) {
 		this.patternSnippetQuery = patternSnippetQuery;

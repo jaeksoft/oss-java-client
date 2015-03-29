@@ -52,6 +52,7 @@ public class GeoParameters {
 	/**
 	 * @param latitudeField
 	 *            the latitudeField to set
+	 * @return this instance
 	 */
 	public GeoParameters setLatitudeField(String latitudeField) {
 		this.latitudeField = latitudeField;
@@ -61,6 +62,7 @@ public class GeoParameters {
 	/**
 	 * @param longitudeField
 	 *            the longitudeField to set
+	 * @return this instance
 	 */
 	public GeoParameters setLongitudeField(String longitudeField) {
 		this.longitudeField = longitudeField;
@@ -70,6 +72,7 @@ public class GeoParameters {
 	/**
 	 * @param latitude
 	 *            the latitude to set
+	 * @return this instance
 	 */
 	public GeoParameters setLatitude(Double latitude) {
 		this.latitude = latitude;
@@ -79,6 +82,7 @@ public class GeoParameters {
 	/**
 	 * @param longitude
 	 *            the longitude to set
+	 * @return this instance
 	 */
 	public GeoParameters setLongitude(Double longitude) {
 		this.longitude = longitude;
@@ -88,6 +92,7 @@ public class GeoParameters {
 	/**
 	 * @param coordUnit
 	 *            the coordUnit to set
+	 * @return this instance
 	 */
 	public GeoParameters setCoordUnit(CoordUnitEnum coordUnit) {
 		this.coordUnit = coordUnit;
@@ -97,6 +102,7 @@ public class GeoParameters {
 	/**
 	 * @param distanceReturn
 	 *            the distanceReturn to set
+	 * @return this instance
 	 */
 	public GeoParameters setDistanceReturn(DistanceReturnEnum distanceReturn) {
 		this.distanceReturn = distanceReturn;
