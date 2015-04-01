@@ -29,7 +29,7 @@ import com.opensearchserver.client.v1.field.ResultField;
 import com.opensearchserver.client.v1.field.ResultFieldList;
 import com.opensearchserver.client.v1.field.SchemaField;
 import com.opensearchserver.utils.HttpUtils;
-import com.opensearchserver.utils.json.JsonClientAbstract;
+import com.opensearchserver.utils.json.client.JsonClientAbstract;
 
 public class FieldApi1 extends AbstractApi<JsonClientAbstract> {
 

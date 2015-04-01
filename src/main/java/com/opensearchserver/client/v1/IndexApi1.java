@@ -26,7 +26,7 @@ import com.opensearchserver.client.JsonClient1;
 import com.opensearchserver.client.common.AbstractApi;
 import com.opensearchserver.client.common.index.TemplateEnum;
 import com.opensearchserver.utils.HttpUtils;
-import com.opensearchserver.utils.json.JsonClientAbstract;
+import com.opensearchserver.utils.json.client.JsonClientAbstract;
 
 public class IndexApi1 extends AbstractApi<JsonClientAbstract> {
 
