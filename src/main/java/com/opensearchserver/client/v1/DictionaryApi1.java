@@ -24,7 +24,7 @@ import org.apache.http.client.utils.URIBuilder;
 
 import com.opensearchserver.client.JsonClient1;
 import com.opensearchserver.client.common.AbstractApi;
-import com.opensearchserver.utils.HttpUtils;
+import com.opensearchserver.utils.http.HttpUtils;
 import com.opensearchserver.utils.json.client.JsonClientAbstract;
 
 public class DictionaryApi1 extends AbstractApi<JsonClientAbstract> {
