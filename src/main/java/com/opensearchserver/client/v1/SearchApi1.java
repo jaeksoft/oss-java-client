@@ -28,7 +28,7 @@ import com.opensearchserver.client.common.AbstractApi;
 import com.opensearchserver.client.common.search.query.SearchFieldQuery;
 import com.opensearchserver.client.common.search.query.SearchQueryBatch;
 import com.opensearchserver.client.v1.search.SearchResult1;
-import com.opensearchserver.utils.HttpUtils;
+import com.opensearchserver.utils.http.HttpUtils;
 
 /**
  * @version For OpenSearchServer v1.5.x

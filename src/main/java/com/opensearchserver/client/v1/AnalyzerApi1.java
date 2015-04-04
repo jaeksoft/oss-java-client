@@ -26,8 +26,8 @@ import com.opensearchserver.client.JsonClient1;
 import com.opensearchserver.client.common.AbstractApi;
 import com.opensearchserver.client.common.LanguageEnum;
 import com.opensearchserver.client.common.analyzer.AnalyzerItem;
-import com.opensearchserver.utils.HttpUtils;
-import com.opensearchserver.utils.json.JsonClientAbstract;
+import com.opensearchserver.utils.http.HttpUtils;
+import com.opensearchserver.utils.json.client.JsonClientAbstract;
 
 public class AnalyzerApi1 extends AbstractApi<JsonClientAbstract> {
 
