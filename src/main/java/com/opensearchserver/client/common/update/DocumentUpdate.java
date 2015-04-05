@@ -75,4 +75,17 @@ public class DocumentUpdate {
 		return this;
 	}
 
+	/**
+	 * @param field
+	 *            the name of the field to add
+	 * @param value
+	 *            the value
+	 * @param boost
+	 *            an optional boost value
+	 * @return this instance
+	 */
+	public DocumentUpdate addFieldValue(String field, String value, Float boost) {
+		return addField(new FieldUpdate(field, value, boost));
+	}
+
 }

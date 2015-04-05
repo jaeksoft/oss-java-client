@@ -17,6 +17,7 @@ package com.opensearchserver.client.v1;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.http.HttpResponse;
@@ -25,6 +26,7 @@ import org.apache.http.client.utils.URIBuilder;
 
 import com.opensearchserver.client.JsonClient1;
 import com.opensearchserver.client.common.AbstractApi;
+import com.opensearchserver.client.common.LanguageEnum;
 import com.opensearchserver.client.common.update.DocumentUpdate;
 import com.opensearchserver.utils.http.HttpUtils;
 import com.opensearchserver.utils.json.client.JsonClientAbstract;
@@ -82,6 +84,21 @@ public class UpdateApi1 extends AbstractApi<JsonClientAbstract> {
 		Request request = Request.Put(uriBuilder.build());
 		HttpResponse response = client.execute(request, documents, null);
 		HttpUtils.checkStatusCodes(response, 200);
+	}
+
+	/**
+	 * @return a new empty list of DocumentUpdates
+	 */
+	public List<DocumentUpdate> getNewDocumentUpdateList() {
+		return new ArrayList<DocumentUpdate>();
+	}
+
+	/**
+	 * @return a new DocumentUpdate record
+	 */
+	public DocumentUpdate getNewDocumentUpdate(String langNameOfCode) {
+		return new DocumentUpdate().setLang(LanguageEnum
+				.findByNameOrCode(langNameOfCode));
 	}
 
 }
