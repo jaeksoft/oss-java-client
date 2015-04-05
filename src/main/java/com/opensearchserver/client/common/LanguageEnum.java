@@ -15,16 +15,10 @@
  */
 package com.opensearchserver.client.common;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Locale;
 
-import com.cybozu.labs.langdetect.Detector;
-import com.cybozu.labs.langdetect.DetectorFactory;
 import com.cybozu.labs.langdetect.LangDetectException;
-import com.opensearchserver.utils.IOUtils;
+import com.opensearchserver.utils.Language;
 import com.opensearchserver.utils.LocaleUtils;
 import com.opensearchserver.utils.StringUtils;
 
@@ -137,41 +131,11 @@ public enum LanguageEnum {
 		return array;
 	}
 
-	static {
-		try {
-			List<String> profiles = new ArrayList<String>(0);
-			for (LanguageEnum le : LanguageEnum.values()) {
-				if (le == LanguageEnum.UNDEFINED)
-					continue;
-				InputStream is = com.cybozu.labs.langdetect.Detector.class
-						.getResourceAsStream("/profiles/" + le.getCode());
-				if (is == null && le.getAlternativeCode() != null)
-					is = com.cybozu.labs.langdetect.Detector.class
-							.getResourceAsStream("/profiles/"
-									+ le.getAlternativeCode());
-				if (is == null) {
-					System.err.println("No profile for lang " + le.getName());
-					continue;
-				}
-				profiles.add(IOUtils.toString(is));
-				is.close();
-			}
-			DetectorFactory.loadProfile(profiles);
-		} catch (LangDetectException e) {
-			throw new RuntimeException(e);
-		} catch (IOException e) {
-			throw new RuntimeException(e);
-		}
-	}
-
 	public static final Locale langDetection(String text, int length)
 			throws LangDetectException {
 		if (StringUtils.isEmpty(text))
 			return null;
-		Detector detector = DetectorFactory.create();
-		detector.setMaxTextLength(length);
-		detector.append(text);
-		String lang = detector.detect();
+		String lang = Language.detect(text, length);
 		return LocaleUtils.findLocaleDescription(lang);
 	}
 
