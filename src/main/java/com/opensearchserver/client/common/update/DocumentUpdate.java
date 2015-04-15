@@ -88,4 +88,23 @@ public class DocumentUpdate {
 		return addField(new FieldUpdate(field, value, boost));
 	}
 
+	/**
+	 * @param field
+	 *            the name of the field to fill
+	 * @param values
+	 *            the values to add
+	 * @param boost
+	 *            an optional boost value
+	 * @return this instance
+	 */
+	public DocumentUpdate addFieldValues(String field, List<String> values,
+			Float boost) {
+		if (values == null)
+			return this;
+		for (String value : values) {
+			addFieldValue(field, value, boost);
+		}
+		return this;
+	}
+
 }
