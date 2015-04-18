@@ -94,6 +94,8 @@ public class UpdateApi1 extends AbstractApi<JsonClientAbstract> {
 	}
 
 	/**
+	 * @param langNameOfCode
+	 *            the language of the document
 	 * @return a new DocumentUpdate record
 	 */
 	public DocumentUpdate getNewDocumentUpdate(String langNameOfCode) {
