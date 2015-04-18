@@ -15,7 +15,7 @@
  */
 package com.opensearchserver.client.common;
 
-import com.opensearchserver.utils.json.client.JsonClientAbstract;
+import com.qwazr.utils.json.client.JsonClientAbstract;
 
 public class AbstractApi<T extends JsonClientAbstract> {
 

@@ -19,9 +19,8 @@ import java.net.URISyntaxException;
 
 import org.apache.http.client.utils.URIBuilder;
 
-import com.opensearchserver.utils.StringUtils;
-import com.opensearchserver.utils.json.ServerResource;
-import com.opensearchserver.utils.json.client.JsonClientAbstract;
+import com.qwazr.utils.StringUtils;
+import com.qwazr.utils.json.client.JsonClientAbstract;
 
 /**
  * This client is for OpenSearchServer v1.5.x

@@ -18,9 +18,9 @@ package com.opensearchserver.client.common;
 import java.util.Locale;
 
 import com.cybozu.labs.langdetect.LangDetectException;
-import com.opensearchserver.utils.Language;
-import com.opensearchserver.utils.LocaleUtils;
-import com.opensearchserver.utils.StringUtils;
+import com.qwazr.utils.Language;
+import com.qwazr.utils.LocaleUtils;
+import com.qwazr.utils.StringUtils;
 
 public enum LanguageEnum {
 
