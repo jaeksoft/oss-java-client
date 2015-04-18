@@ -28,8 +28,8 @@ import com.opensearchserver.client.JsonClient1;
 import com.opensearchserver.client.common.AbstractApi;
 import com.opensearchserver.client.common.LanguageEnum;
 import com.opensearchserver.client.common.update.DocumentUpdate;
-import com.opensearchserver.utils.http.HttpUtils;
-import com.opensearchserver.utils.json.client.JsonClientAbstract;
+import com.qwazr.utils.http.HttpUtils;
+import com.qwazr.utils.json.client.JsonClientAbstract;
 
 public class UpdateApi1 extends AbstractApi<JsonClientAbstract> {
 

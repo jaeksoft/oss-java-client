@@ -27,7 +27,7 @@ import com.opensearchserver.client.common.search.query.SearchFieldQuery;
 import com.opensearchserver.client.common.search.query.SearchQueryAbstract.OperatorEnum;
 import com.opensearchserver.client.v1.SearchApi1;
 import com.opensearchserver.client.v1.search.SearchResult1;
-import com.opensearchserver.utils.json.JsonMapper;
+import com.qwazr.utils.json.JsonMapper;
 
 public class SearchFieldTest {
 
