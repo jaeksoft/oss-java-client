@@ -35,12 +35,6 @@ public class ServerResource {
 	public String url;
 
 	/**
-	 * The version number of the OpenSearchServer Instance. Set 1 for
-	 * OpenSearchServer v1.5.x, set 2 for OpenSearchServer v2.x.
-	 **/
-	public Integer version;
-
-	/**
 	 * The user login (optional).
 	 */
 	public String login;
@@ -60,15 +54,6 @@ public class ServerResource {
 	 * The default time out in milliseconds
 	 */
 	public int time_out;
-
-	@XmlTransient
-	@JsonIgnore
-	/**
-	 * @return The specified version or the default value (1).
-	 */
-	public int getVersionOfDefault() {
-		return version == null ? 1 : version;
-	}
 
 	@XmlTransient
 	@JsonIgnore
