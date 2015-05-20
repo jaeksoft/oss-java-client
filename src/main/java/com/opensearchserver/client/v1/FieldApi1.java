@@ -29,9 +29,8 @@ import com.opensearchserver.client.v1.field.ResultField;
 import com.opensearchserver.client.v1.field.ResultFieldList;
 import com.opensearchserver.client.v1.field.SchemaField;
 import com.qwazr.utils.http.HttpUtils;
-import com.qwazr.utils.json.client.JsonClientAbstract;
 
-public class FieldApi1 extends AbstractApi<JsonClientAbstract> {
+public class FieldApi1 extends AbstractApi<JsonClient1> {
 
 	public FieldApi1(JsonClient1 client) {
 		super(client);

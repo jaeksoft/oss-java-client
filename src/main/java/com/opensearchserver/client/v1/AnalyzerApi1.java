@@ -27,9 +27,8 @@ import com.opensearchserver.client.common.AbstractApi;
 import com.opensearchserver.client.common.LanguageEnum;
 import com.opensearchserver.client.common.analyzer.AnalyzerItem;
 import com.qwazr.utils.http.HttpUtils;
-import com.qwazr.utils.json.client.JsonClientAbstract;
 
-public class AnalyzerApi1 extends AbstractApi<JsonClientAbstract> {
+public class AnalyzerApi1 extends AbstractApi<JsonClient1> {
 
 	public AnalyzerApi1(JsonClient1 client) {
 		super(client);
