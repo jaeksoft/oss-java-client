@@ -26,9 +26,8 @@ import com.opensearchserver.client.JsonClient1;
 import com.opensearchserver.client.common.AbstractApi;
 import com.opensearchserver.client.common.index.TemplateEnum;
 import com.qwazr.utils.http.HttpUtils;
-import com.qwazr.utils.json.client.JsonClientAbstract;
 
-public class IndexApi1 extends AbstractApi<JsonClientAbstract> {
+public class IndexApi1 extends AbstractApi<JsonClient1> {
 
 	public IndexApi1(JsonClient1 client) {
 		super(client);

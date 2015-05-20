@@ -17,8 +17,6 @@ package com.opensearchserver.client;
 
 import java.net.URISyntaxException;
 
-import org.apache.http.client.utils.URIBuilder;
-
 import com.qwazr.utils.StringUtils;
 import com.qwazr.utils.json.client.JsonClientAbstract;
 
@@ -52,10 +50,8 @@ public class JsonClient1 extends JsonClientAbstract {
 	 * @throws URISyntaxException
 	 *             if the builded URI is not valid
 	 */
-	@Override
-	final public URIBuilder getBaseUrl(String... paths)
-			throws URISyntaxException {
-		URIBuilder uriBuilder = super.getBaseUrl(StringUtils.fastConcat(
+	final public UBuilder getBaseUrl(String... paths) throws URISyntaxException {
+		UBuilder uriBuilder = new UBuilder(StringUtils.fastConcat(
 				"/services/rest/", paths));
 		if (!StringUtils.isEmpty(login))
 			uriBuilder.addParameter("login", login);
