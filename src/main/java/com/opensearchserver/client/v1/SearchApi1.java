@@ -26,6 +26,7 @@ import org.apache.http.client.utils.URIBuilder;
 import com.opensearchserver.client.JsonClient1;
 import com.opensearchserver.client.common.AbstractApi;
 import com.opensearchserver.client.common.search.query.SearchFieldQuery;
+import com.opensearchserver.client.common.search.query.SearchPatternQuery;
 import com.opensearchserver.client.common.search.query.SearchQueryBatch;
 import com.opensearchserver.client.v1.search.SearchResult1;
 import com.qwazr.utils.http.HttpUtils;
@@ -87,6 +88,30 @@ public class SearchApi1 extends AbstractApi<JsonClient1> {
 	}
 
 	/**
+	 * Execute a search with a search field template
+	 * 
+	 * @param indexName
+	 *            The name of the index
+	 * @param template
+	 *            The name of the template
+	 * @param query
+	 *            Any overriding query parameter
+	 * @return the search result
+	 * @throws IOException
+	 *             if any IO error occurs
+	 * @throws URISyntaxException
+	 *             if the URI is not valid
+	 */
+	public SearchResult1 executeSearchPatternTemplate(String indexName,
+			String template, SearchPatternQuery query) throws IOException,
+			URISyntaxException {
+		URIBuilder uriBuilder = client.getBaseUrl("index/", indexName,
+				"/search/pattern/", template);
+		Request request = Request.Post(uriBuilder.build());
+		return client.execute(request, query, null, SearchResult1.class, 200);
+	}
+
+	/**
 	 * Execute a search field
 	 * 
 	 * @param indexName
@@ -103,6 +128,27 @@ public class SearchApi1 extends AbstractApi<JsonClient1> {
 			SearchFieldQuery query) throws IOException, URISyntaxException {
 		URIBuilder uriBuilder = client.getBaseUrl("index/", indexName,
 				"/search/field");
+		Request request = Request.Post(uriBuilder.build());
+		return client.execute(request, query, null, SearchResult1.class, 200);
+	}
+
+	/**
+	 * Execute a search pattern
+	 * 
+	 * @param indexName
+	 *            The name of the index
+	 * @param query
+	 *            Any overriding query parameter
+	 * @return the search result
+	 * @throws IOException
+	 *             if any IO error occurs
+	 * @throws URISyntaxException
+	 *             if the URI is not valid
+	 */
+	public SearchResult1 executeSearchPattern(String indexName,
+			SearchPatternQuery query) throws IOException, URISyntaxException {
+		URIBuilder uriBuilder = client.getBaseUrl("index/", indexName,
+				"/search/pattern");
 		Request request = Request.Post(uriBuilder.build());
 		return client.execute(request, query, null, SearchResult1.class, 200);
 	}
