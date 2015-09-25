@@ -43,7 +43,7 @@ JavaDoc
 
 The nightly build JavaDoc is here:
 
-[Javadoc](http://opensearchserver.github.io/oss-java-client/)
+[Javadoc](http://jaeksoft.github.io/oss-java-client/)
 
 License Apache 2
 ----------------
