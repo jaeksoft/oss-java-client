@@ -18,7 +18,7 @@ The compilation and packaging requires [Maven 3.2.1 or newer](http://maven.apach
 Clone the source code:
 
 ```shell
-git clone https://github.com/opensearchserver/oss-java-client.git
+git clone https://github.com/jaeksoft/oss-java-client.git
 ```
 
 Compile and package (the jar will located in the target directory):
