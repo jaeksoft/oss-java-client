@@ -16,9 +16,10 @@
 package com.opensearchserver.client;
 
 import java.net.URISyntaxException;
-
+import java.net.URI;
 import com.qwazr.utils.StringUtils;
 import com.qwazr.utils.json.client.JsonClientAbstract;
+import com.qwazr.utils.server.RemoteService;
 
 /**
  * This client is for OpenSearchServer v1.5.x
@@ -31,7 +32,7 @@ public class JsonClient1 extends JsonClientAbstract {
 
 	public JsonClient1(String url, String login, String key, int msTimeout)
 			throws URISyntaxException {
-		super(url, msTimeout);
+		super(new RemoteService(new URI(url), msTimeout));
 		this.login = login;
 		this.key = key;
 	}
